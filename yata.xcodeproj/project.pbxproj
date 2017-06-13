@@ -7,14 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		622C83D21C4CCD397EBA3956 /* Pods_yataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A812B2713EF6944AE08290E /* Pods_yataTests.framework */; };
 		779CA64C4B2EE93084167B41 /* Pods_yata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56E27CFA32D5AB593E0195D /* Pods_yata.framework */; };
 		8BA4BA061EEFA3DA00F85CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */; };
 		8BA4BA071EEFA3DA00F85CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */; };
+		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
+		8BA4BA2B1EEFAAF200F85CCA /* accountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA2A1EEFAAF200F85CCA /* accountTests.swift */; };
+		8BA4BA2C1EEFAAF700F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
+		9AA11165DC5C51462B9B65F8 /* Pods_yata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56E27CFA32D5AB593E0195D /* Pods_yata.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8BA4BA1E1EEFA9EA00F85CCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BA4B9A51EEE241000F85CCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BA4B9AC1EEE241000F85CCA;
+			remoteInfo = yata;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1A812B2713EF6944AE08290E /* Pods_yataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		876DB4E3AE57C4BD066073B7 /* Pods-yataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BA4BA051EEFA3DA00F85CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -22,6 +39,11 @@
 		8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BA4BA0E1EEFA3F200F85CCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BA4BA111EEFA4E300F85CCA /* yata.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = yata.entitlements; sourceTree = "<group>"; };
+		8BA4BA131EEFA7D600F85CCA /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		8BA4BA191EEFA9EA00F85CCA /* yataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BA4BA271EEFAA1F00F85CCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BA4BA2A1EEFAAF200F85CCA /* accountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accountTests.swift; sourceTree = "<group>"; };
+		B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.debug.xcconfig"; sourceTree = "<group>"; };
 		CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.release.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.release.xcconfig"; sourceTree = "<group>"; };
 		E56E27CFA32D5AB593E0195D /* Pods_yata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,6 +55,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				779CA64C4B2EE93084167B41 /* Pods_yata.framework in Frameworks */,
+				9AA11165DC5C51462B9B65F8 /* Pods_yata.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BA4BA161EEFA9EA00F85CCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				622C83D21C4CCD397EBA3956 /* Pods_yataTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +75,8 @@
 			children = (
 				BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */,
 				CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */,
+				876DB4E3AE57C4BD066073B7 /* Pods-yataTests.debug.xcconfig */,
+				B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -52,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				E56E27CFA32D5AB593E0195D /* Pods_yata.framework */,
+				1A812B2713EF6944AE08290E /* Pods_yataTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -59,9 +93,11 @@
 		8BA4B9A41EEE241000F85CCA = {
 			isa = PBXGroup;
 			children = (
-				8BA4BA0D1EEFA3F200F85CCA /* Supporting Files */,
+				8BA4BA121EEFA78600F85CCA /* Models */,
 				8BA4BA081EEFA3E400F85CCA /* Sources */,
 				8BA4BA021EEFA3DA00F85CCA /* Resources */,
+				8BA4BA0D1EEFA3F200F85CCA /* Supporting Files */,
+				8BA4BA1A1EEFA9EA00F85CCA /* yataTests */,
 				8BA4B9AE1EEE241000F85CCA /* Products */,
 				2269109A60CA225EABA89D0F /* Pods */,
 				3AD1FD8ECC2E7F36ABF51EE5 /* Frameworks */,
@@ -72,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				8BA4B9AD1EEE241000F85CCA /* yata.app */,
+				8BA4BA191EEFA9EA00F85CCA /* yataTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +143,48 @@
 			path = "yata/Supporting Files";
 			sourceTree = "<group>";
 		};
+		8BA4BA121EEFA78600F85CCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8BA4BA131EEFA7D600F85CCA /* Account.swift */,
+			);
+			name = Models;
+			path = yata/Sources/Models;
+			sourceTree = "<group>";
+		};
+		8BA4BA1A1EEFA9EA00F85CCA /* yataTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BA4BA231EEFAA1F00F85CCA /* Sources */,
+				8BA4BA261EEFAA1F00F85CCA /* Supporting Files */,
+			);
+			path = yataTests;
+			sourceTree = "<group>";
+		};
+		8BA4BA231EEFAA1F00F85CCA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8BA4BA241EEFAA1F00F85CCA /* Models */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		8BA4BA241EEFAA1F00F85CCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8BA4BA2A1EEFAAF200F85CCA /* accountTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8BA4BA261EEFAA1F00F85CCA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8BA4BA271EEFAA1F00F85CCA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +208,27 @@
 			productReference = 8BA4B9AD1EEE241000F85CCA /* yata.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8BA4BA181EEFA9EA00F85CCA /* yataTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BA4BA201EEFA9EA00F85CCA /* Build configuration list for PBXNativeTarget "yataTests" */;
+			buildPhases = (
+				0A18FA3E98D7BDA2541C4FBD /* [CP] Check Pods Manifest.lock */,
+				8BA4BA151EEFA9EA00F85CCA /* Sources */,
+				8BA4BA161EEFA9EA00F85CCA /* Frameworks */,
+				8BA4BA171EEFA9EA00F85CCA /* Resources */,
+				F56BF78869DF6829809959AE /* [CP] Embed Pods Frameworks */,
+				E071841B3E63867280E40971 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BA4BA1F1EEFA9EA00F85CCA /* PBXTargetDependency */,
+			);
+			name = yataTests;
+			productName = yataTests;
+			productReference = 8BA4BA191EEFA9EA00F85CCA /* yataTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -150,6 +250,11 @@
 							};
 						};
 					};
+					8BA4BA181EEFA9EA00F85CCA = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8BA4B9AC1EEE241000F85CCA;
+					};
 				};
 			};
 			buildConfigurationList = 8BA4B9A81EEE241000F85CCA /* Build configuration list for PBXProject "yata" */;
@@ -166,6 +271,7 @@
 			projectRoot = "";
 			targets = (
 				8BA4B9AC1EEE241000F85CCA /* yata */,
+				8BA4BA181EEFA9EA00F85CCA /* yataTests */,
 			);
 		};
 /* End PBXProject section */
@@ -180,10 +286,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BA4BA171EEFA9EA00F85CCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		07966685BC24ADA71A8C01B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0A18FA3E98D7BDA2541C4FBD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -213,6 +341,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-yata/Pods-yata-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E071841B3E63867280E40971 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-yataTests/Pods-yataTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F56BF78869DF6829809959AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-yataTests/Pods-yataTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F90BB64A3EDE6E3049EEA9BF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,10 +395,28 @@
 			files = (
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
 				8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */,
+				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BA4BA151EEFA9EA00F85CCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BA4BA2B1EEFAAF200F85CCA /* accountTests.swift in Sources */,
+				8BA4BA2C1EEFAAF700F85CCA /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BA4BA1F1EEFA9EA00F85CCA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BA4B9AC1EEE241000F85CCA /* yata */;
+			targetProxy = 8BA4BA1E1EEFA9EA00F85CCA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */ = {
@@ -385,6 +561,42 @@
 			};
 			name = Release;
 		};
+		8BA4BA211EEFA9EA00F85CCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 876DB4E3AE57C4BD066073B7 /* Pods-yataTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "yataTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.softdevstory.yataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/yata.app/Contents/MacOS/yata";
+			};
+			name = Debug;
+		};
+		8BA4BA221EEFA9EA00F85CCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "yataTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.softdevstory.yataTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/yata.app/Contents/MacOS/yata";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -402,6 +614,15 @@
 			buildConfigurations = (
 				8BA4B9BD1EEE241000F85CCA /* Debug */,
 				8BA4B9BE1EEE241000F85CCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BA4BA201EEFA9EA00F85CCA /* Build configuration list for PBXNativeTarget "yataTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BA4BA211EEFA9EA00F85CCA /* Debug */,
+				8BA4BA221EEFA9EA00F85CCA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

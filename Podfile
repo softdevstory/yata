@@ -10,4 +10,8 @@ target 'yata' do
   pod 'ObjectMapper', '~> 2.2'
   pod 'Alamofire', '~>4.4'
 
+  target 'yataTests' do
+    inherit! :search_paths
+    pod 'ObjectMapper', '~> 2.2'
+  end
 end
