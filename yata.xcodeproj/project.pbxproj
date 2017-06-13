@@ -7,19 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8BA4B9D21EEE263900F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4B9CB1EEE263900F85CCA /* AppDelegate.swift */; };
-		8BA4B9D31EEE263900F85CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4B9CC1EEE263900F85CCA /* Assets.xcassets */; };
-		8BA4B9D41EEE263900F85CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4B9CE1EEE263900F85CCA /* Main.storyboard */; };
-		8BA4B9D61EEE263900F85CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4B9D11EEE263900F85CCA /* ViewController.swift */; };
+		779CA64C4B2EE93084167B41 /* Pods_yata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56E27CFA32D5AB593E0195D /* Pods_yata.framework */; };
+		8BA4BA061EEFA3DA00F85CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */; };
+		8BA4BA071EEFA3DA00F85CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */; };
+		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
+		8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BA4B9CB1EEE263900F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = yata/AppDelegate.swift; sourceTree = "<group>"; };
-		8BA4B9CC1EEE263900F85CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = yata/Assets.xcassets; sourceTree = "<group>"; };
-		8BA4B9CF1EEE263900F85CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		8BA4B9D01EEE263900F85CCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = yata/Info.plist; sourceTree = "<group>"; };
-		8BA4B9D11EEE263900F85CCA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = yata/ViewController.swift; sourceTree = "<group>"; };
+		8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BA4BA051EEFA3DA00F85CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8BA4BA0E1EEFA3F200F85CCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BA4BA111EEFA4E300F85CCA /* yata.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = yata.entitlements; sourceTree = "<group>"; };
+		BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.debug.xcconfig"; sourceTree = "<group>"; };
+		CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.release.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.release.xcconfig"; sourceTree = "<group>"; };
+		E56E27CFA32D5AB593E0195D /* Pods_yata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,21 +32,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779CA64C4B2EE93084167B41 /* Pods_yata.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2269109A60CA225EABA89D0F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */,
+				CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3AD1FD8ECC2E7F36ABF51EE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E56E27CFA32D5AB593E0195D /* Pods_yata.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8BA4B9A41EEE241000F85CCA = {
 			isa = PBXGroup;
 			children = (
-				8BA4B9CB1EEE263900F85CCA /* AppDelegate.swift */,
-				8BA4B9CC1EEE263900F85CCA /* Assets.xcassets */,
-				8BA4B9CD1EEE263900F85CCA /* Base.lproj */,
-				8BA4B9D01EEE263900F85CCA /* Info.plist */,
-				8BA4B9D11EEE263900F85CCA /* ViewController.swift */,
+				8BA4BA0D1EEFA3F200F85CCA /* Supporting Files */,
+				8BA4BA081EEFA3E400F85CCA /* Sources */,
+				8BA4BA021EEFA3DA00F85CCA /* Resources */,
 				8BA4B9AE1EEE241000F85CCA /* Products */,
+				2269109A60CA225EABA89D0F /* Pods */,
+				3AD1FD8ECC2E7F36ABF51EE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,13 +76,34 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8BA4B9CD1EEE263900F85CCA /* Base.lproj */ = {
+		8BA4BA021EEFA3DA00F85CCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8BA4B9CE1EEE263900F85CCA /* Main.storyboard */,
+				8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */,
+				8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */,
 			);
-			name = Base.lproj;
-			path = yata/Base.lproj;
+			name = Resources;
+			path = yata/Resources;
+			sourceTree = "<group>";
+		};
+		8BA4BA081EEFA3E400F85CCA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */,
+				8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */,
+			);
+			name = Sources;
+			path = yata/Sources;
+			sourceTree = "<group>";
+		};
+		8BA4BA0D1EEFA3F200F85CCA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8BA4BA111EEFA4E300F85CCA /* yata.entitlements */,
+				8BA4BA0E1EEFA3F200F85CCA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = "yata/Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -69,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BA4B9BC1EEE241000F85CCA /* Build configuration list for PBXNativeTarget "yata" */;
 			buildPhases = (
+				07966685BC24ADA71A8C01B6 /* [CP] Check Pods Manifest.lock */,
 				8BA4B9A91EEE241000F85CCA /* Sources */,
 				8BA4B9AA1EEE241000F85CCA /* Frameworks */,
 				8BA4B9AB1EEE241000F85CCA /* Resources */,
+				F90BB64A3EDE6E3049EEA9BF /* [CP] Embed Pods Frameworks */,
+				C29123322AFE96B515C55640 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +144,11 @@
 						DevelopmentTeam = MGW797GVB2;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -123,30 +175,78 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BA4B9D31EEE263900F85CCA /* Assets.xcassets in Resources */,
-				8BA4B9D41EEE263900F85CCA /* Main.storyboard in Resources */,
+				8BA4BA061EEFA3DA00F85CCA /* Assets.xcassets in Resources */,
+				8BA4BA071EEFA3DA00F85CCA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07966685BC24ADA71A8C01B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C29123322AFE96B515C55640 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-yata/Pods-yata-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F90BB64A3EDE6E3049EEA9BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-yata/Pods-yata-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8BA4B9A91EEE241000F85CCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BA4B9D61EEE263900F85CCA /* ViewController.swift in Sources */,
-				8BA4B9D21EEE263900F85CCA /* AppDelegate.swift in Sources */,
+				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
+				8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8BA4B9CE1EEE263900F85CCA /* Main.storyboard */ = {
+		8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8BA4B9CF1EEE263900F85CCA /* Base */,
+				8BA4BA051EEFA3DA00F85CCA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -248,13 +348,15 @@
 		};
 		8BA4B9BD1EEE241000F85CCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "yata/Supporting Files/yata.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = MGW797GVB2;
-				INFOPLIST_FILE = yata/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/yata/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.softdevstory.yataMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -266,13 +368,15 @@
 		};
 		8BA4B9BE1EEE241000F85CCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "yata/Supporting Files/yata.entitlements";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = MGW797GVB2;
-				INFOPLIST_FILE = yata/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/yata/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.softdevstory.yataMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
