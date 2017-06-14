@@ -14,8 +14,19 @@
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
-		8BA4BA2B1EEFAAF200F85CCA /* accountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA2A1EEFAAF200F85CCA /* accountTests.swift */; };
+		8BA4BA2B1EEFAAF200F85CCA /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA2A1EEFAAF200F85CCA /* AccountTests.swift */; };
 		8BA4BA2C1EEFAAF700F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
+		8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA2E1EEFB5CE00F85CCA /* PageViews.swift */; };
+		8BA4BA301EEFB62700F85CCA /* PageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA2E1EEFB5CE00F85CCA /* PageViews.swift */; };
+		8BA4BA321EEFB64200F85CCA /* PageViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA311EEFB64200F85CCA /* PageViewsTests.swift */; };
+		8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA331EEFB89D00F85CCA /* Node.swift */; };
+		8BA4BA351EEFB89D00F85CCA /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA331EEFB89D00F85CCA /* Node.swift */; };
+		8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA361EEFBC2900F85CCA /* NodeElement.swift */; };
+		8BA4BA381EEFBC2900F85CCA /* NodeElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA361EEFBC2900F85CCA /* NodeElement.swift */; };
+		8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */; };
+		8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */; };
+		8BA4BA3E1EEFC3B500F85CCA /* AttrsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */; };
+		8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */; };
 		9AA11165DC5C51462B9B65F8 /* Pods_yata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56E27CFA32D5AB593E0195D /* Pods_yata.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +43,7 @@
 /* Begin PBXFileReference section */
 		1A812B2713EF6944AE08290E /* Pods_yataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		876DB4E3AE57C4BD066073B7 /* Pods-yataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B4590371EF0E9B50009D4BE /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BA4BA051EEFA3DA00F85CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +54,14 @@
 		8BA4BA131EEFA7D600F85CCA /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		8BA4BA191EEFA9EA00F85CCA /* yataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = yataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA271EEFAA1F00F85CCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BA4BA2A1EEFAAF200F85CCA /* accountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = accountTests.swift; sourceTree = "<group>"; };
+		8BA4BA2A1EEFAAF200F85CCA /* AccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		8BA4BA2E1EEFB5CE00F85CCA /* PageViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViews.swift; sourceTree = "<group>"; };
+		8BA4BA311EEFB64200F85CCA /* PageViewsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewsTests.swift; sourceTree = "<group>"; };
+		8BA4BA331EEFB89D00F85CCA /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		8BA4BA361EEFBC2900F85CCA /* NodeElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElement.swift; sourceTree = "<group>"; };
+		8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attrs.swift; sourceTree = "<group>"; };
+		8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttrsTests.swift; sourceTree = "<group>"; };
+		8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElementTests.swift; sourceTree = "<group>"; };
 		B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.debug.xcconfig"; sourceTree = "<group>"; };
 		CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.release.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +112,7 @@
 		8BA4B9A41EEE241000F85CCA = {
 			isa = PBXGroup;
 			children = (
+				8B4590371EF0E9B50009D4BE /* MyPlayground.playground */,
 				8BA4BA121EEFA78600F85CCA /* Models */,
 				8BA4BA081EEFA3E400F85CCA /* Sources */,
 				8BA4BA021EEFA3DA00F85CCA /* Resources */,
@@ -147,6 +167,10 @@
 			isa = PBXGroup;
 			children = (
 				8BA4BA131EEFA7D600F85CCA /* Account.swift */,
+				8BA4BA2E1EEFB5CE00F85CCA /* PageViews.swift */,
+				8BA4BA331EEFB89D00F85CCA /* Node.swift */,
+				8BA4BA361EEFBC2900F85CCA /* NodeElement.swift */,
+				8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */,
 			);
 			name = Models;
 			path = yata/Sources/Models;
@@ -172,7 +196,10 @@
 		8BA4BA241EEFAA1F00F85CCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8BA4BA2A1EEFAAF200F85CCA /* accountTests.swift */,
+				8BA4BA2A1EEFAAF200F85CCA /* AccountTests.swift */,
+				8BA4BA311EEFB64200F85CCA /* PageViewsTests.swift */,
+				8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */,
+				8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +421,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
+				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
+				8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */,
+				8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */,
+				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
 				8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */,
 				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
 			);
@@ -403,7 +434,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BA4BA2B1EEFAAF200F85CCA /* accountTests.swift in Sources */,
+				8BA4BA301EEFB62700F85CCA /* PageViews.swift in Sources */,
+				8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
+				8BA4BA351EEFB89D00F85CCA /* Node.swift in Sources */,
+				8BA4BA381EEFBC2900F85CCA /* NodeElement.swift in Sources */,
+				8BA4BA3E1EEFC3B500F85CCA /* AttrsTests.swift in Sources */,
+				8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */,
+				8BA4BA321EEFB64200F85CCA /* PageViewsTests.swift in Sources */,
+				8BA4BA2B1EEFAAF200F85CCA /* AccountTests.swift in Sources */,
 				8BA4BA2C1EEFAAF700F85CCA /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

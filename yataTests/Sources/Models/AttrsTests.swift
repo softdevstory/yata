@@ -1,5 +1,5 @@
 //
-//  accountTests.swift
+//  AttrsTests.swift
 //  yata
 //
 //  Created by HS Song on 2017. 6. 13..
@@ -8,14 +8,13 @@
 
 import XCTest
 
-class accountTests: XCTestCase {
+class AttrsTests: XCTestCase {
     
     let jsonObject: [String: Any] = [
-        "short_name": "test",
-        "author_name": "test authro",
-        "author_url": "https://test.com",
-        "auth_url": "https://edit.telegra.ph/auth/aadfadlkfj",
-        "page_count": 3
+        "href": "http://apple.com/",
+        "target": "_blank",
+        "id": "Big-text",
+        "src": "/file/15e6f3a9880edd9ef2436.png"
     ]
     var jsonString: String?
     
@@ -40,14 +39,12 @@ class accountTests: XCTestCase {
     }
 
     func testMapping() {
-        let account = Account(JSONString: jsonString!)
-        XCTAssertNotNil(account)
+        let attrs = Attrs(JSONString: jsonString!)
+        XCTAssertNotNil(attrs)
 
-        XCTAssertEqual(account!.shortName, jsonObject["short_name"] as? String)
-        XCTAssertEqual(account!.authorName, jsonObject["author_name"] as? String)
-        XCTAssertEqual(account!.authorUrl, jsonObject["author_url"] as? String)
-        XCTAssertEqual(account!.authUrl, jsonObject["auth_url"] as? String)
-        XCTAssertEqual(account!.pageCount, jsonObject["page_count"] as? Int)
-        
+        XCTAssertEqual(attrs?.href, jsonObject["href"] as? String)
+        XCTAssertEqual(attrs?.target, jsonObject["target"] as? String)
+        XCTAssertEqual(attrs?.id, jsonObject["id"] as? String)
+        XCTAssertEqual(attrs?.src, jsonObject["src"] as? String)
     }
 }
