@@ -27,7 +27,6 @@
 		8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */; };
 		8BA4BA3E1EEFC3B500F85CCA /* AttrsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */; };
 		8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */; };
-		9AA11165DC5C51462B9B65F8 /* Pods_yata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56E27CFA32D5AB593E0195D /* Pods_yata.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				779CA64C4B2EE93084167B41 /* Pods_yata.framework in Frameworks */,
-				9AA11165DC5C51462B9B65F8 /* Pods_yata.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
