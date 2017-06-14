@@ -12,20 +12,6 @@ import XCTest
 
 class NodeElementTests: XCTestCase {
 
-    private func convertJSONString(from jsonObject: [String: Any]) -> String? {
-        let jsonData: NSData
-        var resultString: String? = nil
-        
-        do {
-            jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: JSONSerialization.WritingOptions()) as Data as NSData
-            resultString = String(data: jsonData as Data, encoding: String.Encoding.utf8)
-        } catch _ {
-            /* nothing */
-        }
-        
-        return resultString
-    }
-    
     override func setUp() {
         super.setUp()
 

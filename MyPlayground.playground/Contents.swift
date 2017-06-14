@@ -29,14 +29,31 @@ class ResponseModel: Mappable {
     func mapping(map: Map) {
         code <- map["code"]
 
-        let value = map["data"].currentValue
-        if let string = value as? String {
-            data = Data.value(string)
-        } else if let dict = value as? [String: Any] {
-            if let cat = MainCatModel(JSON: dict) {
-                data = Data.cat(cat)
+        let transform = TransformOf<Data, Any>(fromJSON: { (value: Any?) -> Data? in
+        
+            var data: Data? = nil
+            
+            if let string = value as? String {
+                data = Data.value(string)
+            } else if let dict = value as? [String: Any] {
+                if let cat = MainCatModel(JSON: dict) {
+                    data = Data.cat(cat)
+                }
             }
-        }
+            return data
+        }, toJSON: { (value: Data?) -> Any? in
+            guard let value = value else { return nil }
+
+            switch value {
+            case .value(let text):
+                return text
+            case .cat(let cat):
+                let dict: [String: Any] = ["id": cat.id!, "name": cat.name!]
+                return dict
+            }
+        })
+
+        data <- (map["data"], transform)
     }
 }
 
@@ -56,3 +73,6 @@ print("----")
 
 let b = ResponseModel(JSONString: "{\"code\":0,\"data\":\"fdasf\"}")
 printModel(model: b!)
+
+print(a!.toJSONString()!)
+print(b!.toJSONString()!)

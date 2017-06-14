@@ -9,10 +9,20 @@
 import Foundation
 import ObjectMapper
 
+/**
+
+ This object represents a DOM element node.
+ 
+ */
 class NodeElement: Mappable {
-   
+
+    /// tag (String) - Name of the DOM element. Available tags: a, aside, b, blockquote, br, code, em, figcaption, figure, h3, h4, hr, i, iframe, img, li, ol, p, pre, s, strong, u, ul, video.
     var tag: String?
+    
+    /// attrs (Object) - Optional. Attributes of the DOM element. Key of object represents name of attribute, value represents value of attribute. Available attributes: href, src.
     var attrs: Attrs?
+    
+    /// children (Array of Node) - Optional. List of child nodes for the DOM element.
     var children: [Node]?
     
     required init?(map: Map) {
@@ -23,22 +33,6 @@ class NodeElement: Mappable {
         tag         <- map["tag"]
         attrs       <- map["attrs"]
         
-        if let list = map["children"].currentValue as? [Any], list.count > 0 {
-            children = []
-            
-            for item in list {
-                let node: Node
-                
-                if let string = item as? String {
-                    node = Node(string: string)
-                    children?.append(node)
-                } else if let dict = item as? [String: Any] {
-                    if let nodeElement = NodeElement(JSON: dict) {
-                        node = Node(element: nodeElement)
-                        children?.append(node)
-                    }
-                }
-            }
-        }
+        children <- (map["children"], NodeArrayTransform())
     }
 }

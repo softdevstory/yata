@@ -22,14 +22,7 @@ class AttrsTests: XCTestCase {
         super.setUp()
         
         if jsonString == nil {
-            let jsonData: NSData
-
-            do {
-                jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: JSONSerialization.WritingOptions()) as Data as NSData
-                jsonString = String(data: jsonData as Data, encoding: String.Encoding.utf8)
-            } catch _ {
-                print ("JSON Failure")
-            }
+            jsonString = convertJSONString(from: jsonObject)
         }
     }
     
