@@ -27,6 +27,13 @@
 		8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */; };
 		8BA4BA3E1EEFC3B500F85CCA /* AttrsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */; };
 		8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */; };
+		8BDF01461EF105F0006EABDE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01451EF105F0006EABDE /* Page.swift */; };
+		8BDF01471EF105F0006EABDE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01451EF105F0006EABDE /* Page.swift */; };
+		8BDF01491EF106D2006EABDE /* PageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01481EF106D2006EABDE /* PageList.swift */; };
+		8BDF014A1EF106D2006EABDE /* PageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01481EF106D2006EABDE /* PageList.swift */; };
+		8BDF014D1EF10C5C006EABDE /* PageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF014B1EF10C5C006EABDE /* PageTests.swift */; };
+		8BDF01501EF10CB9006EABDE /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF014F1EF10CB9006EABDE /* Json.swift */; };
+		8BDF01521EF20B26006EABDE /* PageListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01511EF20B26006EABDE /* PageListTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +68,11 @@
 		8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attrs.swift; sourceTree = "<group>"; };
 		8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttrsTests.swift; sourceTree = "<group>"; };
 		8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElementTests.swift; sourceTree = "<group>"; };
+		8BDF01451EF105F0006EABDE /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		8BDF01481EF106D2006EABDE /* PageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageList.swift; sourceTree = "<group>"; };
+		8BDF014B1EF10C5C006EABDE /* PageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTests.swift; sourceTree = "<group>"; };
+		8BDF014F1EF10CB9006EABDE /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
+		8BDF01511EF20B26006EABDE /* PageListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListTests.swift; sourceTree = "<group>"; };
 		B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.debug.xcconfig"; sourceTree = "<group>"; };
 		CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.release.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +181,8 @@
 				8BA4BA331EEFB89D00F85CCA /* Node.swift */,
 				8BA4BA361EEFBC2900F85CCA /* NodeElement.swift */,
 				8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */,
+				8BDF01451EF105F0006EABDE /* Page.swift */,
+				8BDF01481EF106D2006EABDE /* PageList.swift */,
 			);
 			name = Models;
 			path = yata/Sources/Models;
@@ -186,6 +200,7 @@
 		8BA4BA231EEFAA1F00F85CCA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8BDF014E1EF10C98006EABDE /* Utils */,
 				8BA4BA241EEFAA1F00F85CCA /* Models */,
 			);
 			path = Sources;
@@ -198,6 +213,8 @@
 				8BA4BA311EEFB64200F85CCA /* PageViewsTests.swift */,
 				8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */,
 				8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */,
+				8BDF014B1EF10C5C006EABDE /* PageTests.swift */,
+				8BDF01511EF20B26006EABDE /* PageListTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +225,14 @@
 				8BA4BA271EEFAA1F00F85CCA /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BDF014E1EF10C98006EABDE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8BDF014F1EF10CB9006EABDE /* Json.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,7 +444,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
+				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
+				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
 				8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */,
 				8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */,
 				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
@@ -432,14 +459,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BDF014A1EF106D2006EABDE /* PageList.swift in Sources */,
 				8BA4BA301EEFB62700F85CCA /* PageViews.swift in Sources */,
+				8BDF01521EF20B26006EABDE /* PageListTests.swift in Sources */,
 				8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BA4BA351EEFB89D00F85CCA /* Node.swift in Sources */,
 				8BA4BA381EEFBC2900F85CCA /* NodeElement.swift in Sources */,
+				8BDF01471EF105F0006EABDE /* Page.swift in Sources */,
+				8BDF014D1EF10C5C006EABDE /* PageTests.swift in Sources */,
 				8BA4BA3E1EEFC3B500F85CCA /* AttrsTests.swift in Sources */,
 				8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */,
 				8BA4BA321EEFB64200F85CCA /* PageViewsTests.swift in Sources */,
 				8BA4BA2B1EEFAAF200F85CCA /* AccountTests.swift in Sources */,
+				8BDF01501EF10CB9006EABDE /* Json.swift in Sources */,
 				8BA4BA2C1EEFAAF700F85CCA /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
