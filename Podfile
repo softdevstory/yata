@@ -6,12 +6,25 @@ target 'yata' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
+  # Model
+  pod 'ObjectMapper'
+
+  # Rx
+  pod 'RxSwift'
+
   # Network
-  pod 'ObjectMapper', '~> 2.2'
-  pod 'Alamofire', '~>4.4'
+  pod 'Alamofire'
+  pod 'Moya/RxSwift'
 
   target 'yataTests' do
     inherit! :search_paths
-    pod 'ObjectMapper', '~> 2.2'
+
+    pod 'ObjectMapper'
+    pod 'Alamofire'
+    pod 'Moya/RxSwift'
+
+    pod 'RxSwift'
+    pod 'RxTest'
+    pod 'RxBlocking'
   end
 end

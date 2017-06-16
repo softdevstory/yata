@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		622C83D21C4CCD397EBA3956 /* Pods_yataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A812B2713EF6944AE08290E /* Pods_yataTests.framework */; };
 		779CA64C4B2EE93084167B41 /* Pods_yata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56E27CFA32D5AB593E0195D /* Pods_yata.framework */; };
+		8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */; };
+		8B0DE41D1EF23EF000DD571C /* TelegraphApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */; };
+		8B0DE4201EF2427500DD571C /* String+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41F1EF2427500DD571C /* String+Encoding.swift */; };
+		8B0DE4211EF2427500DD571C /* String+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41F1EF2427500DD571C /* String+Encoding.swift */; };
+		8B0DE4241EF2516500DD571C /* TelegraphApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4231EF2516500DD571C /* TelegraphApiTests.swift */; };
 		8BA4BA061EEFA3DA00F85CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */; };
 		8BA4BA071EEFA3DA00F85CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
@@ -34,6 +39,8 @@
 		8BDF014D1EF10C5C006EABDE /* PageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF014B1EF10C5C006EABDE /* PageTests.swift */; };
 		8BDF01501EF10CB9006EABDE /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF014F1EF10CB9006EABDE /* Json.swift */; };
 		8BDF01521EF20B26006EABDE /* PageListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01511EF20B26006EABDE /* PageListTests.swift */; };
+		8BDF01541EF20ECE006EABDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01531EF20ECE006EABDE /* Response.swift */; };
+		8BDF01551EF20ECE006EABDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01531EF20ECE006EABDE /* Response.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +56,9 @@
 /* Begin PBXFileReference section */
 		1A812B2713EF6944AE08290E /* Pods_yataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		876DB4E3AE57C4BD066073B7 /* Pods-yataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8B4590371EF0E9B50009D4BE /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegraphApi.swift; sourceTree = "<group>"; };
+		8B0DE41F1EF2427500DD571C /* String+Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Encoding.swift"; sourceTree = "<group>"; };
+		8B0DE4231EF2516500DD571C /* TelegraphApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegraphApiTests.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BA4BA051EEFA3DA00F85CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,6 +82,8 @@
 		8BDF014B1EF10C5C006EABDE /* PageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTests.swift; sourceTree = "<group>"; };
 		8BDF014F1EF10CB9006EABDE /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		8BDF01511EF20B26006EABDE /* PageListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListTests.swift; sourceTree = "<group>"; };
+		8BDF01531EF20ECE006EABDE /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		8BDF01571EF218A2006EABDE /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = yata/MyPlayground.playground; sourceTree = "<group>"; };
 		B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.debug.xcconfig"; sourceTree = "<group>"; };
 		CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.release.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,11 +130,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8B0DE41E1EF2424600DD571C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8B0DE41F1EF2427500DD571C /* String+Encoding.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8B0DE4221EF2515500DD571C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8B0DE4231EF2516500DD571C /* TelegraphApiTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		8BA4B9A41EEE241000F85CCA = {
 			isa = PBXGroup;
 			children = (
-				8B4590371EF0E9B50009D4BE /* MyPlayground.playground */,
-				8BA4BA121EEFA78600F85CCA /* Models */,
+				8BDF01571EF218A2006EABDE /* MyPlayground.playground */,
 				8BA4BA081EEFA3E400F85CCA /* Sources */,
 				8BA4BA021EEFA3DA00F85CCA /* Resources */,
 				8BA4BA0D1EEFA3F200F85CCA /* Supporting Files */,
@@ -156,6 +182,9 @@
 		8BA4BA081EEFA3E400F85CCA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8B0DE41E1EF2424600DD571C /* Utils */,
+				8BDF01561EF2135B006EABDE /* Networking */,
+				8BA4BA121EEFA78600F85CCA /* Models */,
 				8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */,
 				8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */,
 			);
@@ -183,9 +212,9 @@
 				8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */,
 				8BDF01451EF105F0006EABDE /* Page.swift */,
 				8BDF01481EF106D2006EABDE /* PageList.swift */,
+				8BDF01531EF20ECE006EABDE /* Response.swift */,
 			);
-			name = Models;
-			path = yata/Sources/Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8BA4BA1A1EEFA9EA00F85CCA /* yataTests */ = {
@@ -200,6 +229,7 @@
 		8BA4BA231EEFAA1F00F85CCA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8B0DE4221EF2515500DD571C /* Networking */,
 				8BDF014E1EF10C98006EABDE /* Utils */,
 				8BA4BA241EEFAA1F00F85CCA /* Models */,
 			);
@@ -233,6 +263,14 @@
 				8BDF014F1EF10CB9006EABDE /* Json.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8BDF01561EF2135B006EABDE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,11 +482,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
+				8B0DE4201EF2427500DD571C /* String+Encoding.swift in Sources */,
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
+				8BDF01541EF20ECE006EABDE /* Response.swift in Sources */,
 				8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */,
 				8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */,
+				8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
 				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
 				8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */,
 				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
@@ -462,13 +503,17 @@
 				8BDF014A1EF106D2006EABDE /* PageList.swift in Sources */,
 				8BA4BA301EEFB62700F85CCA /* PageViews.swift in Sources */,
 				8BDF01521EF20B26006EABDE /* PageListTests.swift in Sources */,
+				8B0DE41D1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
 				8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
+				8BDF01551EF20ECE006EABDE /* Response.swift in Sources */,
 				8BA4BA351EEFB89D00F85CCA /* Node.swift in Sources */,
 				8BA4BA381EEFBC2900F85CCA /* NodeElement.swift in Sources */,
 				8BDF01471EF105F0006EABDE /* Page.swift in Sources */,
+				8B0DE4241EF2516500DD571C /* TelegraphApiTests.swift in Sources */,
 				8BDF014D1EF10C5C006EABDE /* PageTests.swift in Sources */,
 				8BA4BA3E1EEFC3B500F85CCA /* AttrsTests.swift in Sources */,
 				8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */,
+				8B0DE4211EF2427500DD571C /* String+Encoding.swift in Sources */,
 				8BA4BA321EEFB64200F85CCA /* PageViewsTests.swift in Sources */,
 				8BA4BA2B1EEFAAF200F85CCA /* AccountTests.swift in Sources */,
 				8BDF01501EF10CB9006EABDE /* Json.swift in Sources */,
