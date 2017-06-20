@@ -14,10 +14,14 @@
 		8B0DE4201EF2427500DD571C /* String+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41F1EF2427500DD571C /* String+Encoding.swift */; };
 		8B0DE4211EF2427500DD571C /* String+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41F1EF2427500DD571C /* String+Encoding.swift */; };
 		8B0DE4241EF2516500DD571C /* TelegraphApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4231EF2516500DD571C /* TelegraphApiTests.swift */; };
+		8B0DE44C1EF7B3EC00DD571C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */; };
+		8B0DE44E1EF7B4D400DD571C /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE44D1EF7B4D400DD571C /* MainSplitViewController.swift */; };
+		8B0DE4501EF7B51B00DD571C /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE44F1EF7B51B00DD571C /* MainWindowController.swift */; };
+		8B0DE4541EF7B71900DD571C /* PageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4531EF7B71900DD571C /* PageListViewController.swift */; };
+		8B0DE4561EF7B73800DD571C /* PageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4551EF7B73800DD571C /* PageEditViewController.swift */; };
+		8B0DE4591EF7BA2400DD571C /* NSView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4581EF7BA2400DD571C /* NSView+.swift */; };
 		8BA4BA061EEFA3DA00F85CCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */; };
-		8BA4BA071EEFA3DA00F85CCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4BA041EEFA3DA00F85CCA /* Main.storyboard */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
-		8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
 		8BA4BA2B1EEFAAF200F85CCA /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA2A1EEFAAF200F85CCA /* AccountTests.swift */; };
 		8BA4BA2C1EEFAAF700F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
@@ -59,11 +63,15 @@
 		8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegraphApi.swift; sourceTree = "<group>"; };
 		8B0DE41F1EF2427500DD571C /* String+Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Encoding.swift"; sourceTree = "<group>"; };
 		8B0DE4231EF2516500DD571C /* TelegraphApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegraphApiTests.swift; sourceTree = "<group>"; };
+		8B0DE44D1EF7B4D400DD571C /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		8B0DE44F1EF7B51B00DD571C /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		8B0DE4531EF7B71900DD571C /* PageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListViewController.swift; sourceTree = "<group>"; };
+		8B0DE4551EF7B73800DD571C /* PageEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageEditViewController.swift; sourceTree = "<group>"; };
+		8B0DE4581EF7BA2400DD571C /* NSView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+.swift"; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA031EEFA3DA00F85CCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BA4BA051EEFA3DA00F85CCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BA4BA0E1EEFA3F200F85CCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BA4BA111EEFA4E300F85CCA /* yata.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = yata.entitlements; sourceTree = "<group>"; };
 		8BA4BA131EEFA7D600F85CCA /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -146,6 +154,25 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		8B0DE4251EF79DED00DD571C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B0DE44D1EF7B4D400DD571C /* MainSplitViewController.swift */,
+				8B0DE44F1EF7B51B00DD571C /* MainWindowController.swift */,
+				8B0DE4531EF7B71900DD571C /* PageListViewController.swift */,
+				8B0DE4551EF7B73800DD571C /* PageEditViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8B0DE4571EF7BA1000DD571C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B0DE4581EF7BA2400DD571C /* NSView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8BA4B9A41EEE241000F85CCA = {
 			isa = PBXGroup;
 			children = (
@@ -182,11 +209,12 @@
 		8BA4BA081EEFA3E400F85CCA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8B0DE4571EF7BA1000DD571C /* Extensions */,
+				8B0DE4251EF79DED00DD571C /* Controllers */,
 				8B0DE41E1EF2424600DD571C /* Utils */,
 				8BDF01561EF2135B006EABDE /* Networking */,
 				8BA4BA121EEFA78600F85CCA /* Models */,
 				8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */,
-				8BA4BA0A1EEFA3E400F85CCA /* ViewController.swift */,
 			);
 			name = Sources;
 			path = yata/Sources;
@@ -369,8 +397,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B0DE44C1EF7B3EC00DD571C /* Main.storyboard in Resources */,
 				8BA4BA061EEFA3DA00F85CCA /* Assets.xcassets in Resources */,
-				8BA4BA071EEFA3DA00F85CCA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,17 +510,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
+				8B0DE4541EF7B71900DD571C /* PageListViewController.swift in Sources */,
 				8B0DE4201EF2427500DD571C /* String+Encoding.swift in Sources */,
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
+				8B0DE44E1EF7B4D400DD571C /* MainSplitViewController.swift in Sources */,
+				8B0DE4561EF7B73800DD571C /* PageEditViewController.swift in Sources */,
 				8BDF01541EF20ECE006EABDE /* Response.swift in Sources */,
 				8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */,
+				8B0DE4501EF7B51B00DD571C /* MainWindowController.swift in Sources */,
 				8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */,
 				8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
 				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
-				8BA4BA0C1EEFA3E400F85CCA /* ViewController.swift in Sources */,
 				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
+				8B0DE4591EF7BA2400DD571C /* NSView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

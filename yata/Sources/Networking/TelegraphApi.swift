@@ -271,7 +271,6 @@ extension TelegraphApi: TargetType {
             param = parameter.toDictionary()
         case .getViews(let parameter):
             param = parameter.toDictionary()
-            
         case .revokeAccessToken:
             break
         }
