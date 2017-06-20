@@ -1,5 +1,5 @@
 //
-//  String+Encoding.swift
+//  String+.swift
 //  yata
 //
 //  Created by HS Song on 2017. 6. 15..
@@ -15,5 +15,9 @@ extension String {
 
     var utf8Encoded: Data {
         return self.data(using: .utf8)!
+    }
+    
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
     }
 }
