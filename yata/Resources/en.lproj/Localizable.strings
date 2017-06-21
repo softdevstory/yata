@@ -1,4 +1,4 @@
-/* 
+/*
   Localizable.strings
   yata
 
@@ -12,12 +12,21 @@
 "Services"="Services";
 "Hide YATA"="Hide YATA";
 "Hide Others"="Hide Others";
-"Show All"="Show All";"
+"Show All"="Show All";
 "Quit YATA"="Quit YATA";
 
 "File"="File";
+
+"View"="View";
+"Hide Toolbar"="Hide Toolbar";
+"Show Toolbar"="Show Toolbar";
+"Customize Toolbar..."="Customize Toolbar...";
 
 "Help"="Help";
 
 /* About Window */
 "About"="About";
+
+/* Toolbar */
+"Reload"="Reload";
+"New Page"="New Page";

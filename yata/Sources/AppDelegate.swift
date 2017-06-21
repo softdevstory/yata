@@ -56,15 +56,12 @@ extension AppDelegate {
         subMenu.addItem(NSMenuItem.separator())
 
         subMenu.addItem(withTitle: "Hide YATA".localized, action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
-        subMenu.addItem({ () -> NSMenuItem in
-            let m = NSMenuItem(title: "Hide Others".localized, action: #selector(NSApplication.hideOtherApplications(_:)), keyEquivalent: "h")
-            m.keyEquivalentModifierMask = [.command, .option]
-            return m
-        }())
+        subMenu.addItem(withTitle: "Hide Others".localized, action: #selector(NSApplication.hideOtherApplications(_:)), keyEquivalent: "h", keyEquivalentModifierMask: [.command, .option])
+
         subMenu.addItem(withTitle: "Show All".localized, action: #selector(NSApplication.unhideAllApplications(_:)), keyEquivalent: "")
         subMenu.addItem(NSMenuItem.separator())
         
-        subMenu.addItem(withTitle: "Quit YATA", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        subMenu.addItem(withTitle: "Quit YATA".localized, action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         
         return appMenu
     }
@@ -76,6 +73,21 @@ extension AppDelegate {
         fileMenu.submenu = subMenu
         
         return fileMenu
+    }
+    
+    private func buildViewMenu() -> NSMenuItem {
+        let viewMenu = NSMenuItem()
+        
+        let subMenu = NSMenu(title: "View".localized)
+        viewMenu.submenu = subMenu
+        
+        subMenu.addItem(withTitle: "Hide Toolbar".localized, action: #selector(NSWindow.toggleToolbarShown(_:)), keyEquivalent: "t", keyEquivalentModifierMask: [.option, .command])
+
+        subMenu.addItem(withTitle: "Customize Toolbar...".localized, action: #selector(NSWindow.runToolbarCustomizationPalette(_:)), keyEquivalent: "")
+        
+        subMenu.addItem(NSMenuItem.separator())
+        
+        return viewMenu
     }
     
     private func buildHelpMenu() -> NSMenuItem {
@@ -94,6 +106,7 @@ extension AppDelegate {
         
         menu.addItem(buildAppMenu())
         menu.addItem(buildFileMenu())
+        menu.addItem(buildViewMenu())
         menu.addItem(buildHelpMenu())
         
         return menu

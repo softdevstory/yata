@@ -15,6 +15,6 @@ class PageListViewController: NSViewController {
     
     override func loadView() {
         view = NSView()
-        view.backgroundColor = NSColor.blue
+        view.backgroundColor = NSColor.gray
     }
 }

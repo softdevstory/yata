@@ -17,7 +17,16 @@
 
 "File"="파일";
 
+"View"="보기";
+"Hide Toolbar"="도구 막대 가리기";
+"Show Toolbar"="도구 막대 보기";
+"Customize Toolbar..."="도구 막대 사용자화...";
+
 "Help"="도움말";
 
 /* About Window */
 "About"="About";
+
+/* Toolbar */
+"Reload"="다시 로드";
+"New Page"="새 페이지";

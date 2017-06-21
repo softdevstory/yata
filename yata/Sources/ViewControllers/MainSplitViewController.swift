@@ -22,8 +22,9 @@ class MainSplitViewController: NSSplitViewController {
     
     func setup1(_ vc1:NSViewController) {
         vc1.view.snp.makeConstraints { maker in
-            maker.width.greaterThanOrEqualTo(200)
-            maker.height.lessThanOrEqualTo(600)
+            maker.width.greaterThanOrEqualTo(100)
+            maker.width.lessThanOrEqualTo(self.view)
+            maker.height.lessThanOrEqualTo(self.view)
         }
     }
 

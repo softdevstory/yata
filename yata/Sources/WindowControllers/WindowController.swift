@@ -42,6 +42,8 @@ class WindowController: NSWindowController, NSWindowDelegate {
         window.delegate = self
         window.hasShadow = true
         window.contentView = NSView()
+        
+        window.tabbingMode = .disallowed
     }
     
     required init?(coder: NSCoder) {
