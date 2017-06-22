@@ -19,6 +19,13 @@ class MainWindowController: WindowController {
         window?.styleMask.insert(.resizable)
         window?.styleMask.insert(.fullSizeContentView)
         
+        // window?.titleVisibility = .hidden
+        
+        // For restoring window position
+        window?.identifier = "MainWindowController"
+        window?.isRestorable = true
+        window?.restorationClass = MainWindowController.self
+
         window?.contentMinSize = NSSize(width: 400, height: 300)
     }
     
@@ -61,6 +68,19 @@ class MainWindowController: WindowController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: NSWindowRestoration
+extension MainWindowController: NSWindowRestoration {
+    static func restoreWindow(withIdentifier identifier: String, state: NSCoder, completionHandler: @escaping (NSWindow?, Error?) -> Void) {
+    
+        if identifier == "MainWindowController" {
+            if let appDelegate = NSApp.delegate as? AppDelegate {
+                let myWindow = appDelegate.mainWindow.window
+                completionHandler(myWindow ,nil)
+            }
+        }
     }
 }
 
