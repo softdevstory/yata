@@ -7,14 +7,18 @@
 //
 
 import AppKit
+import SnapKit
 
 class PageEditViewController: NSViewController {
+
+    let button = NSButton(title: "Button", target: nil, action: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func loadView() {
-        view = NSView()
-        view.backgroundColor = NSColor.white
+        
+        view.addSubview(button)
+        button.snp.makeConstraints { maker in
+            maker.center.equalToSuperview()
+        }
     }
 }

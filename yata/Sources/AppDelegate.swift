@@ -8,17 +8,18 @@
 
 import Cocoa
 
+@NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let mainWindow = MainWindowController()
-    let aboutWindow = AboutWindowController()
-    let preferenceWindow = PreferenceWindowController()
+//    let mainWindow = MainWindowController()
+//    let aboutWindow = AboutWindowController()
+//    let preferenceWindow = PreferenceWindowController()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
-        NSApp.mainMenu = buildMenu()
-
-        mainWindow.showWindow(self)
+//        NSApp.mainMenu = buildMenu()
+//
+//        mainWindow.showWindow(self)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -26,6 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+/*
 // MARK: Menu
 extension AppDelegate {
 
@@ -87,6 +89,8 @@ extension AppDelegate {
         
         subMenu.addItem(NSMenuItem.separator())
         
+        subMenu.addItem(withTitle: "Hide Sidebar".localized, action: #selector(NSSplitViewController.toggleSidebar(_:)), keyEquivalent: "s", keyEquivalentModifierMask: [.command, .control])
+        
         return viewMenu
     }
     
@@ -112,4 +116,4 @@ extension AppDelegate {
         return menu
     }
 }
-
+*/

@@ -8,36 +8,18 @@
 
 
 import AppKit
-import SnapKit
 
-class MainWindowController: WindowController {
+class MainWindowController: NSWindowController {
 
-    let splitViewController = MainSplitViewController()
-
-    private func setupWindow() {
-        window?.styleMask.insert(.miniaturizable)
-        window?.styleMask.insert(.resizable)
-        window?.styleMask.insert(.fullSizeContentView)
-        
-        // window?.titleVisibility = .hidden
-        
-        // For restoring window position
-        window?.identifier = "MainWindowController"
-        window?.isRestorable = true
-        window?.restorationClass = MainWindowController.self
-
-        window?.contentMinSize = NSSize(width: 400, height: 300)
+    @IBOutlet weak var toolbar: NSToolbar!
+    
+    override func windowDidLoad() {
+    
+        toolbar.delegate = self
+        customizePopupMenuOfToolbar()
     }
     
-    private func setupToolbar() {
-        let toolbar = NSToolbar(identifier: "toolbar")
-        
-        toolbar.delegate = self
-        toolbar.allowsUserCustomization = true
-        toolbar.displayMode = .iconOnly
-        
-        window?.toolbar = toolbar
-
+    private func customizePopupMenuOfToolbar() {
         // Customize popup menu of toolbar
         // from https://stackoverflow.com/questions/39622468/display-only-customize-toolbar-in-nstoolbars-context-menu-in-swift
         if let contextMenu = window?.contentView?.superview?.menu {
@@ -49,44 +31,11 @@ class MainWindowController: WindowController {
             })
         }
     }
-    
-    init() {
-        super.init(windowSize: CGSize(width: 800, height: 600))
-
-        self.contentView.addSubview(splitViewController.view)
-        
-        splitViewController.view.snp.makeConstraints { maker in
-            maker.top.equalTo(self.contentView)
-            maker.bottom.equalTo(self.contentView)
-            maker.leading.equalTo(self.contentView)
-            maker.trailing.equalTo(self.contentView)
-        }
-        
-        setupWindow()
-        setupToolbar()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-// MARK: NSWindowRestoration
-extension MainWindowController: NSWindowRestoration {
-    static func restoreWindow(withIdentifier identifier: String, state: NSCoder, completionHandler: @escaping (NSWindow?, Error?) -> Void) {
-    
-        if identifier == "MainWindowController" {
-            if let appDelegate = NSApp.delegate as? AppDelegate {
-                let myWindow = appDelegate.mainWindow.window
-                completionHandler(myWindow ,nil)
-            }
-        }
-    }
 }
 
 // MARK: NSWindowDelegate
 // from https://stackoverflow.com/questions/39622468/display-only-customize-toolbar-in-nstoolbars-context-menu-in-swift
-extension MainWindowController {
+extension MainWindowController: NSWindowDelegate {
 
     func window(_ window: NSWindow, willPositionSheet sheet: NSWindow, using rect: NSRect) -> NSRect {
         if sheet.className == "NSToolbarConfigPanel" {
@@ -135,7 +84,6 @@ extension MainWindowController: NSToolbarDelegate {
                 NSToolbarFlexibleSpaceItemIdentifier,
                 NSToolbarSpaceItemIdentifier,
                 NSToolbarSeparatorItemIdentifier]
-        
     }
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [String] {
@@ -156,6 +104,7 @@ extension MainWindowController: NSToolbarDelegate {
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
+            
         case ToolbarItem.NewPage.rawValue:
             let button = NSButton(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
             button.image = #imageLiteral(resourceName: "icons8-create_new")
@@ -165,6 +114,7 @@ extension MainWindowController: NSToolbarDelegate {
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
+            
         default:
             break
         }
@@ -172,5 +122,4 @@ extension MainWindowController: NSToolbarDelegate {
         return toolbarItem
     }
 }
-
 

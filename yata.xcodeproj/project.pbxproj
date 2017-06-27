@@ -16,20 +16,16 @@
 		8B0DE4241EF2516500DD571C /* TelegraphApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4231EF2516500DD571C /* TelegraphApiTests.swift */; };
 		8B0DE45E1EF8C4BC00DD571C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DE4601EF8C4BC00DD571C /* Localizable.strings */; };
 		8B0DE4661EF8C84E00DD571C /* NSView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4651EF8C84E00DD571C /* NSView+.swift */; };
-		8B0DE46A1EF8E6C300DD571C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4691EF8E6C300DD571C /* main.swift */; };
 		8B0DE46C1EF8F41300DD571C /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE46B1EF8F41300DD571C /* Bundle+.swift */; };
 		8B0DE46F1EF8F53B00DD571C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DE4711EF8F53B00DD571C /* InfoPlist.strings */; };
 		8B0DE4781EF906B900DD571C /* NSWindowController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4771EF906B900DD571C /* NSWindowController+.swift */; };
-		8B0DE4831EF909A500DD571C /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE47D1EF909A500DD571C /* MainSplitViewController.swift */; };
 		8B0DE4841EF909A500DD571C /* PageEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE47E1EF909A500DD571C /* PageEditViewController.swift */; };
 		8B0DE4851EF909A500DD571C /* PageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE47F1EF909A500DD571C /* PageListViewController.swift */; };
-		8B0DE48C1EF909D900DD571C /* AboutWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4891EF909D900DD571C /* AboutWindowController.swift */; };
-		8B0DE48D1EF909D900DD571C /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE48A1EF909D900DD571C /* PreferenceWindowController.swift */; };
-		8B0DE48E1EF909D900DD571C /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE48B1EF909D900DD571C /* WindowController.swift */; };
 		8B0DE4901EF90A6200DD571C /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE48F1EF90A6200DD571C /* MainWindowController.swift */; };
 		8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */; };
 		8B0DE4AF1EFA1C4700DD571C /* NSMenu+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */; };
 		8B0DE4B11EFA3B6600DD571C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */; };
+		8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
 		8BA4BA2B1EEFAAF200F85CCA /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA2A1EEFAAF200F85CCA /* AccountTests.swift */; };
@@ -45,6 +41,7 @@
 		8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */; };
 		8BA4BA3E1EEFC3B500F85CCA /* AttrsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */; };
 		8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */; };
+		8BBFED2D1F00CCEB00A8263E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFED2B1F00CCEB00A8263E /* Main.storyboard */; };
 		8BDF01461EF105F0006EABDE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01451EF105F0006EABDE /* Page.swift */; };
 		8BDF01471EF105F0006EABDE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01451EF105F0006EABDE /* Page.swift */; };
 		8BDF01491EF106D2006EABDE /* PageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01481EF106D2006EABDE /* PageList.swift */; };
@@ -75,21 +72,17 @@
 		8B0DE4621EF8C56B00DD571C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8B0DE4641EF8C66B00DD571C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8B0DE4651EF8C84E00DD571C /* NSView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSView+.swift"; sourceTree = "<group>"; };
-		8B0DE4691EF8E6C300DD571C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		8B0DE46B1EF8F41300DD571C /* Bundle+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		8B0DE4701EF8F53B00DD571C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8B0DE4721EF8F53D00DD571C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8B0DE4771EF906B900DD571C /* NSWindowController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindowController+.swift"; sourceTree = "<group>"; };
-		8B0DE47D1EF909A500DD571C /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		8B0DE47E1EF909A500DD571C /* PageEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageEditViewController.swift; sourceTree = "<group>"; };
 		8B0DE47F1EF909A500DD571C /* PageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListViewController.swift; sourceTree = "<group>"; };
-		8B0DE4891EF909D900DD571C /* AboutWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutWindowController.swift; sourceTree = "<group>"; };
-		8B0DE48A1EF909D900DD571C /* PreferenceWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
-		8B0DE48B1EF909D900DD571C /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		8B0DE48F1EF90A6200DD571C /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+.swift"; sourceTree = "<group>"; };
 		8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenu+.swift"; sourceTree = "<group>"; };
 		8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfoView.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BA4BA0E1EEFA3F200F85CCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +98,7 @@
 		8BA4BA391EEFC2BE00F85CCA /* Attrs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attrs.swift; sourceTree = "<group>"; };
 		8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttrsTests.swift; sourceTree = "<group>"; };
 		8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElementTests.swift; sourceTree = "<group>"; };
+		8BBFED2E1F00CD3600A8263E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BDF01451EF105F0006EABDE /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		8BDF01481EF106D2006EABDE /* PageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageList.swift; sourceTree = "<group>"; };
 		8BDF014B1EF10C5C006EABDE /* PageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTests.swift; sourceTree = "<group>"; };
@@ -182,7 +176,6 @@
 		8B0DE47B1EF909A500DD571C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8B0DE47D1EF909A500DD571C /* MainSplitViewController.swift */,
 				8B0DE47E1EF909A500DD571C /* PageEditViewController.swift */,
 				8B0DE47F1EF909A500DD571C /* PageListViewController.swift */,
 			);
@@ -192,12 +185,17 @@
 		8B0DE4881EF909AC00DD571C /* WindowControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8B0DE4891EF909D900DD571C /* AboutWindowController.swift */,
-				8B0DE48A1EF909D900DD571C /* PreferenceWindowController.swift */,
-				8B0DE48B1EF909D900DD571C /* WindowController.swift */,
 				8B0DE48F1EF90A6200DD571C /* MainWindowController.swift */,
 			);
 			path = WindowControllers;
+			sourceTree = "<group>";
+		};
+		8B967FD91EFB845200EAE9CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8BA4B9A41EEE241000F85CCA = {
@@ -226,6 +224,7 @@
 		8BA4BA021EEFA3DA00F85CCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8BBFED2B1F00CCEB00A8263E /* Main.storyboard */,
 				8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */,
 				8B0DE4601EF8C4BC00DD571C /* Localizable.strings */,
 				8B0DE4711EF8F53B00DD571C /* InfoPlist.strings */,
@@ -237,13 +236,13 @@
 		8BA4BA081EEFA3E400F85CCA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8B967FD91EFB845200EAE9CF /* Views */,
 				8B0DE4881EF909AC00DD571C /* WindowControllers */,
 				8B0DE47B1EF909A500DD571C /* ViewControllers */,
 				8B0DE41E1EF2424600DD571C /* Utils */,
 				8BDF01561EF2135B006EABDE /* Networking */,
 				8BA4BA121EEFA78600F85CCA /* Models */,
 				8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */,
-				8B0DE4691EF8E6C300DD571C /* main.swift */,
 			);
 			name = Sources;
 			path = yata/Sources;
@@ -430,6 +429,7 @@
 				8B0DE45E1EF8C4BC00DD571C /* Localizable.strings in Resources */,
 				8B0DE4B11EFA3B6600DD571C /* Assets.xcassets in Resources */,
 				8B0DE46F1EF8F53B00DD571C /* InfoPlist.strings in Resources */,
+				8BBFED2D1F00CCEB00A8263E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,7 +540,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B0DE48D1EF909D900DD571C /* PreferenceWindowController.swift in Sources */,
 				8B0DE4AF1EFA1C4700DD571C /* NSMenu+.swift in Sources */,
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
 				8B0DE4201EF2427500DD571C /* String+.swift in Sources */,
@@ -548,20 +547,17 @@
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
 				8B0DE46C1EF8F41300DD571C /* Bundle+.swift in Sources */,
+				8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */,
 				8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */,
 				8BDF01541EF20ECE006EABDE /* Response.swift in Sources */,
 				8B0DE4901EF90A6200DD571C /* MainWindowController.swift in Sources */,
 				8B0DE4841EF909A500DD571C /* PageEditViewController.swift in Sources */,
 				8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */,
-				8B0DE48E1EF909D900DD571C /* WindowController.swift in Sources */,
-				8B0DE46A1EF8E6C300DD571C /* main.swift in Sources */,
 				8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */,
-				8B0DE48C1EF909D900DD571C /* AboutWindowController.swift in Sources */,
 				8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
 				8B0DE4661EF8C84E00DD571C /* NSView+.swift in Sources */,
 				8B0DE4781EF906B900DD571C /* NSWindowController+.swift in Sources */,
 				8B0DE4851EF909A500DD571C /* PageListViewController.swift in Sources */,
-				8B0DE4831EF909A500DD571C /* MainSplitViewController.swift in Sources */,
 				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
 				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
 			);
@@ -619,6 +615,14 @@
 				8B0DE4721EF8F53D00DD571C /* ko */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8BBFED2B1F00CCEB00A8263E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BBFED2E1F00CD3600A8263E /* en */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

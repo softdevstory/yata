@@ -19,6 +19,8 @@ target 'yata' do
   # UI
   pod 'SnapKit', '~> 3.2.0'
 
+  # Etc
+  pod 'Then'
 
   target 'yataTests' do
     inherit! :search_paths
