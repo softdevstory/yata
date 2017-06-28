@@ -11,19 +11,15 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-//    let mainWindow = MainWindowController()
-//    let aboutWindow = AboutWindowController()
-//    let preferenceWindow = PreferenceWindowController()
-    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-//        NSApp.mainMenu = buildMenu()
-//
-//        mainWindow.showWindow(self)
+        
     }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+}
+
+// MARK: Menu
+extension AppDelegate {
+    @IBAction func showPreferences(_ sender: Any?) {
+        PreferencesWindowController.shared.showWindow(sender)
     }
 }
 
@@ -31,14 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 // MARK: Menu
 extension AppDelegate {
 
-    func showAbout() {
-        aboutWindow.showWindow(self)
-    }
-    
-    func showPreference() {
-        preferenceWindow.showWindow(self)
-    }
-    
     private func buildAppMenu() -> NSMenuItem {
         let appMenu = NSMenuItem()
 

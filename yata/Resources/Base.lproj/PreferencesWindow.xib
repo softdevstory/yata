@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="yata" customModuleProvider="target">
+            <connections>
+                <outlet property="window" destination="QvC-M9-y7g" id="SDM-Tt-QYd"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIy-n5-K0A">
+                        <rect key="frame" x="176" y="126" width="129" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Pane is Selected." id="EPJ-jG-xRV">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lIy-n5-K0A" firstAttribute="centerY" secondItem="EiT-Mj-1SZ" secondAttribute="centerY" id="T4H-sR-BLK"/>
+                    <constraint firstItem="lIy-n5-K0A" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="pR4-Si-dHP"/>
+                </constraints>
+            </view>
+            <toolbar key="toolbar" implicitIdentifier="4A444B4E-0857-4A5C-A063-E65B0DCF550D" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="Ddh-Ic-GCs">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="0DDDB5C7-4C39-4F8E-89E3-DBE3580ABD91" label="General" paletteLabel="General" image="icons8-settings" id="9ah-Lu-OGK">
+                        <connections>
+                            <action selector="switchView:" target="-2" id="h7c-fE-MIB"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="6DE244FF-F3FE-468C-B52D-C6799CD66EF2" label="Account" paletteLabel="Account" tag="1" image="icons8-user" id="GRk-cI-zwz">
+                        <connections>
+                            <action selector="switchView:" target="-2" id="1uR-jh-HXB"/>
+                        </connections>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="9ah-Lu-OGK"/>
+                    <toolbarItem reference="GRk-cI-zwz"/>
+                </defaultToolbarItems>
+            </toolbar>
+        </window>
+    </objects>
+    <resources>
+        <image name="icons8-settings" width="100" height="100"/>
+        <image name="icons8-user" width="100" height="100"/>
+    </resources>
+</document>

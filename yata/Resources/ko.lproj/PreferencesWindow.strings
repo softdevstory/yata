@@ -1,0 +1,24 @@
+
+/* Class = "NSToolbarItem"; label = "General"; ObjectID = "9ah-Lu-OGK"; */
+"9ah-Lu-OGK.label" = "General";
+
+/* Class = "NSToolbarItem"; paletteLabel = "General"; ObjectID = "9ah-Lu-OGK"; */
+"9ah-Lu-OGK.paletteLabel" = "General";
+
+/* Class = "NSTextFieldCell"; title = "No Pane is Selected."; ObjectID = "EPJ-jG-xRV"; */
+"EPJ-jG-xRV.title" = "No Pane is Selected.";
+
+/* Class = "NSToolbarItem"; label = "Account"; ObjectID = "GRk-cI-zwz"; */
+"GRk-cI-zwz.label" = "Account";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Account"; ObjectID = "GRk-cI-zwz"; */
+"GRk-cI-zwz.paletteLabel" = "Account";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "Preferences";
+
+/* Class = "NSToolbarItem"; label = "New One"; ObjectID = "p5I-Vb-na7"; */
+"p5I-Vb-na7.label" = "New One";
+
+/* Class = "NSToolbarItem"; paletteLabel = "New One"; ObjectID = "p5I-Vb-na7"; */
+"p5I-Vb-na7.paletteLabel" = "New One";

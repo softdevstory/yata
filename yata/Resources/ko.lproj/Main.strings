@@ -1,9 +1,9 @@
 
 /* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "1UK-8n-QPP"; */
-"1UK-8n-QPP.title" = "Customize Toolbar…";
+"1UK-8n-QPP.title" = "도구막대 사용자화…";
 
 /* Class = "NSMenuItem"; title = "YATA"; ObjectID = "1Xt-HY-uBw"; */
-"1Xt-HY-uBw.title" = "YATA";
+"1Xt-HY-uBw.title" = "야타";
 
 /* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
 "1b7-l0-nxx.title" = "Find";
@@ -36,7 +36,7 @@
 "4J7-dP-txa.title" = "Enter Full Screen";
 
 /* Class = "NSMenuItem"; title = "Quit YATA"; ObjectID = "4sb-4s-VLi"; */
-"4sb-4s-VLi.title" = "Quit YATA";
+"4sb-4s-VLi.title" = "야타 종료";
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
 "5QF-Oa-p0T.title" = "Edit";
@@ -45,7 +45,7 @@
 "5Vv-lz-BsD.title" = "Copy Style";
 
 /* Class = "NSMenuItem"; title = "About YATA"; ObjectID = "5kV-Vb-QxS"; */
-"5kV-Vb-QxS.title" = "About YATA";
+"5kV-Vb-QxS.title" = "YATA에 관하여";
 
 /* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
 "6dh-zS-Vam.title" = "Redo";
@@ -312,7 +312,7 @@
 "jxT-CU-nIS.title" = "Format";
 
 /* Class = "NSMenuItem"; title = "Show Sidebar"; ObjectID = "kIP-vf-haE"; */
-"kIP-vf-haE.title" = "Show Sidebar";
+"kIP-vf-haE.title" = "사이드바 보기";
 
 /* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "mK6-2p-4JG"; */
 "mK6-2p-4JG.title" = "Check Grammar With Spelling";
@@ -345,7 +345,7 @@
 "rgM-f4-ycn.title" = "Smart Dashes";
 
 /* Class = "NSMenuItem"; title = "Show Toolbar"; ObjectID = "snW-S8-Cw5"; */
-"snW-S8-Cw5.title" = "Show Toolbar";
+"snW-S8-Cw5.title" = "도구막대 보기";
 
 /* Class = "NSMenuItem"; title = "Data Detectors"; ObjectID = "tRr-pd-1PS"; */
 "tRr-pd-1PS.title" = "Data Detectors";
@@ -357,7 +357,7 @@
 "tlD-Oa-oAM.title" = "Kern";
 
 /* Class = "NSMenu"; title = "YATA"; ObjectID = "uQy-DD-JDr"; */
-"uQy-DD-JDr.title" = "YATA";
+"uQy-DD-JDr.title" = "야타";
 
 /* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
 "uRl-iY-unG.title" = "Cut";

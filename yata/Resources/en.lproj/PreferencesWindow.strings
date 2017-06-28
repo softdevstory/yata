@@ -1,0 +1,15 @@
+
+/* Class = "NSToolbarItem"; label = "General"; ObjectID = "9ah-Lu-OGK"; */
+"9ah-Lu-OGK.label" = "General";
+
+/* Class = "NSToolbarItem"; paletteLabel = "General"; ObjectID = "9ah-Lu-OGK"; */
+"9ah-Lu-OGK.paletteLabel" = "General";
+
+/* Class = "NSToolbarItem"; label = "Account"; ObjectID = "GRk-cI-zwz"; */
+"GRk-cI-zwz.label" = "Account";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Account"; ObjectID = "GRk-cI-zwz"; */
+"GRk-cI-zwz.paletteLabel" = "Account";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "Preferences";

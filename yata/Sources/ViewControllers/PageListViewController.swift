@@ -27,33 +27,16 @@ class PageListViewController: NSViewController {
         super.viewDidLoad()
 
      loadPageList()
-    
-//        sidebarScrollView.automaticallyAdjustsContentInsets = false // We manually do it
+
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        
-//        updateScrollViewContentInsets()
     }
-    
-     // MARK: - Scroll Inset Management
-    
-//    private func updateScrollViewContentInsets() {
-//        let window = view.window!
-//        let contentLayoutRect = window.contentLayoutRect
-//        let topInset = (window.contentView!.frame.size.height - contentLayoutRect.height)
-//        
-//        sidebarScrollView.contentInsets = EdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
-//    }
-//    
-//    @objc
-//    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        precondition(keyPath! == "contentLayoutRect", "We are only observing the contentLayoutRect")
-//        updateScrollViewContentInsets()
-//    }
-
 }
+
+
+// MARK: telegra.ph
 
 extension PageListViewController {
     func loadPageList() {
@@ -75,7 +58,6 @@ extension PageListViewController {
                 if let ok = value["ok"] as? Bool, ok {
                     if let result = value["result"] as? [String: Any] {
                         if let pageList = PageList(JSON: result) {
-                            print(pageList.totalCount!)
                             self.pages = pageList.pages!
 
                             DispatchQueue.main.async {
@@ -88,6 +70,43 @@ extension PageListViewController {
                 }
             })
             .addDisposableTo(bag)
+    }
+    
+    func loadPage(_ page: Page) {
+        guard let path = page.path else { return }
+        
+        let param = GetPageParameter(path: path, returnContent: true)
+        
+        provider.request(.getPage(parameter: param))
+            .filterSuccessfulStatusCodes()
+            .mapJSON()
+            .map { data in
+                return data as? [String: Any]
+            }
+            .filter { $0 != nil }
+            .subscribe(onNext: { value in
+                guard let value = value else { return}
+                
+                if let ok = value["ok"] as? Bool, ok {
+                    if let result = value["result"] as? [String: Any] {
+                        if let resultPage = Page(JSON: result) {
+                            page.content = resultPage.content
+                            self.updatePageEditView(with: page)
+                        }
+                    }
+                } else {
+                    print(value["error"] as? String ?? "")
+                }
+            })
+            .addDisposableTo(bag)
+    }
+}
+
+//
+extension PageListViewController {
+    func updatePageEditView(with page: Page) {
+        let notification = Notification(name: Notification.Name(rawValue: "updatePageEditView"), object: page, userInfo: nil)
+        NotificationQueue.default.enqueue(notification, postingStyle: .now)
     }
 }
 
@@ -113,11 +132,21 @@ extension PageListViewController: NSTableViewDelegate {
         }
         
         pageInfoView?.titleString.value = pages[row].title!
-//        pages[row].views
+        pageInfoView?.viewCount.value = pages[row].views!
         pageInfoView?.descriptionString.value = pages[row].description!
         pageInfoView?.contentString.value = "first line\nsecond line\nthird line\nforth line"
         
         return pageInfoView
+    }
+
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        let page = pages[tableView.selectedRow]
+
+        if page.content == nil {
+            loadPage(page)
+        } else {
+            updatePageEditView(with: page)
+        }
     }
 }
 

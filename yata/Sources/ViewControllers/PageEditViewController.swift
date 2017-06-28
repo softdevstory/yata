@@ -11,14 +11,20 @@ import SnapKit
 
 class PageEditViewController: NSViewController {
 
-    let button = NSButton(title: "Button", target: nil, action: nil)
+    @IBOutlet weak var titleTextField: NSTextField!
+    @IBOutlet weak var descriptionTextField: NSTextField!
+    @IBOutlet var contentTextView: NSTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(button)
-        button.snp.makeConstraints { maker in
-            maker.center.equalToSuperview()
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePage(_:)), name: NSNotification.Name(rawValue: "updatePageEditView"), object: nil)
+    }
+
+    func updatePage(_ notification: Notification) {
+        guard let page = notification.object as? Page else { return }
+
+        titleTextField.stringValue = page.title!
+        descriptionTextField.stringValue = page.description!
     }
 }
