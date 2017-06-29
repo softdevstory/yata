@@ -7,7 +7,6 @@
 //
 
 import AppKit
-import Then
 import RxSwift
 
 class PageInfoView: NSTableCellView {

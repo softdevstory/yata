@@ -25,6 +25,10 @@
 		8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */; };
 		8B0DE4AF1EFA1C4700DD571C /* NSMenu+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */; };
 		8B0DE4B11EFA3B6600DD571C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */; };
+		8B415F5C1F049D0C00FED429 /* AcknowledgementsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */; };
+		8B415F5E1F049D2F00FED429 /* AcknowledgementsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */; };
+		8B415F601F049E5700FED429 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F5F1F049E5700FED429 /* Constants.swift */; };
+		8B415F621F04A0BA00FED429 /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B415F611F04A0BA00FED429 /* acknowledgements.html */; };
 		8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
@@ -93,6 +97,10 @@
 		8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+.swift"; sourceTree = "<group>"; };
 		8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenu+.swift"; sourceTree = "<group>"; };
 		8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcknowledgementsWindow.xib; sourceTree = "<group>"; };
+		8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsWindowController.swift; sourceTree = "<group>"; };
+		8B415F5F1F049E5700FED429 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8B415F611F04A0BA00FED429 /* acknowledgements.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = acknowledgements.html; path = yata/acknowledgements.html; sourceTree = SOURCE_ROOT; };
 		8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfoView.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +217,7 @@
 			children = (
 				8B0DE48F1EF90A6200DD571C /* MainWindowController.swift */,
 				8BD9657C1F035DF400B5D904 /* PreferencesWindowController.swift */,
+				8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */,
 			);
 			path = WindowControllers;
 			sourceTree = "<group>";
@@ -251,9 +260,11 @@
 				8BD965841F036F2E00B5D904 /* PreferencesWindow.xib */,
 				8BD9658F1F03731500B5D904 /* GeneralPane.xib */,
 				8BD965911F03740100B5D904 /* AccountPane.xib */,
+				8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */,
 				8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */,
 				8B0DE4601EF8C4BC00DD571C /* Localizable.strings */,
 				8B0DE4711EF8F53B00DD571C /* InfoPlist.strings */,
+				8B415F611F04A0BA00FED429 /* acknowledgements.html */,
 			);
 			name = Resources;
 			path = yata/Resources;
@@ -346,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				8BD9659F1F04938400B5D904 /* KeyChain.swift */,
+				8B415F5F1F049E5700FED429 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -473,6 +485,8 @@
 				8B0DE4B11EFA3B6600DD571C /* Assets.xcassets in Resources */,
 				8B0DE46F1EF8F53B00DD571C /* InfoPlist.strings in Resources */,
 				8BD965921F03740100B5D904 /* AccountPane.xib in Resources */,
+				8B415F621F04A0BA00FED429 /* acknowledgements.html in Resources */,
+				8B415F5C1F049D0C00FED429 /* AcknowledgementsWindow.xib in Resources */,
 				8BBFED2D1F00CCEB00A8263E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +600,7 @@
 			files = (
 				8B0DE4AF1EFA1C4700DD571C /* NSMenu+.swift in Sources */,
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
+				8B415F5E1F049D2F00FED429 /* AcknowledgementsWindowController.swift in Sources */,
 				8BD9658C1F03718B00B5D904 /* GeneralPaneController.swift in Sources */,
 				8B0DE4201EF2427500DD571C /* String+.swift in Sources */,
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
@@ -609,6 +624,7 @@
 				8B0DE4851EF909A500DD571C /* PageListViewController.swift in Sources */,
 				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
 				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
+				8B415F601F049E5700FED429 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

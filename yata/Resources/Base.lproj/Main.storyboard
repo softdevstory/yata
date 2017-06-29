@@ -651,6 +651,13 @@
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="lir-y8-yNa"/>
+                                        <menuItem title="Acknowledgements" id="DQx-X8-Uw3">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showAcknowledgements:" target="Voe-Tx-rLC" id="E5l-4v-cVI"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>

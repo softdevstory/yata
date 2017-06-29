@@ -21,6 +21,10 @@ extension AppDelegate {
     @IBAction func showPreferences(_ sender: Any?) {
         PreferencesWindowController.shared.showWindow(sender)
     }
+    
+    @IBAction func showAcknowledgements(_ sender: Any?) {
+        AcknowledgementsWindowController.shared.showWindow(sender)
+    }
 }
 
 /*
