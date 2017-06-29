@@ -18,19 +18,19 @@ class AccessTokenStorage {
     func loadAccessToken() -> String? {
         let keychain = getKeychain()
 
-        return keychain["access token"]
+        return keychain[KeyChain.keyForAccessToken]
     }
     
     func saveAccessToken(_ token: String) {
     
         let keychain = getKeychain()
         
-        keychain["access token"] = token
+        keychain[KeyChain.keyForAccessToken] = token
     }
     
     func deleteAccessToken() {
         let keychain = getKeychain()
     
-        keychain["access token"] = nil
+        keychain[KeyChain.keyForAccessToken] = nil
     }
 }

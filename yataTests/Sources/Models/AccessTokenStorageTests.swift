@@ -11,13 +11,24 @@ import Foundation
 import XCTest
 
 class AccessTokenStorageTests: XCTestCase {
+
+    var accessToken: String?
     
     override func setUp() {
         super.setUp()
+        
+        let ats = AccessTokenStorage()
+        accessToken = ats.loadAccessToken()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        if let accessToken = accessToken {
+            let ats = AccessTokenStorage()
+            ats.saveAccessToken(accessToken)
+            self.accessToken = nil
+        }
+        
         super.tearDown()
     }
     
