@@ -723,7 +723,7 @@
                             <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="M8M-eO-dZA">
                                 <rect key="frame" x="0.0" y="0.0" width="197" height="300"/>
                                 <subviews>
-                                    <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="113" horizontalPageScroll="10" verticalLineScroll="113" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fa-aG-rqa">
+                                    <scrollView autohidesScrollers="YES" horizontalLineScroll="113" horizontalPageScroll="10" verticalLineScroll="113" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fa-aG-rqa">
                                         <rect key="frame" x="0.0" y="0.0" width="197" height="300"/>
                                         <clipView key="contentView" drawsBackground="NO" id="1pr-Z2-9nU">
                                             <rect key="frame" x="1" y="1" width="195" height="298"/>

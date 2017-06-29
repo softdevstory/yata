@@ -48,6 +48,11 @@
 		8BD9658E1F03719700B5D904 /* AccountPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9658D1F03719700B5D904 /* AccountPaneController.swift */; };
 		8BD965901F03731500B5D904 /* GeneralPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD9658F1F03731500B5D904 /* GeneralPane.xib */; };
 		8BD965921F03740100B5D904 /* AccountPane.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD965911F03740100B5D904 /* AccountPane.xib */; };
+		8BD965961F0486D400B5D904 /* AccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD965951F0486D400B5D904 /* AccessTokenStorage.swift */; };
+		8BD965971F04877600B5D904 /* AccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD965951F0486D400B5D904 /* AccessTokenStorage.swift */; };
+		8BD965991F04878D00B5D904 /* AccessTokenStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD965981F04878D00B5D904 /* AccessTokenStorageTests.swift */; };
+		8BD965A01F04938400B5D904 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9659F1F04938400B5D904 /* KeyChain.swift */; };
+		8BD965A11F04948300B5D904 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9659F1F04938400B5D904 /* KeyChain.swift */; };
 		8BDF01461EF105F0006EABDE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01451EF105F0006EABDE /* Page.swift */; };
 		8BDF01471EF105F0006EABDE /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01451EF105F0006EABDE /* Page.swift */; };
 		8BDF01491EF106D2006EABDE /* PageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01481EF106D2006EABDE /* PageList.swift */; };
@@ -111,6 +116,9 @@
 		8BD9658D1F03719700B5D904 /* AccountPaneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountPaneController.swift; sourceTree = "<group>"; };
 		8BD9658F1F03731500B5D904 /* GeneralPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPane.xib; sourceTree = "<group>"; };
 		8BD965911F03740100B5D904 /* AccountPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPane.xib; sourceTree = "<group>"; };
+		8BD965951F0486D400B5D904 /* AccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenStorage.swift; sourceTree = "<group>"; };
+		8BD965981F04878D00B5D904 /* AccessTokenStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenStorageTests.swift; sourceTree = "<group>"; };
+		8BD9659F1F04938400B5D904 /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		8BDF01451EF105F0006EABDE /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		8BDF01481EF106D2006EABDE /* PageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageList.swift; sourceTree = "<group>"; };
 		8BDF014B1EF10C5C006EABDE /* PageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTests.swift; sourceTree = "<group>"; };
@@ -254,6 +262,7 @@
 		8BA4BA081EEFA3E400F85CCA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8BD9659E1F04937E00B5D904 /* Constants */,
 				8B967FD91EFB845200EAE9CF /* Views */,
 				8B0DE4881EF909AC00DD571C /* WindowControllers */,
 				8B0DE47B1EF909A500DD571C /* ViewControllers */,
@@ -287,6 +296,7 @@
 				8BDF01451EF105F0006EABDE /* Page.swift */,
 				8BDF01481EF106D2006EABDE /* PageList.swift */,
 				8BDF01531EF20ECE006EABDE /* Response.swift */,
+				8BD965951F0486D400B5D904 /* AccessTokenStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +329,7 @@
 				8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */,
 				8BDF014B1EF10C5C006EABDE /* PageTests.swift */,
 				8BDF01511EF20B26006EABDE /* PageListTests.swift */,
+				8BD965981F04878D00B5D904 /* AccessTokenStorageTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -329,6 +340,14 @@
 				8BA4BA271EEFAA1F00F85CCA /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BD9659E1F04937E00B5D904 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8BD9659F1F04938400B5D904 /* KeyChain.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		8BDF014E1EF10C98006EABDE /* Utils */ = {
@@ -407,6 +426,9 @@
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -414,6 +436,7 @@
 					};
 					8BA4BA181EEFA9EA00F85CCA = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = MGW797GVB2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8BA4B9AC1EEE241000F85CCA;
 					};
@@ -568,10 +591,12 @@
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
 				8BD9658E1F03719700B5D904 /* AccountPaneController.swift in Sources */,
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
+				8BD965A11F04948300B5D904 /* KeyChain.swift in Sources */,
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
 				8B0DE46C1EF8F41300DD571C /* Bundle+.swift in Sources */,
 				8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */,
 				8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */,
+				8BD965961F0486D400B5D904 /* AccessTokenStorage.swift in Sources */,
 				8BDF01541EF20ECE006EABDE /* Response.swift in Sources */,
 				8B0DE4901EF90A6200DD571C /* MainWindowController.swift in Sources */,
 				8B0DE4841EF909A500DD571C /* PageEditViewController.swift in Sources */,
@@ -594,6 +619,8 @@
 				8BDF014A1EF106D2006EABDE /* PageList.swift in Sources */,
 				8BA4BA301EEFB62700F85CCA /* PageViews.swift in Sources */,
 				8BDF01521EF20B26006EABDE /* PageListTests.swift in Sources */,
+				8BD965991F04878D00B5D904 /* AccessTokenStorageTests.swift in Sources */,
+				8BD965A01F04938400B5D904 /* KeyChain.swift in Sources */,
 				8B0DE41D1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
 				8BA4BA3B1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BDF01551EF20ECE006EABDE /* Response.swift in Sources */,
@@ -609,6 +636,7 @@
 				8BA4BA2B1EEFAAF200F85CCA /* AccountTests.swift in Sources */,
 				8BDF01501EF10CB9006EABDE /* Json.swift in Sources */,
 				8BA4BA2C1EEFAAF700F85CCA /* Account.swift in Sources */,
+				8BD965971F04877600B5D904 /* AccessTokenStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,7 +828,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MGW797GVB2;
 				INFOPLIST_FILE = "yataTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.softdevstory.yataTests;
@@ -818,7 +846,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = MGW797GVB2;
 				INFOPLIST_FILE = "yataTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.softdevstory.yataTests;

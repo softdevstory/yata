@@ -21,6 +21,7 @@ target 'yata' do
 
   # Etc
   pod 'Then'
+  pod 'KeychainAccess'
 
   target 'yataTests' do
     inherit! :search_paths
@@ -32,5 +33,7 @@ target 'yata' do
     pod 'RxSwift'
     pod 'RxTest'
     pod 'RxBlocking'
+
+    pod 'KeychainAccess'
   end
 end

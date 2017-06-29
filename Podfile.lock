@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - KeychainAccess (3.0.2)
   - Moya/Core (8.0.3):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - KeychainAccess
   - Moya/RxSwift
   - ObjectMapper
   - RxBlocking
@@ -28,6 +30,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
   ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
@@ -37,6 +40,6 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
 
-PODFILE CHECKSUM: c3d2bbe1e26e604bea25e42675b86d145aa14937
+PODFILE CHECKSUM: dcbf47d141c99e26b61dee6d5d6b3e70bfdaba4f
 
 COCOAPODS: 1.2.1
