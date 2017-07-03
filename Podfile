@@ -11,6 +11,7 @@ target 'yata' do
 
   # Rx
   pod 'RxSwift'
+  pod 'RxCocoa'
 
   # Network
   pod 'Alamofire'

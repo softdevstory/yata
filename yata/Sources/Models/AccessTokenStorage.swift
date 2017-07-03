@@ -11,24 +11,24 @@ import KeychainAccess
 
 class AccessTokenStorage {
     
-    private func getKeychain() -> Keychain {
+    private static func getKeychain() -> Keychain {
         return Keychain(service: KeyChain.service, accessGroup: KeyChain.accessGroup).synchronizable(true)
     }
     
-    func loadAccessToken() -> String? {
+    static func loadAccessToken() -> String? {
         let keychain = getKeychain()
 
         return keychain[KeyChain.keyForAccessToken]
     }
     
-    func saveAccessToken(_ token: String) {
+    static func saveAccessToken(_ token: String) {
     
         let keychain = getKeychain()
         
         keychain[KeyChain.keyForAccessToken] = token
     }
     
-    func deleteAccessToken() {
+    static func deleteAccessToken() {
         let keychain = getKeychain()
     
         keychain[KeyChain.keyForAccessToken] = nil

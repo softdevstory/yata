@@ -11,6 +11,8 @@ PODS:
   - Result (3.2.1)
   - RxBlocking (3.4.1):
     - RxSwift (~> 3.4)
+  - RxCocoa (3.4.1):
+    - RxSwift (~> 3.4)
   - RxSwift (3.4.1)
   - RxTest (3.4.1):
     - RxSwift (~> 3.4)
@@ -23,6 +25,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - ObjectMapper
   - RxBlocking
+  - RxCocoa
   - RxSwift
   - RxTest
   - SnapKit (~> 3.2.0)
@@ -35,11 +38,12 @@ SPEC CHECKSUMS:
   ObjectMapper: 042708195cc46c20871cbcbec0453826398273fd
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   RxBlocking: 1e8c41cfe7ca2fc0e19d0e616c553845c63cbbd3
+  RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   RxTest: a6fd6e4069face7c6488f96f6c42296b3e44db48
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
 
-PODFILE CHECKSUM: dcbf47d141c99e26b61dee6d5d6b3e70bfdaba4f
+PODFILE CHECKSUM: 6471a840346f8f8c988a380ed9748db962dd461e
 
 COCOAPODS: 1.2.1

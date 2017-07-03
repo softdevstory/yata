@@ -25,10 +25,13 @@
 		8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */; };
 		8B0DE4AF1EFA1C4700DD571C /* NSMenu+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */; };
 		8B0DE4B11EFA3B6600DD571C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */; };
+		8B39ADFA1F0A001700BBF4CA /* Telegraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B39ADF91F0A001700BBF4CA /* Telegraph.swift */; };
 		8B415F5C1F049D0C00FED429 /* AcknowledgementsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */; };
 		8B415F5E1F049D2F00FED429 /* AcknowledgementsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */; };
 		8B415F601F049E5700FED429 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F5F1F049E5700FED429 /* Constants.swift */; };
 		8B415F621F04A0BA00FED429 /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B415F611F04A0BA00FED429 /* acknowledgements.html */; };
+		8B415F641F05DA2700FED429 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F631F05DA2700FED429 /* Alert.swift */; };
+		8B415F671F05EFFC00FED429 /* AccountPaneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */; };
 		8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
@@ -97,10 +100,13 @@
 		8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+.swift"; sourceTree = "<group>"; };
 		8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenu+.swift"; sourceTree = "<group>"; };
 		8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B39ADF91F0A001700BBF4CA /* Telegraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Telegraph.swift; sourceTree = "<group>"; };
 		8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcknowledgementsWindow.xib; sourceTree = "<group>"; };
 		8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsWindowController.swift; sourceTree = "<group>"; };
 		8B415F5F1F049E5700FED429 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B415F611F04A0BA00FED429 /* acknowledgements.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = acknowledgements.html; path = yata/acknowledgements.html; sourceTree = SOURCE_ROOT; };
+		8B415F631F05DA2700FED429 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountPaneViewModel.swift; sourceTree = "<group>"; };
 		8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfoView.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 				8B0DE4771EF906B900DD571C /* NSWindowController+.swift */,
 				8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */,
 				8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */,
+				8B415F631F05DA2700FED429 /* Alert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -220,6 +227,14 @@
 				8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */,
 			);
 			path = WindowControllers;
+			sourceTree = "<group>";
+		};
+		8B415F651F05EFEB00FED429 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8B967FD91EFB845200EAE9CF /* Views */ = {
@@ -273,6 +288,7 @@
 		8BA4BA081EEFA3E400F85CCA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8B415F651F05EFEB00FED429 /* ViewModels */,
 				8BD9659E1F04937E00B5D904 /* Constants */,
 				8B967FD91EFB845200EAE9CF /* Views */,
 				8B0DE4881EF909AC00DD571C /* WindowControllers */,
@@ -374,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */,
+				8B39ADF91F0A001700BBF4CA /* Telegraph.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -604,6 +621,7 @@
 				8BD9658C1F03718B00B5D904 /* GeneralPaneController.swift in Sources */,
 				8B0DE4201EF2427500DD571C /* String+.swift in Sources */,
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
+				8B415F641F05DA2700FED429 /* Alert.swift in Sources */,
 				8BD9658E1F03719700B5D904 /* AccountPaneController.swift in Sources */,
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BD965A11F04948300B5D904 /* KeyChain.swift in Sources */,
@@ -616,8 +634,10 @@
 				8B0DE4901EF90A6200DD571C /* MainWindowController.swift in Sources */,
 				8B0DE4841EF909A500DD571C /* PageEditViewController.swift in Sources */,
 				8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */,
+				8B415F671F05EFFC00FED429 /* AccountPaneViewModel.swift in Sources */,
 				8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */,
 				8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
+				8B39ADFA1F0A001700BBF4CA /* Telegraph.swift in Sources */,
 				8BD9657D1F035DF400B5D904 /* PreferencesWindowController.swift in Sources */,
 				8B0DE4661EF8C84E00DD571C /* NSView+.swift in Sources */,
 				8B0DE4781EF906B900DD571C /* NSWindowController+.swift in Sources */,

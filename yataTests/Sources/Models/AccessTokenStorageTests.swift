@@ -17,15 +17,14 @@ class AccessTokenStorageTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let ats = AccessTokenStorage()
-        accessToken = ats.loadAccessToken()
+        accessToken = AccessTokenStorage.loadAccessToken()
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         if let accessToken = accessToken {
-            let ats = AccessTokenStorage()
-            ats.saveAccessToken(accessToken)
+            
+            AccessTokenStorage.saveAccessToken(accessToken)
             self.accessToken = nil
         }
         
@@ -33,16 +32,15 @@ class AccessTokenStorageTests: XCTestCase {
     }
     
     func testSimple() {
-        let ats = AccessTokenStorage()
+
+        AccessTokenStorage.saveAccessToken("token")
         
-        ats.saveAccessToken("token")
-        
-        let token = ats.loadAccessToken()
+        let token = AccessTokenStorage.loadAccessToken()
         XCTAssertEqual(token, "token")
         
-        ats.deleteAccessToken()
+        AccessTokenStorage.deleteAccessToken()
         
-        let deleted = ats.loadAccessToken()
+        let deleted = AccessTokenStorage.loadAccessToken()
         XCTAssertNil(deleted)
     }
 
