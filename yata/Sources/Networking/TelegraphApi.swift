@@ -182,6 +182,18 @@ struct GetViewsParameter {
      }
 }
 
+struct RevokeAccessTokenParameter {
+    let accessToken: String
+    
+    func toDictionary() -> [String: Any] {
+        var dict: [String: Any] = [:]
+        
+        dict["access_token"] = accessToken
+
+        return dict
+    }
+}
+
 // MARK: Telegra.ph API
 
 enum TelegraphApi {
@@ -193,7 +205,7 @@ enum TelegraphApi {
     case createPage(parameter: CreatePageParameter)
     
     /// Use this method to update information about a Telegraph account. Pass only the parameters that you want to edit. On success, returns an Account object with the default fields.
-    case editAccountInfo(paramter: EditAccountInfoParameter)
+    case editAccountInfo(parameter: EditAccountInfoParameter)
     
     /// Use this method to edit an existing Telegraph page. On success, returns a Page object.
     case editPage(parameter: EditPageParameter)
@@ -211,7 +223,7 @@ enum TelegraphApi {
     case getViews(parameter: GetViewsParameter)
     
     /// Use this method to revoke access_token and generate a new one, for example, if the user would like to reset all connected sessions, or you have reasons to believe the token was compromised. On success, returns an Account object with new access_token and auth_url fields.
-    case revokeAccessToken
+    case revokeAccessToken(parameter: RevokeAccessTokenParameter)
 }
 
 extension TelegraphApi: TargetType {
@@ -271,8 +283,8 @@ extension TelegraphApi: TargetType {
             param = parameter.toDictionary()
         case .getViews(let parameter):
             param = parameter.toDictionary()
-        case .revokeAccessToken:
-            break
+        case .revokeAccessToken(let parameter):
+            param = parameter.toDictionary()
         }
         
         return param

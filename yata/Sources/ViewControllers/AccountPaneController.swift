@@ -15,7 +15,6 @@ import Moya
 class AccountPaneController: NSViewController {
 
     let bag = DisposeBag()
-    let provider = RxMoyaProvider<TelegraphApi>()
     
     let viewModel = AccountPaneViewModel()
     
@@ -147,6 +146,7 @@ extension AccountPaneController {
     }
 
     fileprivate func setupAccountView() {
+
         viewModel.shortName
             .asObservable()
             .bind(to: shortNameField.rx.text)
@@ -162,5 +162,51 @@ extension AccountPaneController {
             .bind(to: authorUrlField.rx.text)
             .disposed(by: bag)
         
+        modifyAccountButton.rx.tap
+            .map { (self.shortNameField.stringValue, self.authorNameField.stringValue, self.authorUrlField.stringValue) }
+            .filter { (shortName, _, _) -> Bool in
+                if shortName.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
+                
+                    alertSheetModal(for: self.view.window!, message: "Short name is required.".localized, information: "Short name can not be empty. Please input short name.".localized)
+                    
+                    return false
+                }
+                
+                return true
+            }
+            .subscribe(onNext: { (shortName, authorName, authorUrl) in
+            
+                self.viewModel.editAccountInfo(shortName: shortName, authorName: authorName, authorUrl: authorUrl)
+                    .observeOn(MainScheduler.instance)
+                    .subscribe(onNext: nil, onError: { error in
+                        let alert = NSAlert(error: error)
+                        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+                    }, onCompleted: {
+                        let alert = NSAlert()
+                        alert.alertStyle = .informational
+                        alert.messageText = "Account Modification is done.".localized
+                        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+                    })
+                    .disposed(by: self.bag)
+                
+            })
+            .disposed(by: bag)
+     
+        revokeInternalTokenButton.rx.tap
+            .subscribe(onNext: {
+                self.viewModel.revokeAccessToken()
+                    .observeOn(MainScheduler.instance)
+                    .subscribe(onNext: nil, onError: { error in
+                        let alert = NSAlert(error: error)
+                        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+                    }, onCompleted: {
+                        let alert = NSAlert()
+                        alert.alertStyle = .informational
+                        alert.messageText = "Revoking Internal Token is done.".localized
+                        alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+                    })
+                    .disposed(by: self.bag)
+            })
+            .disposed(by: bag)
     }
 }

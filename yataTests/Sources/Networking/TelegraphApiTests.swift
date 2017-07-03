@@ -17,7 +17,7 @@ class TelegraphApiTest: XCTestCase {
     let bag = DisposeBag()
     
     let provider = RxMoyaProvider<TelegraphApi>()
-    
+
     override func setUp() {
         super.setUp()
 
@@ -52,6 +52,28 @@ class TelegraphApiTest: XCTestCase {
             
             XCTAssertEqual(account?.shortName, "Sandbox")
             XCTAssertEqual(account?.authorName, "Anonymous")
+            
+        } catch {
+            XCTAssert(false)
+        }
+    }
+    
+    func testRevokeAccessToken() {
+        do {
+            let param = RevokeAccessTokenParameter(accessToken: "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb")
+            let response = try provider.request(.revokeAccessToken(parameter: param))
+                .toBlocking().first()
+            XCTAssertNotNil(response)
+
+            let json = try response?.mapJSON() as? [String: Any]
+            XCTAssertNotNil(json)
+            
+            XCTAssertEqual(json?["ok"] as? Bool, false)
+            
+            let error = json?["error"] as? String
+            XCTAssertNotNil(error)
+            
+            XCTAssertEqual(error, "SANDBOX_TOKEN_REVOKE_DENIED")
             
         } catch {
             XCTAssert(false)
@@ -104,7 +126,7 @@ class TelegraphApiTest: XCTestCase {
                 authorName: "Anonymous",
                 authorUrl: "https://telegra.ph/")
             
-            let response = try provider.request(.editAccountInfo(paramter: param))
+            let response = try provider.request(.editAccountInfo(parameter: param))
                 .toBlocking().first()
             XCTAssertNotNil(response)
             

@@ -10,3 +10,7 @@ struct FileName {
     static let acknowledgements = "acknowledgements"
     static let AcknowledgementsExtension = "html"
 }
+
+enum YataError: Swift.Error {
+    case NoAccessToken
+}
