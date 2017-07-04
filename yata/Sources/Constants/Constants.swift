@@ -13,4 +13,5 @@ struct FileName {
 
 enum YataError: Swift.Error {
     case NoAccessToken
+    case NoPagePath
 }

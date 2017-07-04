@@ -71,35 +71,6 @@ extension PageListViewController {
             })
             .disposed(by: bag)
     }
-    
-//    func loadPage(_ page: Page) {
-//        guard let path = page.path else { return }
-//        
-//        let param = GetPageParameter(path: path, returnContent: true)
-//        
-//        provider.request(.getPage(parameter: param))
-//            .filterSuccessfulStatusCodes()
-//            .mapJSON()
-//            .map { data in
-//                return data as? [String: Any]
-//            }
-//            .filter { $0 != nil }
-//            .subscribe(onNext: { value in
-//                guard let value = value else { return}
-//                
-//                if let ok = value["ok"] as? Bool, ok {
-//                    if let result = value["result"] as? [String: Any] {
-//                        if let resultPage = Page(JSON: result) {
-//                            page.content = resultPage.content
-//                            self.updatePageEditView(with: page)
-//                        }
-//                    }
-//                } else {
-//                    print(value["error"] as? String ?? "")
-//                }
-//            })
-//            .addDisposableTo(bag)
-//    }
 }
 
 //
@@ -114,7 +85,7 @@ extension PageListViewController {
 extension PageListViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return viewModel.getPageCount()
+        return viewModel.numberOfRows()
     }
 }
 
@@ -126,28 +97,34 @@ extension PageListViewController: NSTableViewDelegate {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let pageInfoView = tableView.make(withIdentifier: "PageInfoView", owner: self) as? PageInfoView
-        if pageInfoView == nil {
+        guard let pageInfoView = tableView.make(withIdentifier: "PageInfoView", owner: self) as? PageInfoView else {
             return nil
         }
         
-        let pages = viewModel.getPages()
+        let page = viewModel.getPage(row: row)
         
-        pageInfoView?.titleString.value = pages[row].title!
-        pageInfoView?.viewCount.value = pages[row].views!
-        pageInfoView?.descriptionString.value = pages[row].description!
-        pageInfoView?.contentString.value = "first line\nsecond line\nthird line\nforth line"
+        pageInfoView.titleString.value = page.title!
+        pageInfoView.viewCount.value = page.views!
+        pageInfoView.descriptionString.value = page.description!
+        pageInfoView.contentString.value = "first line\nsecond line\nthird line\nforth line"
         
         return pageInfoView
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        let pages = viewModel.getPages()
-
-        let page = pages[tableView.selectedRow]
+        let page = viewModel.getPage(row: self.tableView.selectedRow)
 
         if page.content == nil {
-//            loadPage(page)
+            viewModel.loadPage(row: self.tableView.selectedRow)
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: nil, onError: { error in
+                    
+                }, onCompleted: {
+                    let page = self.viewModel.getPage(row: self.tableView.selectedRow)
+                    
+                    self.updatePageEditView(with: page)
+                })
+                .disposed(by: bag)
         } else {
             updatePageEditView(with: page)
         }
