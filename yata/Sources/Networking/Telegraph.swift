@@ -25,6 +25,29 @@ class Telegraph {
     
     private let provider = RxMoyaProvider<TelegraphApi>()
 
+    private func checkError<E>(observer: AnyObserver<E>, value: [String: Any]?) -> Bool {
+        guard let value = value else {
+            observer.onError(TelegraphError.WrongResponse)
+            return false
+        }
+        
+        guard let ok = value["ok"] as? Bool, ok else {
+            if let error = value["error"] as? String {
+                observer.onError(TelegraphError.ErrorResponse(errorCode: error))
+            } else {
+                observer.onError(TelegraphError.NoErrorCode)
+            }
+            return false
+        }
+        
+        guard let _ = value["result"] as? [String: Any] else {
+            observer.onError(TelegraphError.NoResult)
+            return false
+        }
+        
+        return true
+    }
+    
     func createAccount(shortName: String, authorName: String?, authorUrl: String?) -> Observable<Account> {
         let observable = Observable<Account>.create { observer in
             
@@ -37,24 +60,11 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard let value = value else {
-                        observer.onError(TelegraphError.WrongResponse)
+                    guard self.checkError(observer: observer, value: value) else {
                         return
                     }
-                    
-                    guard let ok = value["ok"] as? Bool, ok else {
-                        if let error = value["error"] as? String {
-                            observer.onError(TelegraphError.ErrorResponse(errorCode: error))
-                        } else {
-                            observer.onError(TelegraphError.NoErrorCode)
-                        }
-                        return
-                    }
-                    
-                    guard let result = value["result"] as? [String: Any] else {
-                        observer.onError(TelegraphError.NoResult)
-                        return
-                    }
+
+                    let result = value?["result"] as! [String: Any]
                     
                     guard let account = Account(JSON: result) else {
                         observer.onError(TelegraphError.WrongResultFormat)
@@ -88,25 +98,12 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard let value = value else {
-                        observer.onError(TelegraphError.WrongResponse)
+                    guard self.checkError(observer: observer, value: value) else {
                         return
                     }
                     
-                    guard let ok = value["ok"] as? Bool, ok else {
-                        if let error = value["error"] as? String {
-                            observer.onError(TelegraphError.ErrorResponse(errorCode: error))
-                        } else {
-                            observer.onError(TelegraphError.NoErrorCode)
-                        }
-                        return
-                    }
+                    let result = value?["result"] as! [String: Any]
                     
-                    guard let result = value["result"] as? [String: Any] else {
-                        observer.onError(TelegraphError.NoResult)
-                        return
-                    }
-
                     guard let account = Account(JSON: result) else {
                         observer.onError(TelegraphError.WrongResultFormat)
                         return
@@ -140,25 +137,12 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard let value = value else {
-                        observer.onError(TelegraphError.WrongResponse)
-                        return
-                    }
-                    
-                    guard let ok = value["ok"] as? Bool, ok else {
-                        if let error = value["error"] as? String {
-                            observer.onError(TelegraphError.ErrorResponse(errorCode: error))
-                        } else {
-                            observer.onError(TelegraphError.NoErrorCode)
-                        }
-                        return
-                    }
-                    
-                    guard let result = value["result"] as? [String: Any] else {
-                        observer.onError(TelegraphError.NoResult)
+                    guard self.checkError(observer: observer, value: value) else {
                         return
                     }
 
+                    let result = value?["result"] as! [String: Any]
+                    
                     guard let account = Account(JSON: result) else {
                         observer.onError(TelegraphError.WrongResultFormat)
                         return
@@ -190,25 +174,12 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard let value = value else {
-                        observer.onError(TelegraphError.WrongResponse)
+                    guard self.checkError(observer: observer, value: value) else {
                         return
                     }
                     
-                    guard let ok = value["ok"] as? Bool, ok else {
-                        if let error = value["error"] as? String {
-                            observer.onError(TelegraphError.ErrorResponse(errorCode: error))
-                        } else {
-                            observer.onError(TelegraphError.NoErrorCode)
-                        }
-                        return
-                    }
-                    
-                    guard let result = value["result"] as? [String: Any] else {
-                        observer.onError(TelegraphError.NoResult)
-                        return
-                    }
-                    
+                    let result = value?["result"] as! [String: Any]
+
                     guard let account = Account(JSON: result) else {
                         observer.onError(TelegraphError.WrongResultFormat)
                         return
