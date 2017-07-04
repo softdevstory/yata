@@ -12,7 +12,7 @@ import RxSwift
 
 class AccountPaneViewModel {
     
-    private let telegraph = Telegraph()
+    private let telegraph = Telegraph.shared
 
     var shortName = Variable<String>("")
     var authorName = Variable<String?>(nil)

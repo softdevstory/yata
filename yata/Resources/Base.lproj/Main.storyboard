@@ -730,6 +730,9 @@
                             <visualEffectView blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="M8M-eO-dZA">
                                 <rect key="frame" x="0.0" y="0.0" width="197" height="300"/>
                                 <subviews>
+                                    <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="cIR-DI-fZL">
+                                        <rect key="frame" x="90" y="142" width="16" height="16"/>
+                                    </progressIndicator>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="113" horizontalPageScroll="10" verticalLineScroll="113" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fa-aG-rqa">
                                         <rect key="frame" x="0.0" y="0.0" width="197" height="300"/>
                                         <clipView key="contentView" drawsBackground="NO" id="1pr-Z2-9nU">
@@ -866,8 +869,10 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="5Fa-aG-rqa" secondAttribute="trailing" id="WYS-wh-d3o"/>
                                     <constraint firstAttribute="bottom" secondItem="5Fa-aG-rqa" secondAttribute="bottom" id="X0N-Ur-Ssx"/>
+                                    <constraint firstItem="cIR-DI-fZL" firstAttribute="centerX" secondItem="M8M-eO-dZA" secondAttribute="centerX" id="brO-jS-muo"/>
                                     <constraint firstItem="5Fa-aG-rqa" firstAttribute="top" secondItem="M8M-eO-dZA" secondAttribute="top" id="l2N-Jz-TXc"/>
                                     <constraint firstItem="5Fa-aG-rqa" firstAttribute="leading" secondItem="M8M-eO-dZA" secondAttribute="leading" id="mm8-a0-M2X"/>
+                                    <constraint firstItem="cIR-DI-fZL" firstAttribute="centerY" secondItem="M8M-eO-dZA" secondAttribute="centerY" id="xjs-DG-toa"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
@@ -879,6 +884,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="spinnerView" destination="cIR-DI-fZL" id="aoF-mN-Wdw"/>
                         <outlet property="tableView" destination="dzx-2s-wp1" id="BJK-QC-h2s"/>
                     </connections>
                 </viewController>

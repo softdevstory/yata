@@ -21,31 +21,30 @@ enum TelegraphError: Swift.Error {
 
 class Telegraph {
 
+    static let shared = Telegraph()
+    
     private let bag = DisposeBag()
     
     private let provider = RxMoyaProvider<TelegraphApi>()
 
-    private func checkError<E>(observer: AnyObserver<E>, value: [String: Any]?) -> Bool {
+    private func checkError(value: [String: Any]?) -> TelegraphError? {
         guard let value = value else {
-            observer.onError(TelegraphError.WrongResponse)
-            return false
+            return TelegraphError.WrongResponse
         }
         
         guard let ok = value["ok"] as? Bool, ok else {
             if let error = value["error"] as? String {
-                observer.onError(TelegraphError.ErrorResponse(errorCode: error))
+                return TelegraphError.ErrorResponse(errorCode: error)
             } else {
-                observer.onError(TelegraphError.NoErrorCode)
+                return TelegraphError.NoErrorCode
             }
-            return false
         }
         
         guard let _ = value["result"] as? [String: Any] else {
-            observer.onError(TelegraphError.NoResult)
-            return false
+            return TelegraphError.NoResult
         }
         
-        return true
+        return nil
     }
     
     func createAccount(shortName: String, authorName: String?, authorUrl: String?) -> Observable<Account> {
@@ -60,7 +59,8 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard self.checkError(observer: observer, value: value) else {
+                    if let error = self.checkError(value: value) {
+                        observer.onError(error)
                         return
                     }
 
@@ -98,7 +98,8 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard self.checkError(observer: observer, value: value) else {
+                    if let error = self.checkError(value: value) {
+                        observer.onError(error)
                         return
                     }
                     
@@ -137,7 +138,8 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard self.checkError(observer: observer, value: value) else {
+                    if let error = self.checkError(value: value) {
+                        observer.onError(error)
                         return
                     }
 
@@ -174,7 +176,8 @@ class Telegraph {
                     return data as? [String: Any]
                 }
                 .subscribe(onNext: { value in
-                    guard self.checkError(observer: observer, value: value) else {
+                    if let error = self.checkError(value: value) {
+                        observer.onError(error)
                         return
                     }
                     
@@ -192,6 +195,46 @@ class Telegraph {
                     observer.onError(error)
                 })
             
+
+            return Disposables.create {
+                disposable.dispose()
+            }
+        }
+        
+        return observable
+    }
+    
+    func getPageList(accessToken: String, offset: Int = 0, limit: Int = 50) -> Observable<PageList> {
+        let observable = Observable<PageList>.create { observer in
+
+            let param = GetPageListParameter(accessToken: accessToken, offset: offset, limit: limit)
+        
+            let disposable = self.provider.request(.getPageList(parameter: param))
+                .filterSuccessfulStatusCodes()
+                .mapJSON()
+                .map { data in
+                    return data as? [String: Any]
+                }
+                .filter { $0 != nil }
+                .subscribe(onNext: { value in
+                    if let error = self.checkError(value: value) {
+                        observer.onError(error)
+                        return
+                    }
+                    
+                    let result = value?["result"] as! [String: Any]
+
+                    guard let pageList = PageList(JSON: result) else {
+                        observer.onError(TelegraphError.WrongResultFormat)
+                        return
+                    }
+
+                    observer.onNext(pageList)
+                    observer.onCompleted()
+                    
+                }, onError: { error in
+                    observer.onError(error)
+                })
 
             return Disposables.create {
                 disposable.dispose()

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		622C83D21C4CCD397EBA3956 /* Pods_yataTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A812B2713EF6944AE08290E /* Pods_yataTests.framework */; };
 		779CA64C4B2EE93084167B41 /* Pods_yata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E56E27CFA32D5AB593E0195D /* Pods_yata.framework */; };
+		8B028CA51F0B3B7800AAB916 /* PageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B028CA41F0B3B7800AAB916 /* PageListViewModel.swift */; };
 		8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */; };
 		8B0DE41D1EF23EF000DD571C /* TelegraphApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */; };
 		8B0DE4201EF2427500DD571C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE41F1EF2427500DD571C /* String+.swift */; };
@@ -84,6 +85,7 @@
 /* Begin PBXFileReference section */
 		1A812B2713EF6944AE08290E /* Pods_yataTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yataTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		876DB4E3AE57C4BD066073B7 /* Pods-yataTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8B028CA41F0B3B7800AAB916 /* PageListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListViewModel.swift; sourceTree = "<group>"; };
 		8B0DE41B1EF23EF000DD571C /* TelegraphApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegraphApi.swift; sourceTree = "<group>"; };
 		8B0DE41F1EF2427500DD571C /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		8B0DE4231EF2516500DD571C /* TelegraphApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelegraphApiTests.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */,
+				8B028CA41F0B3B7800AAB916 /* PageListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
 				8B39ADFA1F0A001700BBF4CA /* Telegraph.swift in Sources */,
 				8BD9657D1F035DF400B5D904 /* PreferencesWindowController.swift in Sources */,
+				8B028CA51F0B3B7800AAB916 /* PageListViewModel.swift in Sources */,
 				8B0DE4661EF8C84E00DD571C /* NSView+.swift in Sources */,
 				8B0DE4781EF906B900DD571C /* NSWindowController+.swift in Sources */,
 				8B0DE4851EF909A500DD571C /* PageListViewController.swift in Sources */,
