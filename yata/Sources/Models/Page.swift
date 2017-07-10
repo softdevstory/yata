@@ -63,3 +63,18 @@ class Page: Mappable {
         canEdit     <- map["can_edit"]
     }
 }
+
+extension Page {
+
+    var string: String {
+        var result = ""
+        
+        if let content = content {
+            for node in content {
+                result.append(node.string)
+            }
+        }
+    
+        return result
+    }
+}

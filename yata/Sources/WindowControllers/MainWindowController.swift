@@ -74,6 +74,8 @@ extension MainWindowController: NSWindowDelegate {
 enum ToolbarItem: String {
     case Reload = "Reload"
     case NewPage = "New Page"
+    case TextTool = "Text Tool"
+    case TextStyle = "Text Style"
 }
 
 // MARK: Toolbar
@@ -81,6 +83,8 @@ extension MainWindowController: NSToolbarDelegate {
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [String] {
         return [ToolbarItem.Reload.rawValue,
                 ToolbarItem.NewPage.rawValue,
+                ToolbarItem.TextTool.rawValue,
+                ToolbarItem.TextStyle.rawValue,
                 NSToolbarFlexibleSpaceItemIdentifier,
                 NSToolbarSpaceItemIdentifier,
                 NSToolbarSeparatorItemIdentifier]
@@ -88,7 +92,23 @@ extension MainWindowController: NSToolbarDelegate {
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [String] {
         return [ToolbarItem.Reload.rawValue,
-                ToolbarItem.NewPage.rawValue]
+                ToolbarItem.NewPage.rawValue,
+                NSToolbarSpaceItemIdentifier,
+                ToolbarItem.TextTool.rawValue,
+                ToolbarItem.TextStyle.rawValue]
+    }
+    
+    private func buildToolbarButton(image: NSImage) -> NSButton {
+        let button = NSButton(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
+        button.image = image
+        button.image?.size = NSSize(width: 17, height: 17)
+        button.bezelStyle = .texturedRounded
+        
+        return button
+    }
+    
+    func showPopover(_ sender: Any?) {
+        Swift.print("here")
     }
     
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: String, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
@@ -96,25 +116,76 @@ extension MainWindowController: NSToolbarDelegate {
         
         switch itemIdentifier {
         case ToolbarItem.Reload.rawValue:
-            let button = NSButton(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
-            button.image = #imageLiteral(resourceName: "icons8-synchronize")
-            button.image?.size = NSSize(width: 17, height: 17)
-            button.bezelStyle = .texturedRounded
+            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-synchronize"))
             
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
             
         case ToolbarItem.NewPage.rawValue:
-            let button = NSButton(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
-            button.image = #imageLiteral(resourceName: "icons8-create_new")
-            button.image?.size = NSSize(width: 17, height: 17)
-            button.bezelStyle = .texturedRounded
+            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-create_new"))
 
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
             
+        case ToolbarItem.TextStyle.rawValue:
+            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-lowercase"))
+            button.action = #selector(PageEditViewController.togglePopover(_:))
+            
+            toolbarItem.view = button
+            toolbarItem.label = itemIdentifier.localized
+            toolbarItem.paletteLabel = itemIdentifier.localized
+
+        case ToolbarItem.TextTool.rawValue:
+            let segment = NSSegmentedControl(frame: NSRect(x: 0, y: 0, width: 120, height: 40))
+            segment.segmentStyle = .texturedRounded
+            segment.segmentCount = 3
+            segment.trackingMode = .selectAny
+
+            segment.target = nil
+            segment.action = #selector(PageEditViewController.testMenu(_:))
+
+            let cell = segment.cell as? NSSegmentedCell
+            
+            var image = #imageLiteral(resourceName: "icons8-bold")
+            image.size = NSSize(width: 20, height: 20)
+            segment.setLabel("B", forSegment: 0)
+//            segment.setImage(image, forSegment: 0)
+            segment.setWidth(30, forSegment: 0)
+            cell?.setTag(0, forSegment: 0)
+            
+            image = #imageLiteral(resourceName: "icons8-italic")
+            image.size = NSSize(width: 20, height: 20)
+//            segment.setImage(image, forSegment: 1)
+            segment.setLabel("I", forSegment: 1)
+            segment.setWidth(30, forSegment: 1)
+            cell?.setTag(1, forSegment: 1)
+            
+            image = #imageLiteral(resourceName: "icons8-link_filled")
+            image.size = NSSize(width: 20, height: 20)
+//            segment.setImage(image, forSegment: 2)
+            segment.setLabel("L", forSegment: 2)
+            segment.setWidth(30, forSegment: 2)
+            cell?.setTag(2, forSegment: 2)
+
+//            let group = NSToolbarItemGroup(itemIdentifier: ToolbarItem.TextTool.rawValue)
+//            let itemA = NSToolbarItem(itemIdentifier: "Bold")
+//            itemA.label = "Bold"
+//            let itemB = NSToolbarItem(itemIdentifier: "Italic")
+//            itemB.label = "Italic"
+//            let itemC = NSToolbarItem(itemIdentifier: "Link")
+//            itemC.label = "Link"
+//            
+//            group.paletteLabel = itemIdentifier.localized
+//            group.subitems = [itemA, itemB, itemC]
+//            group.view = segment
+//            toolbarItem = group
+
+            toolbarItem.view = segment
+            toolbarItem.label = itemIdentifier.localized
+            toolbarItem.paletteLabel = itemIdentifier.localized
+
         default:
             break
         }

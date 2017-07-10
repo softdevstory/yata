@@ -33,6 +33,11 @@
 		8B415F621F04A0BA00FED429 /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = 8B415F611F04A0BA00FED429 /* acknowledgements.html */; };
 		8B415F641F05DA2700FED429 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F631F05DA2700FED429 /* Alert.swift */; };
 		8B415F671F05EFFC00FED429 /* AccountPaneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */; };
+		8B57D4491F0DCB8C0026D8C4 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57D4481F0DCB8C0026D8C4 /* EditorView.swift */; };
+		8B57D44B1F0F20320026D8C4 /* InputLinkSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B57D44A1F0F20320026D8C4 /* InputLinkSheet.xib */; };
+		8B57D44F1F0F2EBC0026D8C4 /* InputLinkSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */; };
+		8B649C5E1F0F3CC7003FDEEE /* TextStylePopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */; };
+		8B649C601F0F3F29003FDEEE /* TextStylePopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B649C5F1F0F3F29003FDEEE /* TextStylePopoverController.swift */; };
 		8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
@@ -109,6 +114,11 @@
 		8B415F611F04A0BA00FED429 /* acknowledgements.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = acknowledgements.html; path = yata/acknowledgements.html; sourceTree = SOURCE_ROOT; };
 		8B415F631F05DA2700FED429 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountPaneViewModel.swift; sourceTree = "<group>"; };
+		8B57D4481F0DCB8C0026D8C4 /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		8B57D44A1F0F20320026D8C4 /* InputLinkSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputLinkSheet.xib; sourceTree = "<group>"; };
+		8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputLinkSheetController.swift; sourceTree = "<group>"; };
+		8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextStylePopover.xib; sourceTree = "<group>"; };
+		8B649C5F1F0F3F29003FDEEE /* TextStylePopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylePopoverController.swift; sourceTree = "<group>"; };
 		8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfoView.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +227,8 @@
 				8B0DE47F1EF909A500DD571C /* PageListViewController.swift */,
 				8BD9658B1F03718B00B5D904 /* GeneralPaneController.swift */,
 				8BD9658D1F03719700B5D904 /* AccountPaneController.swift */,
+				8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */,
+				8B649C5F1F0F3F29003FDEEE /* TextStylePopoverController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -244,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */,
+				8B57D4481F0DCB8C0026D8C4 /* EditorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,6 +292,8 @@
 				8BD9658F1F03731500B5D904 /* GeneralPane.xib */,
 				8BD965911F03740100B5D904 /* AccountPane.xib */,
 				8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */,
+				8B57D44A1F0F20320026D8C4 /* InputLinkSheet.xib */,
+				8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */,
 				8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */,
 				8B0DE4601EF8C4BC00DD571C /* Localizable.strings */,
 				8B0DE4711EF8F53B00DD571C /* InfoPlist.strings */,
@@ -499,6 +514,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B57D44B1F0F20320026D8C4 /* InputLinkSheet.xib in Resources */,
 				8BD965901F03731500B5D904 /* GeneralPane.xib in Resources */,
 				8B0DE45E1EF8C4BC00DD571C /* Localizable.strings in Resources */,
 				8BD965821F036F2E00B5D904 /* PreferencesWindow.xib in Resources */,
@@ -508,6 +524,7 @@
 				8B415F621F04A0BA00FED429 /* acknowledgements.html in Resources */,
 				8B415F5C1F049D0C00FED429 /* AcknowledgementsWindow.xib in Resources */,
 				8BBFED2D1F00CCEB00A8263E /* Main.storyboard in Resources */,
+				8B649C5E1F0F3CC7003FDEEE /* TextStylePopover.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,7 +648,9 @@
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
 				8B0DE46C1EF8F41300DD571C /* Bundle+.swift in Sources */,
 				8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */,
+				8B57D4491F0DCB8C0026D8C4 /* EditorView.swift in Sources */,
 				8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */,
+				8B57D44F1F0F2EBC0026D8C4 /* InputLinkSheetController.swift in Sources */,
 				8BD965961F0486D400B5D904 /* AccessTokenStorage.swift in Sources */,
 				8BDF01541EF20ECE006EABDE /* Response.swift in Sources */,
 				8B0DE4901EF90A6200DD571C /* MainWindowController.swift in Sources */,
@@ -648,6 +667,7 @@
 				8B0DE4851EF909A500DD571C /* PageListViewController.swift in Sources */,
 				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
 				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
+				8B649C601F0F3F29003FDEEE /* TextStylePopoverController.swift in Sources */,
 				8B415F601F049E5700FED429 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -31,12 +31,13 @@ class PageListViewController: NSViewController {
             .disposed(by: bag)
         
         loadPageList()
+        
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
     }
-    
+
     fileprivate func startSpinner() {
         spinnerView.isHidden = false
         spinnerView.startAnimation(self)
@@ -102,11 +103,23 @@ extension PageListViewController: NSTableViewDelegate {
         }
         
         let page = viewModel.getPage(row: row)
-        
+
         pageInfoView.titleString.value = page.title!
         pageInfoView.viewCount.value = page.views!
         pageInfoView.descriptionString.value = page.description!
-        pageInfoView.contentString.value = "first line\nsecond line\nthird line\nforth line"
+        
+        if let _ = page.content {
+            pageInfoView.contentString.value = page.string
+        } else {
+            viewModel.loadPage(row: row)
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: nil, onError: { error in
+                    // error
+                }, onCompleted: {
+                    pageInfoView.descriptionString.value = page.string
+                })
+                .disposed(by: bag)
+        }
         
         return pageInfoView
     }

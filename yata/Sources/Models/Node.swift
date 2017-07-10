@@ -38,6 +38,18 @@ class Node {
     }
 }
 
+extension Node {
+
+    var string: String {
+        switch type {
+        case .string:
+            return value
+        case .nodeElement:
+            return element.string
+        }
+    }
+}
+
 
 class NodeArrayTransform: TransformType {
     typealias Object = [Node]

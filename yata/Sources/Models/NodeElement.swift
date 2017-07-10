@@ -36,3 +36,28 @@ class NodeElement: Mappable {
         children <- (map["children"], NodeArrayTransform())
     }
 }
+
+extension NodeElement {
+    
+    var string: String {
+    
+        var result = ""
+        
+        if let children = children {
+            for node in children {
+                result.append(node.string)
+            }
+        }
+        
+        if let tag = tag {
+            switch tag {
+            case "br", "p":
+                result.append("\n")
+            default:
+                break
+            }
+        }
+        
+        return result
+    }
+}

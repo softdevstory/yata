@@ -26,3 +26,10 @@ class Attrs: Mappable {
         target  <- map["target"]
     }
 }
+
+extension Attrs {
+    
+    var string: String {
+        return ""
+    }
+}

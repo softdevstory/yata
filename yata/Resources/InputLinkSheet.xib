@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="InputLinkSheetController" customModule="yata" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="Tl7-pG-kjL" id="3Sq-Jc-jJw"/>
+                <outlet property="deleteLinkButton" destination="7Ld-hs-Q6X" id="yWQ-kO-3NC"/>
+                <outlet property="linkTextField" destination="LZi-1N-ziq" id="wO2-5P-B6B"/>
+                <outlet property="okButton" destination="cSw-VK-c3j" id="wm1-V6-3Qx"/>
+                <outlet property="view" destination="Xyt-8x-gNz" id="X4H-wJ-dfU"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view wantsLayer="YES" id="Xyt-8x-gNz">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLV-jb-SkD">
+                    <rect key="frame" x="18" y="113" width="33" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Link:" id="MuM-X4-LR1">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZi-1N-ziq">
+                    <rect key="frame" x="20" y="49" width="440" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="qGS-hY-KMM"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="  " drawsBackground="YES" id="UKN-re-6MS">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Ld-hs-Q6X">
+                    <rect key="frame" x="14" y="13" width="108" height="32"/>
+                    <buttonCell key="cell" type="push" title="Delete Link" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="loz-oU-Avj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cSw-VK-c3j">
+                    <rect key="frame" x="407" y="13" width="59" height="32"/>
+                    <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3bH-xp-ZDX">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                    </buttonCell>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tl7-pG-kjL">
+                    <rect key="frame" x="325" y="13" width="82" height="32"/>
+                    <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="byG-Ak-w3n">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="JLV-jb-SkD" firstAttribute="top" secondItem="Xyt-8x-gNz" secondAttribute="top" constant="20" id="0rk-C9-qVX"/>
+                <constraint firstItem="LZi-1N-ziq" firstAttribute="top" secondItem="JLV-jb-SkD" secondAttribute="bottom" constant="8" id="8wW-uO-tKE"/>
+                <constraint firstItem="7Ld-hs-Q6X" firstAttribute="leading" secondItem="Xyt-8x-gNz" secondAttribute="leading" constant="20" id="EYy-nd-hLL"/>
+                <constraint firstItem="7Ld-hs-Q6X" firstAttribute="top" secondItem="LZi-1N-ziq" secondAttribute="bottom" constant="8" id="KcR-lz-tGi"/>
+                <constraint firstItem="7Ld-hs-Q6X" firstAttribute="baseline" secondItem="Tl7-pG-kjL" secondAttribute="baseline" id="MTJ-xH-KVx"/>
+                <constraint firstAttribute="trailing" secondItem="cSw-VK-c3j" secondAttribute="trailing" constant="20" id="NEd-qc-mFc"/>
+                <constraint firstItem="LZi-1N-ziq" firstAttribute="leading" secondItem="Xyt-8x-gNz" secondAttribute="leading" constant="20" id="Qe2-Tw-bIf"/>
+                <constraint firstItem="JLV-jb-SkD" firstAttribute="leading" secondItem="Xyt-8x-gNz" secondAttribute="leading" constant="20" id="axN-0y-2SQ"/>
+                <constraint firstAttribute="trailing" secondItem="LZi-1N-ziq" secondAttribute="trailing" constant="20" id="hok-Jc-oao"/>
+                <constraint firstItem="Tl7-pG-kjL" firstAttribute="baseline" secondItem="cSw-VK-c3j" secondAttribute="baseline" id="lKP-PX-zm8"/>
+                <constraint firstItem="cSw-VK-c3j" firstAttribute="leading" secondItem="Tl7-pG-kjL" secondAttribute="trailing" constant="12" id="ldy-j1-gh9"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
