@@ -74,51 +74,30 @@ extension EditorView {
         
         return textStorage?.attribute(NSLinkAttributeName, at: range.location, effectiveRange: &range) as? String
     }
-    
-    
+}
+
+
+// MARK: style
+extension EditorView {
+
     func setTitleStyle() {
-        changeParagraphStyle() { (storage, range) in
-            let font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize() + 6)
-            storage.setAttributes([NSFontAttributeName: font], range: range)
-        }
+        changeParagraphStyle(style: TextStyles.title)
     }
     
     func setHeaderStyle() {
-        changeParagraphStyle() { (storage, range) in
-            let font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize() + 3)
-            storage.setAttributes([NSFontAttributeName: font], range: range)
-        }
+        changeParagraphStyle(style: TextStyles.header)
     }
     
     func setBodyStyle() {
-        changeParagraphStyle() { (storage, range) in
-            let font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
-            storage.setAttributes([NSFontAttributeName: font], range: range)
-        }
+        changeParagraphStyle(style: TextStyles.body)
     }
     
     func setSingleQuotationStyle() {
-        changeParagraphStyle() { (storage, range) in
-            let font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
-            let italicFont = NSFontManager.shared().convert(font, toHaveTrait: .italicFontMask)
-
-            storage.setAttributes([NSFontAttributeName: italicFont], range: range)
-        }
+        changeParagraphStyle(style: TextStyles.singleQuotation)
     }
     
     func setDoubleQuotationStyle() {
-        changeParagraphStyle() { (storage, range) in
-            let paragraph = NSMutableParagraphStyle()
-            paragraph.alignment = .center
-            
-            let font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
-            let italicFont = NSFontManager.shared().convert(font, toHaveTrait: .italicFontMask)
-
-            storage.setAttributes([
-                NSFontAttributeName: italicFont,
-                NSParagraphStyleAttributeName: paragraph
-                ], range: range)
-        }
+        changeParagraphStyle(style: TextStyles.doubleQuotation)
     }
     
     override func paste(_ sender: Any?) {
@@ -147,7 +126,7 @@ extension EditorView {
         }
     }
     
-    fileprivate func changeParagraphStyle(work: (_ storage: NSTextStorage, _ range: NSRange) -> Void) {
+    fileprivate func changeParagraphStyle(style: [String: Any]) {
         guard let storage = textStorage else {
             return
         }
@@ -160,7 +139,7 @@ extension EditorView {
             if shouldChangeText(in: paragraphRange, replacementString: nil) {
                 storage.beginEditing()
                 
-                work(storage, range)
+                storage.setAttributes(style, range: paragraphRange)
                 
                 storage.endEditing()
                 didChangeText()
