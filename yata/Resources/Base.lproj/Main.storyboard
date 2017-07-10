@@ -684,6 +684,9 @@
                         <toolbar key="toolbar" implicitIdentifier="490A8EBA-28F4-4B76-8ADE-E58500C6C0B8" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="2ur-hz-htp">
                             <allowedToolbarItems/>
                             <defaultToolbarItems/>
+                            <connections>
+                                <outlet property="delegate" destination="B8D-0N-5wS" id="YJ0-vx-44g"/>
+                            </connections>
                         </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="YWi-rY-kbk"/>

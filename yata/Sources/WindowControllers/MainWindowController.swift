@@ -15,8 +15,7 @@ class MainWindowController: NSWindowController {
     
     override func windowDidLoad() {
     
-        toolbar.delegate = self
-//        customizePopupMenuOfToolbar()
+        customizePopupMenuOfToolbar()
     }
     
     private func customizePopupMenuOfToolbar() {
@@ -91,6 +90,7 @@ extension MainWindowController: NSToolbarDelegate {
     }
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [String] {
+        Swift.print("default toolbar items")
         return [ToolbarItem.Reload.rawValue,
                 ToolbarItem.NewPage.rawValue,
                 NSToolbarSpaceItemIdentifier,
