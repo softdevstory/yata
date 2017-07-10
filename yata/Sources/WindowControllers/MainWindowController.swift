@@ -16,7 +16,7 @@ class MainWindowController: NSWindowController {
     override func windowDidLoad() {
     
         toolbar.delegate = self
-        customizePopupMenuOfToolbar()
+//        customizePopupMenuOfToolbar()
     }
     
     private func customizePopupMenuOfToolbar() {
@@ -107,10 +107,6 @@ extension MainWindowController: NSToolbarDelegate {
         return button
     }
     
-    func showPopover(_ sender: Any?) {
-        Swift.print("here")
-    }
-    
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: String, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
         let toolbarItem: NSToolbarItem = NSToolbarItem(itemIdentifier: itemIdentifier)
         
@@ -141,7 +137,7 @@ extension MainWindowController: NSToolbarDelegate {
             let segment = NSSegmentedControl(frame: NSRect(x: 0, y: 0, width: 120, height: 40))
             segment.segmentStyle = .texturedRounded
             segment.segmentCount = 3
-            segment.trackingMode = .selectAny
+            segment.trackingMode = .momentary
 
             segment.target = nil
             segment.action = #selector(PageEditViewController.testMenu(_:))

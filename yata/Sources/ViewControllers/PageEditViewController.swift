@@ -7,8 +7,7 @@
 //
 
 import AppKit
-import SnapKit
-import Then
+
 import RxSwift
 
 class PageEditViewController: NSViewController {
@@ -16,21 +15,64 @@ class PageEditViewController: NSViewController {
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var descriptionTextField: NSTextField!
     @IBOutlet var contentTextView: EditorView!
+    @IBOutlet weak var publishButton: NSButton!
     
     let bag = DisposeBag()
     
-    let textStylePopover = NSPopover().then {
-        let vc = TextStylePopoverController()
-        $0.contentViewController = vc
-        $0.behavior = .transient
-    }
+    let textStylePopover = NSPopover()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         contentTextView.font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
         
+        setupTextStylePopover()
+        
+        publishButton.rx.tap
+            .subscribe(onNext: {
+            
+                for paragraph in (self.contentTextView.textStorage?.paragraphs)! {
+                    Swift.print("New paragraph ----- ")
+                    paragraph.enumerateAttributes(in: NSMakeRange(0, paragraph.length), options: []) { (value, range, stop) -> Void in
+
+                        Swift.print(paragraph.attributedSubstring(from: range))
+                    }
+                }
+            })
+            .disposed(by: bag)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updatePage(_:)), name: NSNotification.Name(rawValue: "updatePageEditView"), object: nil)
+    }
+    
+    private func setupTextStylePopover() {
+        let vc = TextStylePopoverController()
+        
+        textStylePopover.behavior = .transient
+        textStylePopover.contentViewController = vc
+        
+        vc.result.asObservable()
+            .subscribe(onNext: { result in
+                switch result {
+                case .none:
+                    break
+                case .titleStyle:
+                    self.contentTextView.setTitleStyle()
+                    self.textStylePopover.close()
+                case .headerStyle:
+                    self.contentTextView.setHeaderStyle()
+                    self.textStylePopover.close()
+                case .bodyStyle:
+                    self.contentTextView.setBodyStyle()
+                    self.textStylePopover.close()
+                case .singleQuotationStyle:
+                    self.contentTextView.setSingleQuotationStyle()
+                    self.textStylePopover.close()
+                case .doubleQuotationStyle:
+                    self.contentTextView.setDoubleQuotationStyle()
+                    self.textStylePopover.close()
+                }
+            })
+            .disposed(by: bag)
     }
 
     func updatePage(_ notification: Notification) {

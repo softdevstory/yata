@@ -897,11 +897,11 @@
             <objects>
                 <viewController id="t6N-QP-MBs" customClass="PageEditViewController" customModule="yata" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="dHi-IK-JHd">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="343"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="mcI-zD-HmE">
-                                <rect key="frame" x="0.0" y="203" width="450" height="97"/>
+                                <rect key="frame" x="0.0" y="246" width="450" height="97"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4E-L7-lFi">
                                         <rect key="frame" x="119" y="55" width="311" height="22"/>
@@ -952,16 +952,16 @@
                                 </constraints>
                             </customView>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0h-En-GI2">
-                                <rect key="frame" x="20" y="20" width="410" height="175"/>
+                                <rect key="frame" x="20" y="48" width="410" height="190"/>
                                 <clipView key="contentView" id="JA5-Ft-S4A">
-                                    <rect key="frame" x="1" y="1" width="408" height="173"/>
+                                    <rect key="frame" x="1" y="1" width="408" height="188"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="wUK-oD-eVa" customClass="EditorView" customModule="yata" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="408" height="173"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="408" height="188"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="408" height="173"/>
+                                            <size key="minSize" width="408" height="188"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -973,30 +973,40 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="uIj-0b-EVv">
-                                    <rect key="frame" x="393" y="1" width="16" height="173"/>
+                                    <rect key="frame" x="393" y="1" width="16" height="188"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-qU-XbD">
+                                <rect key="frame" x="351" y="13" width="85" height="32"/>
+                                <buttonCell key="cell" type="push" title="Publish" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t2U-Lz-ohv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="z2R-qU-XbD" secondAttribute="trailing" constant="20" id="BXz-5O-keL"/>
                             <constraint firstItem="c0h-En-GI2" firstAttribute="top" secondItem="mcI-zD-HmE" secondAttribute="bottom" constant="8" id="HaD-F8-BdM"/>
+                            <constraint firstItem="z2R-qU-XbD" firstAttribute="top" secondItem="wUK-oD-eVa" secondAttribute="bottom" constant="8" id="Q82-Xb-n7o"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="top" secondItem="dHi-IK-JHd" secondAttribute="top" id="YFL-ah-ful"/>
                             <constraint firstAttribute="trailing" secondItem="mcI-zD-HmE" secondAttribute="trailing" id="dOZ-XB-ONj"/>
-                            <constraint firstAttribute="bottom" secondItem="c0h-En-GI2" secondAttribute="bottom" constant="20" id="pQc-Bc-oBy"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" id="qFA-im-haF"/>
                             <constraint firstAttribute="trailing" secondItem="c0h-En-GI2" secondAttribute="trailing" constant="20" id="r4q-uZ-Hmz"/>
                             <constraint firstItem="c0h-En-GI2" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" constant="20" id="u38-mI-8r7"/>
+                            <constraint firstAttribute="bottom" secondItem="z2R-qU-XbD" secondAttribute="bottom" constant="20" id="zWe-zQ-z9g"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="contentTextView" destination="wUK-oD-eVa" id="a5V-pA-4v9"/>
                         <outlet property="descriptionTextField" destination="bal-h7-cJs" id="XDP-gv-fBi"/>
+                        <outlet property="publishButton" destination="z2R-qU-XbD" id="QsP-ek-b6I"/>
                         <outlet property="titleTextField" destination="G4E-L7-lFi" id="x4h-SP-6vg"/>
                     </connections>
                 </viewController>
                 <customObject id="bHM-Q5-IYb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1317" y="662"/>
+            <point key="canvasLocation" x="1317" y="683.5"/>
         </scene>
     </scenes>
 </document>

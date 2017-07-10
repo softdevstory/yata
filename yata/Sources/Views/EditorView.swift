@@ -38,35 +38,35 @@ extension EditorView {
     }
     
     func toggleBoldStyle() {
-        let range = selectedRange()
-        
-        if isBoldFont(range: range) {
-            textStorage?.applyFontTraits(.unboldFontMask, range: range)
-        } else {
-            textStorage?.applyFontTraits(.boldFontMask, range: range)
+        changeSelectedStyle() { (storage, range) in
+            if isBoldFont(range: range) {
+                storage.applyFontTraits(.unboldFontMask, range: range)
+            } else {
+                storage.applyFontTraits(.boldFontMask, range: range)
+            }
         }
     }
     
     func toggleItalicStyle() {
-        let range = selectedRange()
-        
-        if isItalicFont(range: range) {
-            textStorage?.applyFontTraits(.unitalicFontMask, range: range)
-        } else {
-            textStorage?.applyFontTraits(.italicFontMask, range: range)
+        changeSelectedStyle() { (storage, range) in
+            if isItalicFont(range: range) {
+                storage.applyFontTraits(.unitalicFontMask, range: range)
+            } else {
+                storage.applyFontTraits(.italicFontMask, range: range)
+            }
         }
     }
     
     func setLink(link: String) {
-        let range = selectedRange()
-        
-        textStorage?.addAttribute(NSLinkAttributeName, value: link, range: range)
+        changeSelectedStyle() { (storage, range) in
+            storage.addAttribute(NSLinkAttributeName, value: link, range: range)
+        }
     }
     
     func deleteLink() {
-        let range = selectedRange()
-        
-        textStorage?.removeAttribute(NSLinkAttributeName, range: range)
+        changeSelectedStyle() { (storage, range) in
+            storage.removeAttribute(NSLinkAttributeName, range: range)
+        }
     }
     
     func getCurrentLink() -> String? {
@@ -74,4 +74,100 @@ extension EditorView {
         
         return textStorage?.attribute(NSLinkAttributeName, at: range.location, effectiveRange: &range) as? String
     }
+    
+    
+    func setTitleStyle() {
+        changeParagraphStyle() { (storage, range) in
+            let font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize() + 6)
+            storage.setAttributes([NSFontAttributeName: font], range: range)
+        }
+    }
+    
+    func setHeaderStyle() {
+        changeParagraphStyle() { (storage, range) in
+            let font = NSFont.boldSystemFont(ofSize: NSFont.systemFontSize() + 3)
+            storage.setAttributes([NSFontAttributeName: font], range: range)
+        }
+    }
+    
+    func setBodyStyle() {
+        changeParagraphStyle() { (storage, range) in
+            let font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
+            storage.setAttributes([NSFontAttributeName: font], range: range)
+        }
+    }
+    
+    func setSingleQuotationStyle() {
+        changeParagraphStyle() { (storage, range) in
+            let font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
+            let italicFont = NSFontManager.shared().convert(font, toHaveTrait: .italicFontMask)
+
+            storage.setAttributes([NSFontAttributeName: italicFont], range: range)
+        }
+    }
+    
+    func setDoubleQuotationStyle() {
+        changeParagraphStyle() { (storage, range) in
+            let paragraph = NSMutableParagraphStyle()
+            paragraph.alignment = .center
+            
+            let font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
+            let italicFont = NSFontManager.shared().convert(font, toHaveTrait: .italicFontMask)
+
+            storage.setAttributes([
+                NSFontAttributeName: italicFont,
+                NSParagraphStyleAttributeName: paragraph
+                ], range: range)
+        }
+    }
+    
+    override func paste(_ sender: Any?) {
+        super.pasteAsPlainText(sender)
+    }
 }
+
+
+// MARK: support redo / undo
+extension EditorView {
+
+    fileprivate func changeSelectedStyle(work: (_ storage: NSTextStorage, _ range: NSRange) -> Void) {
+        guard let storage = textStorage else {
+            return
+        }
+
+        let range = selectedRange()
+        
+        if shouldChangeText(in: range, replacementString: nil) {
+            storage.beginEditing()
+            
+            work(storage, range)
+            
+            storage.endEditing()
+            didChangeText()
+        }
+    }
+    
+    fileprivate func changeParagraphStyle(work: (_ storage: NSTextStorage, _ range: NSRange) -> Void) {
+        guard let storage = textStorage else {
+            return
+        }
+
+        let range = selectedRange()
+        
+        let nsString = storage.string as NSString?
+        if let paragraphRange = nsString?.paragraphRange(for: range) {
+        
+            if shouldChangeText(in: paragraphRange, replacementString: nil) {
+                storage.beginEditing()
+                
+                work(storage, range)
+                
+                storage.endEditing()
+                didChangeText()
+            }
+        }
+    }
+
+}
+
+
