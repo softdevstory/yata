@@ -31,7 +31,6 @@ class PageListViewController: NSViewController {
             .disposed(by: bag)
         
         loadPageList()
-        
     }
     
     override func viewWillAppear() {
@@ -76,7 +75,7 @@ extension PageListViewController {
 
 //
 extension PageListViewController {
-    func updatePageEditView(with page: Page) {
+    func updatePageEditView(with page: Page?) {
         let notification = Notification(name: Notification.Name(rawValue: "updatePageEditView"), object: page, userInfo: nil)
         NotificationQueue.default.enqueue(notification, postingStyle: .now)
     }
@@ -125,6 +124,13 @@ extension PageListViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
+        // deselected
+        if tableView.selectedRow < 0 {
+            view.window?.title = "New Page".localized
+            updatePageEditView(with: nil)
+            return
+        }
+
         let page = viewModel.getPage(row: self.tableView.selectedRow)
 
         if page.content == nil {
@@ -134,14 +140,48 @@ extension PageListViewController: NSTableViewDelegate {
                     
                 }, onCompleted: {
                     let page = self.viewModel.getPage(row: self.tableView.selectedRow)
-                    
+            
+                    if let title = page.title {
+                        self.view.window?.title = title
+                    }
                     self.updatePageEditView(with: page)
                 })
                 .disposed(by: bag)
         } else {
+            if let title = page.title {
+                view.window?.title = title
+            }
+            
             updatePageEditView(with: page)
         }
     }
 }
 
+// Toolback action 
 
+extension PageListViewController {
+
+    func editNewPage(_ sender: Any?) {
+        if tableView.selectedRow >= 0 {
+            tableView.deselectRow(tableView.selectedRow)
+        }
+    }
+    
+    func reloadPageList(_ sender: Any?) {
+        loadPageList()
+    }
+
+    func viewInWebBrowser(_ sender: Any?) {
+        guard tableView.selectedRow >= 0 else {
+            return
+        }
+        
+        let page = viewModel.getPage(row: tableView.selectedRow)
+        
+        if let urlString = page.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: urlString) {
+            
+            NSWorkspace.shared().open(url)
+        }
+    }
+}

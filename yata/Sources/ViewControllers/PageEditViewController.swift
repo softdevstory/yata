@@ -69,12 +69,17 @@ class PageEditViewController: NSViewController {
     }
 
     func updatePage(_ notification: Notification) {
-        guard let page = notification.object as? Page else { return }
-
-        titleTextField.stringValue = page.title!
-        descriptionTextField.stringValue = page.description!
-        
-        contentTextView.string = page.string
+        if let page = notification.object as? Page {
+            titleTextField.stringValue = page.title!
+            descriptionTextField.stringValue = page.description!
+            
+            contentTextView.string = page.string
+        } else {
+            titleTextField.stringValue = ""
+            descriptionTextField.stringValue = ""
+            
+            contentTextView.resetText()
+        }
     }
 }
 

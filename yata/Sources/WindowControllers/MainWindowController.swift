@@ -14,7 +14,9 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var toolbar: NSToolbar!
     
     override func windowDidLoad() {
-    
+
+        window?.title = "YATA".localized
+        
         customizePopupMenuOfToolbar()
     }
     
@@ -75,6 +77,7 @@ enum ToolbarItem: String {
     case NewPage = "New Page"
     case TextTool = "Text Tool"
     case TextStyle = "Text Style"
+    case ViewInWebBrowser = "View In Web Browser"
 }
 
 // MARK: Toolbar
@@ -84,6 +87,7 @@ extension MainWindowController: NSToolbarDelegate {
                 ToolbarItem.NewPage.rawValue,
                 ToolbarItem.TextTool.rawValue,
                 ToolbarItem.TextStyle.rawValue,
+                ToolbarItem.ViewInWebBrowser.rawValue,
                 NSToolbarFlexibleSpaceItemIdentifier,
                 NSToolbarSpaceItemIdentifier,
                 NSToolbarSeparatorItemIdentifier]
@@ -95,7 +99,9 @@ extension MainWindowController: NSToolbarDelegate {
                 ToolbarItem.NewPage.rawValue,
                 NSToolbarSpaceItemIdentifier,
                 ToolbarItem.TextTool.rawValue,
-                ToolbarItem.TextStyle.rawValue]
+                ToolbarItem.TextStyle.rawValue,
+                NSToolbarFlexibleSpaceItemIdentifier,
+                ToolbarItem.ViewInWebBrowser.rawValue]
     }
     
     private func buildToolbarButton(image: NSImage) -> NSButton {
@@ -113,6 +119,7 @@ extension MainWindowController: NSToolbarDelegate {
         switch itemIdentifier {
         case ToolbarItem.Reload.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-synchronize"))
+            button.action = #selector(PageListViewController.reloadPageList(_:))
             
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
@@ -120,7 +127,8 @@ extension MainWindowController: NSToolbarDelegate {
             
         case ToolbarItem.NewPage.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-create_new"))
-
+            button.action = #selector(PageListViewController.editNewPage(_:))
+            
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
@@ -128,6 +136,14 @@ extension MainWindowController: NSToolbarDelegate {
         case ToolbarItem.TextStyle.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-lowercase"))
             button.action = #selector(PageEditViewController.togglePopover(_:))
+            
+            toolbarItem.view = button
+            toolbarItem.label = itemIdentifier.localized
+            toolbarItem.paletteLabel = itemIdentifier.localized
+            
+        case ToolbarItem.ViewInWebBrowser.rawValue:
+            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-internet"))
+            button.action = #selector(PageListViewController.viewInWebBrowser(_:))
             
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized

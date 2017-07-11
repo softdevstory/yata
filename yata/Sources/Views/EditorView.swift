@@ -14,6 +14,12 @@ class EditorView: NSTextView {
         
         typingAttributes = TextStyles.body.attributes
     }
+    
+    func resetText() {
+        string = ""
+        
+        typingAttributes = TextStyles.body.attributes
+    }
 }
 
 // MARK: style
