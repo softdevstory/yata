@@ -56,6 +56,7 @@
 		8BA4BA411EF0CB8C00F85CCA /* NodeElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */; };
 		8BB24C9A1F1351BD00023229 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB24C991F1351BD00023229 /* TextStyles.swift */; };
 		8BBFED2D1F00CCEB00A8263E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFED2B1F00CCEB00A8263E /* Main.storyboard */; };
+		8BC7343C1F14684B001EBEDB /* NSFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7343B1F14684B001EBEDB /* NSFont+.swift */; };
 		8BD9657D1F035DF400B5D904 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9657C1F035DF400B5D904 /* PreferencesWindowController.swift */; };
 		8BD965821F036F2E00B5D904 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD965841F036F2E00B5D904 /* PreferencesWindow.xib */; };
 		8BD9658C1F03718B00B5D904 /* GeneralPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9658B1F03718B00B5D904 /* GeneralPaneController.swift */; };
@@ -137,6 +138,7 @@
 		8BA4BA3C1EEFC3B500F85CCA /* AttrsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttrsTests.swift; sourceTree = "<group>"; };
 		8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElementTests.swift; sourceTree = "<group>"; };
 		8BB24C991F1351BD00023229 /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
+		8BC7343B1F14684B001EBEDB /* NSFont+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+.swift"; sourceTree = "<group>"; };
 		8BD9657C1F035DF400B5D904 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		8BD965831F036F2E00B5D904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		8BD9658A1F036FEA00B5D904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */,
 				8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */,
 				8B415F631F05DA2700FED429 /* Alert.swift */,
+				8BC7343B1F14684B001EBEDB /* NSFont+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				8B0DE4AF1EFA1C4700DD571C /* NSMenu+.swift in Sources */,
 				8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */,
 				8B415F5E1F049D2F00FED429 /* AcknowledgementsWindowController.swift in Sources */,
+				8BC7343C1F14684B001EBEDB /* NSFont+.swift in Sources */,
 				8BD9658C1F03718B00B5D904 /* GeneralPaneController.swift in Sources */,
 				8B0DE4201EF2427500DD571C /* String+.swift in Sources */,
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,

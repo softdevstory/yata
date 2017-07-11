@@ -9,28 +9,29 @@
 import Cocoa
 
 class EditorView: NSTextView {
-    
+    override func viewDidMoveToWindow() {
+        super.viewDidMoveToWindow()
+        
+        typingAttributes = TextStyles.body.attributes
+    }
 }
 
+// MARK: style
 extension EditorView {
+
     private func isBoldFont(range: NSRange) -> Bool {
         if let fontAttr = textStorage?.fontAttributes(in: range),
             let font = fontAttr[NSFontAttributeName] as? NSFont {
-            
-            let traits = NSFontManager.shared().traits(of: font)
-            return traits.contains(.boldFontMask)
+            return font.isBold
         }
 
-        // ??
         return false
     }
 
     private func isItalicFont(range: NSRange) -> Bool {
         if let fontAttr = textStorage?.fontAttributes(in: range),
             let font = fontAttr[NSFontAttributeName] as? NSFont {
-            
-            let traits = NSFontManager.shared().traits(of: font)
-            return traits.contains(.italicFontMask)
+            return font.isItalic
         }
 
         // ??
@@ -74,30 +75,25 @@ extension EditorView {
         
         return textStorage?.attribute(NSLinkAttributeName, at: range.location, effectiveRange: &range) as? String
     }
-}
-
-
-// MARK: style
-extension EditorView {
-
+    
     func setTitleStyle() {
-        changeParagraphStyle(style: TextStyles.title)
+        changeParagraphStyle(style: TextStyles.title.attributes)
     }
     
     func setHeaderStyle() {
-        changeParagraphStyle(style: TextStyles.header)
+        changeParagraphStyle(style: TextStyles.header.attributes)
     }
     
     func setBodyStyle() {
-        changeParagraphStyle(style: TextStyles.body)
+        changeParagraphStyle(style: TextStyles.body.attributes)
     }
     
     func setSingleQuotationStyle() {
-        changeParagraphStyle(style: TextStyles.singleQuotation)
+        changeParagraphStyle(style: TextStyles.singleQuotation.attributes)
     }
     
     func setDoubleQuotationStyle() {
-        changeParagraphStyle(style: TextStyles.doubleQuotation)
+        changeParagraphStyle(style: TextStyles.doubleQuotation.attributes)
     }
     
     override func paste(_ sender: Any?) {
@@ -146,7 +142,97 @@ extension EditorView {
             }
         }
     }
+}
 
+// MARK: Converting
+
+extension EditorView {
+    func convertText() {
+        guard let textStorage = textStorage else {
+            return
+        }
+        
+        var nodes: [Node] = []
+        
+        for paragraph in textStorage.paragraphs {
+            var range = NSMakeRange(0, paragraph.length)
+            let attributes = paragraph.attributes(at: 0, effectiveRange: &range)
+            let style = TextStyles(attributes: attributes)
+            
+            let element = NodeElement()
+            switch style {
+            case .unknown:
+                element.tag = "p"
+            case .title:
+                element.tag = "h3"
+            case .header:
+                element.tag = "h4"
+            case .body:
+                element.tag = "p"
+            case .singleQuotation:
+                element.tag = "blockquote"
+            case .doubleQuotation:
+                element.tag = "aside"
+            }
+            element.children = []
+
+            range = NSMakeRange(0, paragraph.length)
+            paragraph.enumerateAttributes(in: range, options: []) { attrs, range, _ in
+                let subStr = paragraph.attributedSubstring(from: range)
+                
+                var node = Node(string: subStr.string)
+                
+                if let font = attrs[NSFontAttributeName] as? NSFont {
+                    if font.isBold {
+                        switch style {
+                        case .title, .header:
+                            break
+                        default:
+                            let element = NodeElement()
+                        
+                            element.tag = "strong"
+                            element.children = []
+                            element.children?.append(node)
+                            
+                            node = Node(element: element)
+                        }
+                    }
+                    
+                    if font.isItalic {
+                        switch style {
+                        case .singleQuotation, .doubleQuotation:
+                            break
+                        default:
+                            let element = NodeElement()
+                            
+                            element.tag = "em"
+                            element.children = []
+                            element.children?.append(node)
+                            
+                            node = Node(element: element)
+                        }
+                    }
+                }
+                
+                if let _ = attrs[NSLinkAttributeName] as? String {
+                    let element = NodeElement()
+
+                    element.tag = "a"
+                    element.children = []
+                    element.children?.append(node)
+                    element.attrs = Attrs()
+                    element.attrs?.href = subStr.attribute(NSLinkAttributeName, at: 0, effectiveRange: nil) as? String
+                    
+                    node = Node(element: element)
+                }
+                
+                element.children?.append(node)
+            }
+            
+//            Swift.print(element.toJSONString()!)
+            nodes.append(Node(element: element))
+        }
+    }
 }
 
 

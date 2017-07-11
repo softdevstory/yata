@@ -15,6 +15,10 @@ class Attrs: Mappable {
     var id: String?
     var target: String?
     
+    init() {
+    
+    }
+    
     required init?(map: Map) {
 
     }

@@ -30,14 +30,7 @@ class PageEditViewController: NSViewController {
         
         publishButton.rx.tap
             .subscribe(onNext: {
-            
-                for paragraph in (self.contentTextView.textStorage?.paragraphs)! {
-                    Swift.print("New paragraph ----- ")
-                    paragraph.enumerateAttributes(in: NSMakeRange(0, paragraph.length), options: []) { (value, range, stop) -> Void in
-
-                        Swift.print(paragraph.attributedSubstring(from: range))
-                    }
-                }
+                self.contentTextView.convertText()
             })
             .disposed(by: bag)
         

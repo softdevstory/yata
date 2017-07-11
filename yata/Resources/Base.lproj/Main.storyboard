@@ -954,7 +954,7 @@
                                     <constraint firstItem="L4Z-xg-uka" firstAttribute="width" secondItem="pAA-h7-PFE" secondAttribute="width" id="rMD-5t-Bhc"/>
                                 </constraints>
                             </customView>
-                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0h-En-GI2">
+                            <scrollView verticalCompressionResistancePriority="1000" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0h-En-GI2">
                                 <rect key="frame" x="20" y="48" width="410" height="190"/>
                                 <clipView key="contentView" id="JA5-Ft-S4A">
                                     <rect key="frame" x="1" y="1" width="408" height="188"/>
@@ -991,9 +991,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="z2R-qU-XbD" secondAttribute="trailing" constant="20" id="BXz-5O-keL"/>
                             <constraint firstItem="c0h-En-GI2" firstAttribute="top" secondItem="mcI-zD-HmE" secondAttribute="bottom" constant="8" id="HaD-F8-BdM"/>
-                            <constraint firstItem="z2R-qU-XbD" firstAttribute="top" secondItem="wUK-oD-eVa" secondAttribute="bottom" constant="8" id="Q82-Xb-n7o"/>
+                            <constraint firstItem="z2R-qU-XbD" firstAttribute="top" secondItem="c0h-En-GI2" secondAttribute="bottom" constant="7" id="M34-7p-CKD"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="top" secondItem="dHi-IK-JHd" secondAttribute="top" id="YFL-ah-ful"/>
                             <constraint firstAttribute="trailing" secondItem="mcI-zD-HmE" secondAttribute="trailing" id="dOZ-XB-ONj"/>
+                            <constraint firstItem="z2R-qU-XbD" firstAttribute="leading" secondItem="c0h-En-GI2" secondAttribute="trailing" constant="-73" id="jbB-OA-uLs"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" id="qFA-im-haF"/>
                             <constraint firstAttribute="trailing" secondItem="c0h-En-GI2" secondAttribute="trailing" constant="20" id="r4q-uZ-Hmz"/>
                             <constraint firstItem="c0h-En-GI2" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" constant="20" id="u38-mI-8r7"/>

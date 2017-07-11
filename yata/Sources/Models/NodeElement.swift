@@ -28,6 +28,10 @@ class NodeElement: Mappable {
     required init?(map: Map) {
 
     }
+
+    init() {
+        // nothing
+    }
     
     func mapping(map: Map) {
         tag         <- map["tag"]
