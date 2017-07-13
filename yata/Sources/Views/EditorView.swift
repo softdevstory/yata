@@ -11,13 +11,14 @@ import Cocoa
 class EditorView: NSTextView {
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
-        
-        typingAttributes = TextStyles.body.attributes
+
+        resetText()
     }
     
     func resetText() {
         string = ""
-        
+
+        font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
         typingAttributes = TextStyles.body.attributes
     }
 }

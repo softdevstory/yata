@@ -8,7 +8,7 @@
 
 import Cocoa
 
-struct ParagraphStyle {
+fileprivate struct ParagraphStyle {
     static let title: NSParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = 10

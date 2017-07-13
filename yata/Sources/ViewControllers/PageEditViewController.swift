@@ -26,13 +26,32 @@ class PageEditViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        contentTextView.font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
+        contentTextView.layoutManager?.replaceTextStorage(viewModel.textStorage)
         
+        viewModel.title.asObservable()
+            .bind(to: titleTextField.rx.text)
+            .disposed(by: bag)
+        
+        viewModel.authorName.asObservable()
+            .bind(to: authorNameTextField.rx.text)
+            .disposed(by: bag)
+        
+        viewModel.mode.asObservable()
+            .subscribe(onNext: { mode in
+                switch mode {
+                case .new:
+                    self.publishButton.title = "Publish".localized
+                case .edit:
+                    self.publishButton.title = "Update".localized
+                }
+            })
+            .disposed(by: bag)
+
         setupTextStylePopover()
         
         publishButton.rx.tap
             .subscribe(onNext: {
-                self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue, content: self.contentTextView.textStorage)
+                self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
                     .subscribe(onNext: nil, onCompleted: {
                         Swift.print("done")
                     })
@@ -75,17 +94,8 @@ class PageEditViewController: NSViewController {
     }
 
     func updatePage(_ notification: Notification) {
-        if let page = notification.object as? Page {
-            titleTextField.stringValue = page.title!
-            authorNameTextField.stringValue = page.authorName ?? ""
-            
-            contentTextView.string = page.string
-        } else {
-            titleTextField.stringValue = ""
-            authorNameTextField.stringValue = ""
-            
-            contentTextView.resetText()
-        }
+        let page = notification.object as? Page
+        viewModel.reset(page: page)
     }
 }
 

@@ -21,20 +21,40 @@ class PageEditViewModel {
 
     private let bag = DisposeBag()
     
-    private var mode = PageEditMode.new
+    var mode = Variable<PageEditMode>(.new)
     
-    var page = Variable<Page?>(nil)
+    var page: Page?
 
+    var title = Variable<String>("")
+    var authorName = Variable<String>("")
+    
+    var textStorage = NSTextStorage()
+    
     func reset(page: Page?) {
+        self.page = page
+        
         if let page = page {
-            mode = .edit
-            self.page.value = page
+            mode.value = .edit
+            
+            title.value = page.title ?? ""
+            authorName.value = page.authorName ?? ""
+            
+            convertPage()
+            
         } else {
-            mode = .new
+            mode.value = .new
+            
+            title.value = ""
+            authorName.value = ""
+            
+            textStorage.setAttributedString(NSAttributedString(string: ""))
         }
     }
     
-    func publisNewPage(title: String, authorName: String, content: NSTextStorage?) -> Observable<Void> {
+    func publisNewPage(title: String, authorName: String) -> Observable<Void> {
+        self.title.value = title
+        self.authorName.value = authorName
+        
         let observable = Observable<Void>.create { observer in
         
 //            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
@@ -45,14 +65,14 @@ class PageEditViewModel {
             // TODO: this is for test
             let accessToken = "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb"
 
-            let contextJSONString = self.convertText(textStorage: content)
+            let contextJSONString = self.convertText()
             
             // TODO: get author URL
             let disposable = self.telegraph.createPage(accessToken: accessToken, title: title, authorName: authorName, authorUrl: nil, content: contextJSONString)
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: { page in
 
-                    self.page.value = page
+                    self.page = page
                     
                     observer.onCompleted()
 
@@ -68,11 +88,99 @@ class PageEditViewModel {
         return observable
  
     }
-    
-    private func convertText(textStorage: NSTextStorage?) -> String {
-        guard let textStorage = textStorage else {
-            return ""
+
+    private func convertNode(node: Node, style: TextStyles?) -> NSMutableAttributedString {
+        switch node.type {
+        case .string:
+            return NSMutableAttributedString(string: node.string, attributes: style?.attributes)
+        case .nodeElement:
+            return convertElement(element: node.element, style: style)
         }
+    }
+    
+    private func convertElement(element: NodeElement, style: TextStyles?) -> NSMutableAttributedString {
+        let result = NSMutableAttributedString()
+        var paragraphStyle: TextStyles = style ?? .body
+        var isParagraph = false
+        
+        var isBold = false
+        var isItalic = false
+        var isLink = false
+        var href: String = ""
+        
+        if let tag = element.tag {
+            switch tag {
+            case "p":
+                paragraphStyle = .body
+                isParagraph = true
+            case "h3":
+                paragraphStyle = .title
+                isParagraph = true
+            case "h4":
+                paragraphStyle = .header
+                isParagraph = true
+            case "blockquote":
+                paragraphStyle = .singleQuotation
+                isParagraph = true
+            case "aside":
+                paragraphStyle = .doubleQuotation
+                isParagraph = true
+                
+            case "a":
+                isLink = true
+                if let attrs = element.attrs, let h = attrs.href {
+                    href = h
+                }
+            case "strong":
+                isBold = true
+            case "em":
+                isItalic = true
+                
+            default:
+                Swift.print("Unsupported tag \(tag)")
+            }
+        }
+       
+        if let children = element.children {
+            for node in children {
+                let attrString = convertNode(node: node, style: paragraphStyle)
+                let range = NSMakeRange(0, attrString.length)
+                if isLink {
+                    attrString.addAttribute(NSLinkAttributeName, value: href, range: range)
+                }
+                if isBold {
+                    attrString.applyFontTraits(.boldFontMask, range: range)
+                }
+                if isItalic {
+                    attrString.applyFontTraits(.italicFontMask, range: range)
+                }
+                
+                result.append(attrString)
+            }
+        }
+        
+        if isParagraph {
+            result.append(NSAttributedString(string: "\n"))
+        }
+        
+        return result
+    }
+    
+    private func convertPage() {
+        guard let page = page, let content = page.content else {
+            return
+        }
+        
+        let result = NSMutableAttributedString()
+        
+        for node in content {
+            result.append(convertNode(node: node, style: nil))
+        }
+        
+        textStorage.setAttributedString(result)
+    }
+    
+    private func convertText() -> String {
         
         var json: Any?
         
@@ -105,7 +213,7 @@ class PageEditViewModel {
                 let subStr = paragraph.attributedSubstring(from: range)
                 
                 var node: [String: Any] = [:]
-                node["children"] = [subStr.string]
+                node["children"] = [subStr.string.trimmingCharacters(in: .whitespacesAndNewlines)]
                 
                 if let font = attrs[NSFontAttributeName] as? NSFont {
                     if font.isBold {
