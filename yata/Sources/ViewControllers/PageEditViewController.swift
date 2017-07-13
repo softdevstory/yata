@@ -13,13 +13,15 @@ import RxSwift
 class PageEditViewController: NSViewController {
 
     @IBOutlet weak var titleTextField: NSTextField!
-    @IBOutlet weak var descriptionTextField: NSTextField!
+    @IBOutlet weak var authorNameTextField: NSTextField!
     @IBOutlet var contentTextView: EditorView!
     @IBOutlet weak var publishButton: NSButton!
     
     let bag = DisposeBag()
     
     let textStylePopover = NSPopover()
+    
+    let viewModel = PageEditViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,14 @@ class PageEditViewController: NSViewController {
         
         publishButton.rx.tap
             .subscribe(onNext: {
-                self.contentTextView.convertText()
+                let content = self.contentTextView.convertText()
+                Swift.print(content)
+                
+                self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue, content: content)
+                    .subscribe(onNext: nil, onCompleted: {
+                        Swift.print("done")
+                    })
+                    .disposed(by: self.bag)
             })
             .disposed(by: bag)
         
@@ -71,12 +80,12 @@ class PageEditViewController: NSViewController {
     func updatePage(_ notification: Notification) {
         if let page = notification.object as? Page {
             titleTextField.stringValue = page.title!
-            descriptionTextField.stringValue = page.description!
+            authorNameTextField.stringValue = page.authorName ?? ""
             
             contentTextView.string = page.string
         } else {
             titleTextField.stringValue = ""
-            descriptionTextField.stringValue = ""
+            authorNameTextField.stringValue = ""
             
             contentTextView.resetText()
         }

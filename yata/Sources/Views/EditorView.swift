@@ -153,40 +153,53 @@ extension EditorView {
 // MARK: Converting
 
 extension EditorView {
-    func convertText() {
+    private func convertJSONString(from jsonObject: [String: Any]) -> String? {
+        let jsonData: NSData
+        
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: jsonObject, options: JSONSerialization.WritingOptions()) as Data as NSData
+            return String(data: jsonData as Data, encoding: String.Encoding.utf8)
+        } catch _ {
+            return nil
+        }
+    }
+    func convertText() -> String {
         guard let textStorage = textStorage else {
-            return
+            return ""
         }
         
-        var nodes: [Node] = []
+        var json: Any?
+        
+        json = [[String: Any]]()
         
         for paragraph in textStorage.paragraphs {
             var range = NSMakeRange(0, paragraph.length)
             let attributes = paragraph.attributes(at: 0, effectiveRange: &range)
             let style = TextStyles(attributes: attributes)
             
-            let element = NodeElement()
+            var element: [String: Any] = [:]
             switch style {
             case .unknown:
-                element.tag = "p"
+                element["tag"] = "p"
             case .title:
-                element.tag = "h3"
+                element["tag"] = "h3"
             case .header:
-                element.tag = "h4"
+                element["tag"] = "h4"
             case .body:
-                element.tag = "p"
+                element["tag"] = "p"
             case .singleQuotation:
-                element.tag = "blockquote"
+                element["tag"] = "blockquote"
             case .doubleQuotation:
-                element.tag = "aside"
+                element["tag"] = "aside"
             }
-            element.children = []
+            element["children"] = [Any]()
 
             range = NSMakeRange(0, paragraph.length)
             paragraph.enumerateAttributes(in: range, options: []) { attrs, range, _ in
                 let subStr = paragraph.attributedSubstring(from: range)
                 
-                var node = Node(string: subStr.string)
+                var node: [String: Any] = [:]
+                node["children"] = [subStr.string]
                 
                 if let font = attrs[NSFontAttributeName] as? NSFont {
                     if font.isBold {
@@ -194,13 +207,12 @@ extension EditorView {
                         case .title, .header:
                             break
                         default:
-                            let element = NodeElement()
+                            var element: [String: Any] = [:]
                         
-                            element.tag = "strong"
-                            element.children = []
-                            element.children?.append(node)
+                            element["tag"] = "strong"
+                            element["children"] = [node]
                             
-                            node = Node(element: element)
+                            node = element
                         }
                     }
                     
@@ -209,35 +221,47 @@ extension EditorView {
                         case .singleQuotation, .doubleQuotation:
                             break
                         default:
-                            let element = NodeElement()
+                            var element: [String: Any] = [:]
                             
-                            element.tag = "em"
-                            element.children = []
-                            element.children?.append(node)
+                            element["tag"] = "em"
+                            element["children"] = [node]
                             
-                            node = Node(element: element)
+                            node = element
                         }
                     }
                 }
                 
                 if let _ = attrs[NSLinkAttributeName] as? String {
-                    let element = NodeElement()
-
-                    element.tag = "a"
-                    element.children = []
-                    element.children?.append(node)
-                    element.attrs = Attrs()
-                    element.attrs?.href = subStr.attribute(NSLinkAttributeName, at: 0, effectiveRange: nil) as? String
+                    var element: [String: Any] = [:]
+                    var attr: [String: Any] = [:]
                     
-                    node = Node(element: element)
+                    element["tag"] = "a"
+                    element["children"] = [node]
+                    attr["href"] = subStr.attribute(NSLinkAttributeName, at: 0, effectiveRange: nil) as? String
+                    element["attrs"] = attr
+                    
+                    node = element
                 }
                 
-                element.children?.append(node)
+                var array = element["children"] as! [Any]
+                array.append(node)
+                element["children"] = array
             }
             
-//            Swift.print(element.toJSONString()!)
-            nodes.append(Node(element: element))
+            var array = json as! [[String: Any]]
+            array.append(element)
+            json = array as Any
         }
+        
+        do {
+            let data = try JSONSerialization.data(withJSONObject: json!)
+            let string = String(data: data, encoding: .utf8)
+            return string ?? ""
+        } catch {
+            print("error \(error)")
+        }
+        
+        return ""
     }
 }
 

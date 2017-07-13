@@ -13,14 +13,14 @@ class PageInfoView: NSTableCellView {
 
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var viewCountLabel: NSTextField!
-    @IBOutlet weak var descriptionLabel: NSTextField!
+    @IBOutlet weak var authorNameLabel: NSTextField!
     @IBOutlet weak var contentLabel: NSTextField!
     
     let bag = DisposeBag()
     
     let titleString = Variable<String>("")
     let viewCount = Variable<Int>(0)
-    let descriptionString = Variable<String>("")
+    let authorNameString = Variable<String>("")
     let contentString = Variable<String>("")
     
     override init(frame frameRect: NSRect) {
@@ -32,6 +32,8 @@ class PageInfoView: NSTableCellView {
     }
     
     override func awakeFromNib() {
+        contentLabel.maximumNumberOfLines = 3
+        
         titleString.asObservable()
             .subscribe(onNext: { value in
                 self.titleLabel.stringValue = value
@@ -44,9 +46,9 @@ class PageInfoView: NSTableCellView {
             })
             .addDisposableTo(bag)
         
-        descriptionString.asObservable()
+        authorNameString.asObservable()
             .subscribe(onNext: { value in
-                self.descriptionLabel.stringValue = value
+                self.authorNameLabel.stringValue = value
             })
             .addDisposableTo(bag)
         

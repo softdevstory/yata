@@ -57,8 +57,8 @@ extension PageListViewController {
 
         startSpinner()
         
-        // Test parameter
-        viewModel.loadPageList(accessToken: "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb")
+        // TODO: Test parameter
+        viewModel.loadPageList()
             .subscribe(onNext: nil, onError: { error in
                 self.stopSpinner()
                 
@@ -105,7 +105,7 @@ extension PageListViewController: NSTableViewDelegate {
 
         pageInfoView.titleString.value = page.title!
         pageInfoView.viewCount.value = page.views!
-        pageInfoView.descriptionString.value = page.description!
+        pageInfoView.authorNameString.value = page.authorName ?? ""
         
         if let _ = page.content {
             pageInfoView.contentString.value = page.string
@@ -115,7 +115,7 @@ extension PageListViewController: NSTableViewDelegate {
                 .subscribe(onNext: nil, onError: { error in
                     // error
                 }, onCompleted: {
-                    pageInfoView.descriptionString.value = page.string
+                    pageInfoView.contentString.value = page.string
                 })
                 .disposed(by: bag)
         }
@@ -126,7 +126,6 @@ extension PageListViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
         // deselected
         if tableView.selectedRow < 0 {
-            view.window?.title = "New Page".localized
             updatePageEditView(with: nil)
             return
         }
@@ -165,6 +164,8 @@ extension PageListViewController {
         if tableView.selectedRow >= 0 {
             tableView.deselectRow(tableView.selectedRow)
         }
+        
+        view.window?.title = "New Page".localized
     }
     
     func reloadPageList(_ sender: Any?) {

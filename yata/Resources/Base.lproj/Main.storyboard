@@ -800,7 +800,7 @@
                                                                                 </stackView>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62Q-Xc-1ug">
                                                                                     <rect key="frame" x="-2" y="64" width="196" height="17"/>
-                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Description" usesSingleLineMode="YES" id="b3H-qc-Tyn">
+                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Author name" usesSingleLineMode="YES" id="b3H-qc-Tyn">
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -808,6 +808,9 @@
                                                                                 </textField>
                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i66-sM-ws5">
                                                                                     <rect key="frame" x="-2" y="0.0" width="196" height="51"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="height" constant="51" id="o4X-DY-EL4"/>
+                                                                                    </constraints>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Content   abcde   fghijk" id="l9c-BT-Du9">
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -842,8 +845,8 @@
                                                                         <constraint firstItem="CQe-tu-5tZ" firstAttribute="top" secondItem="pUN-M3-PUz" secondAttribute="top" id="zNU-dx-G8M"/>
                                                                     </constraints>
                                                                     <connections>
+                                                                        <outlet property="authorNameLabel" destination="62Q-Xc-1ug" id="FYQ-PU-cOB"/>
                                                                         <outlet property="contentLabel" destination="i66-sM-ws5" id="YdD-ko-71W"/>
-                                                                        <outlet property="descriptionLabel" destination="62Q-Xc-1ug" id="vfw-Rx-zdO"/>
                                                                         <outlet property="titleLabel" destination="q4i-UB-ll8" id="Ldh-Nt-FOn"/>
                                                                         <outlet property="viewCountLabel" destination="tFT-Cg-Ezj" id="oan-l3-4gV"/>
                                                                     </connections>
@@ -907,7 +910,7 @@
                                 <rect key="frame" x="0.0" y="246" width="450" height="97"/>
                                 <subviews>
                                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4E-L7-lFi">
-                                        <rect key="frame" x="119" y="55" width="311" height="22"/>
+                                        <rect key="frame" x="112" y="55" width="318" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Js6-tc-MM5">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -915,7 +918,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bal-h7-cJs">
-                                        <rect key="frame" x="119" y="18" width="311" height="22"/>
+                                        <rect key="frame" x="112" y="18" width="318" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="yck-wu-5ic">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -923,16 +926,16 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAA-h7-PFE">
-                                        <rect key="frame" x="18" y="21" width="78" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Description:" id="dgd-be-ybi">
+                                        <rect key="frame" x="18" y="21" width="88" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Author Name:" id="dgd-be-ybi">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Z-xg-uka">
-                                        <rect key="frame" x="18" y="58" width="78" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title:" id="kDA-94-g4z">
+                                        <rect key="frame" x="18" y="58" width="88" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Title:" id="kDA-94-g4z">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -941,7 +944,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="2pq-be-r9P"/>
-                                    <constraint firstItem="G4E-L7-lFi" firstAttribute="leading" secondItem="L4Z-xg-uka" secondAttribute="trailing" constant="25" id="6Nr-eU-bHq"/>
+                                    <constraint firstItem="G4E-L7-lFi" firstAttribute="leading" secondItem="L4Z-xg-uka" secondAttribute="trailing" constant="8" id="6Nr-eU-bHq"/>
                                     <constraint firstItem="L4Z-xg-uka" firstAttribute="top" secondItem="mcI-zD-HmE" secondAttribute="top" constant="22" id="9Qc-Aw-PKz"/>
                                     <constraint firstAttribute="trailing" secondItem="bal-h7-cJs" secondAttribute="trailing" constant="20" id="A08-nc-0up"/>
                                     <constraint firstItem="L4Z-xg-uka" firstAttribute="baseline" secondItem="G4E-L7-lFi" secondAttribute="baseline" id="Mv1-Bt-koE"/>
@@ -994,7 +997,6 @@
                             <constraint firstItem="z2R-qU-XbD" firstAttribute="top" secondItem="c0h-En-GI2" secondAttribute="bottom" constant="7" id="M34-7p-CKD"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="top" secondItem="dHi-IK-JHd" secondAttribute="top" id="YFL-ah-ful"/>
                             <constraint firstAttribute="trailing" secondItem="mcI-zD-HmE" secondAttribute="trailing" id="dOZ-XB-ONj"/>
-                            <constraint firstItem="z2R-qU-XbD" firstAttribute="leading" secondItem="c0h-En-GI2" secondAttribute="trailing" constant="-73" id="jbB-OA-uLs"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" id="qFA-im-haF"/>
                             <constraint firstAttribute="trailing" secondItem="c0h-En-GI2" secondAttribute="trailing" constant="20" id="r4q-uZ-Hmz"/>
                             <constraint firstItem="c0h-En-GI2" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" constant="20" id="u38-mI-8r7"/>
@@ -1002,8 +1004,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="authorNameTextField" destination="bal-h7-cJs" id="MGG-Ul-Phu"/>
                         <outlet property="contentTextView" destination="wUK-oD-eVa" id="a5V-pA-4v9"/>
-                        <outlet property="descriptionTextField" destination="bal-h7-cJs" id="XDP-gv-fBi"/>
                         <outlet property="publishButton" destination="z2R-qU-XbD" id="QsP-ek-b6I"/>
                         <outlet property="titleTextField" destination="G4E-L7-lFi" id="x4h-SP-6vg"/>
                     </connections>

@@ -57,6 +57,7 @@
 		8BB24C9A1F1351BD00023229 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB24C991F1351BD00023229 /* TextStyles.swift */; };
 		8BBFED2D1F00CCEB00A8263E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBFED2B1F00CCEB00A8263E /* Main.storyboard */; };
 		8BC7343C1F14684B001EBEDB /* NSFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7343B1F14684B001EBEDB /* NSFont+.swift */; };
+		8BC7343E1F15B669001EBEDB /* PageEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC7343D1F15B669001EBEDB /* PageEditViewModel.swift */; };
 		8BD9657D1F035DF400B5D904 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9657C1F035DF400B5D904 /* PreferencesWindowController.swift */; };
 		8BD965821F036F2E00B5D904 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD965841F036F2E00B5D904 /* PreferencesWindow.xib */; };
 		8BD9658C1F03718B00B5D904 /* GeneralPaneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9658B1F03718B00B5D904 /* GeneralPaneController.swift */; };
@@ -139,6 +140,7 @@
 		8BA4BA3F1EF0CB8C00F85CCA /* NodeElementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeElementTests.swift; sourceTree = "<group>"; };
 		8BB24C991F1351BD00023229 /* TextStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
 		8BC7343B1F14684B001EBEDB /* NSFont+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSFont+.swift"; sourceTree = "<group>"; };
+		8BC7343D1F15B669001EBEDB /* PageEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageEditViewModel.swift; sourceTree = "<group>"; };
 		8BD9657C1F035DF400B5D904 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		8BD965831F036F2E00B5D904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		8BD9658A1F036FEA00B5D904 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */,
 				8B028CA41F0B3B7800AAB916 /* PageListViewModel.swift */,
+				8BC7343D1F15B669001EBEDB /* PageEditViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				8BD9658C1F03718B00B5D904 /* GeneralPaneController.swift in Sources */,
 				8B0DE4201EF2427500DD571C /* String+.swift in Sources */,
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
+				8BC7343E1F15B669001EBEDB /* PageEditViewModel.swift in Sources */,
 				8B415F641F05DA2700FED429 /* Alert.swift in Sources */,
 				8BD9658E1F03719700B5D904 /* AccountPaneController.swift in Sources */,
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
