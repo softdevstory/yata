@@ -32,10 +32,7 @@ class PageEditViewController: NSViewController {
         
         publishButton.rx.tap
             .subscribe(onNext: {
-                let content = self.contentTextView.convertText()
-                Swift.print(content)
-                
-                self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue, content: content)
+                self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue, content: self.contentTextView.textStorage)
                     .subscribe(onNext: nil, onCompleted: {
                         Swift.print("done")
                     })
