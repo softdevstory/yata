@@ -323,4 +323,44 @@ class Telegraph {
         
         return observable
     }
+    
+    func editPage(accessToken: String, path: String, title: String, authorName: String?, authorUrl: String?, content: String) -> Observable<Page> {
+       let observable = Observable<Page>.create { observer in
+
+            let param = EditPageParameter(path: path, accessToken: accessToken, title: title, authorName: authorName, authorUrl: authorUrl, content: content, returnContent: true)
+        
+            let disposable = self.provider.request(.editPage(parameter: param))
+                .filterSuccessfulStatusCodes()
+                .mapJSON()
+                .map { data in
+                    return data as? [String: Any]
+                }
+                .filter { $0 != nil }
+                .subscribe(onNext: { value in
+                    if let error = self.checkError(value: value) {
+                        observer.onError(error)
+                        return
+                    }
+                    
+                    let result = value?["result"] as! [String: Any]
+
+                    guard let page = Page(JSON: result) else {
+                        observer.onError(TelegraphError.WrongResultFormat)
+                        return
+                    }
+
+                    observer.onNext(page)
+                    observer.onCompleted()
+                    
+                }, onError: { error in
+                    observer.onError(error)
+                })
+
+            return Disposables.create {
+                disposable.dispose()
+            }
+        }
+        
+        return observable
+    }
 }

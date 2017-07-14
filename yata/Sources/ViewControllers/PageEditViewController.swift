@@ -51,11 +51,20 @@ class PageEditViewController: NSViewController {
         
         publishButton.rx.tap
             .subscribe(onNext: {
-                self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
-                    .subscribe(onNext: nil, onCompleted: {
-                        Swift.print("done")
-                    })
-                    .disposed(by: self.bag)
+                switch self.viewModel.mode.value {
+                case .new:
+                    self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
+                        .subscribe(onNext: nil, onCompleted: {
+                            Swift.print("done")
+                        })
+                        .disposed(by: self.bag)
+                case .edit:
+                    self.viewModel.updatePage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
+                        .subscribe(onNext: nil, onCompleted: {
+                            Swift.print("done")
+                        })
+                        .disposed(by: self.bag)
+                }
             })
             .disposed(by: bag)
         

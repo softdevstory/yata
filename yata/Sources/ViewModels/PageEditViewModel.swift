@@ -50,6 +50,48 @@ class PageEditViewModel {
             textStorage.setAttributedString(NSAttributedString(string: ""))
         }
     }
+
+    func updatePage(title: String, authorName: String) -> Observable<Void> {
+        self.title.value = title
+        self.authorName.value = authorName
+        
+        let observable = Observable<Void>.create { observer in
+
+            guard let path = self.page?.path else {
+                observer.onError(YataError.InternalDataError)
+                return Disposables.create()
+            }
+            
+//            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
+//                observer.onError(YataError.NoAccessToken)
+//                return Disposables.create()
+//            }
+
+            // TODO: this is for test
+            let accessToken = "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb"
+
+            let contextJSONString = self.convertText()
+            
+            // TODO: get author URL
+            let disposable = self.telegraph.editPage(accessToken: accessToken, path: path, title: title, authorName: authorName, authorUrl: nil, content: contextJSONString)
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: { page in
+
+                    self.page = page
+                    
+                    observer.onCompleted()
+
+                }, onError: { error in
+                    observer.onError(error)
+                })
+            
+            return Disposables.create {
+                disposable.dispose()
+            }
+        }
+
+        return observable
+    }
     
     func publisNewPage(title: String, authorName: String) -> Observable<Void> {
         self.title.value = title
@@ -88,6 +130,11 @@ class PageEditViewModel {
         return observable
  
     }
+}
+
+// MARK: Conversion between JSON and NSTextStorage
+
+extension PageEditViewModel {
 
     private func convertNode(node: Node, style: TextStyles?) -> NSMutableAttributedString {
         switch node.type {
@@ -166,7 +213,7 @@ class PageEditViewModel {
         return result
     }
     
-    private func convertPage() {
+    fileprivate func convertPage() {
         guard let page = page, let content = page.content else {
             return
         }
@@ -180,7 +227,7 @@ class PageEditViewModel {
         textStorage.setAttributedString(result)
     }
     
-    private func convertText() -> String {
+    fileprivate func convertText() -> String {
         
         var json: Any?
         
