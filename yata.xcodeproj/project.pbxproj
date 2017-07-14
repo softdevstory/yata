@@ -78,6 +78,7 @@
 		8BDF01521EF20B26006EABDE /* PageListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01511EF20B26006EABDE /* PageListTests.swift */; };
 		8BDF01541EF20ECE006EABDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01531EF20ECE006EABDE /* Response.swift */; };
 		8BDF01551EF20ECE006EABDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01531EF20ECE006EABDE /* Response.swift */; };
+		8BE6766B1F18592100FFCCCB /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6766A1F18592100FFCCCB /* MainSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +159,7 @@
 		8BDF01511EF20B26006EABDE /* PageListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageListTests.swift; sourceTree = "<group>"; };
 		8BDF01531EF20ECE006EABDE /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8BDF01571EF218A2006EABDE /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = yata/MyPlayground.playground; sourceTree = "<group>"; };
+		8BE6766A1F18592100FFCCCB /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
 		B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.debug.xcconfig"; sourceTree = "<group>"; };
 		CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.release.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				8BD9658D1F03719700B5D904 /* AccountPaneController.swift */,
 				8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */,
 				8B649C5F1F0F3F29003FDEEE /* TextStylePopoverController.swift */,
+				8BE6766A1F18592100FFCCCB /* MainSplitViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				8BD9658E1F03719700B5D904 /* AccountPaneController.swift in Sources */,
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BD965A11F04948300B5D904 /* KeyChain.swift in Sources */,
+				8BE6766B1F18592100FFCCCB /* MainSplitViewController.swift in Sources */,
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
 				8B0DE46C1EF8F41300DD571C /* Bundle+.swift in Sources */,
 				8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */,

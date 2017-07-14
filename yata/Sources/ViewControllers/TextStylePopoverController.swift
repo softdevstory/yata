@@ -16,8 +16,8 @@ enum TextStylePopoverResult {
     case titleStyle
     case headerStyle
     case bodyStyle
-    case singleQuotationStyle
-    case doubleQuotationStyle
+    case blockQuotationStyle
+    case pullQuoteStyle
 }
 
 class TextStylePopoverController: NSViewController {
@@ -25,8 +25,8 @@ class TextStylePopoverController: NSViewController {
     @IBOutlet weak var titleButton: NSButton!
     @IBOutlet weak var headerButton: NSButton!
     @IBOutlet weak var bodyButton: NSButton!
-    @IBOutlet weak var singleQuotaionButton: NSButton!
-    @IBOutlet weak var doubleQuotationButton: NSButton!
+    @IBOutlet weak var blockQuotaionButton: NSButton!
+    @IBOutlet weak var pullQuoteButton: NSButton!
 
     let bag = DisposeBag()
 
@@ -61,15 +61,15 @@ class TextStylePopoverController: NSViewController {
             })
             .disposed(by: bag)
         
-        singleQuotaionButton.rx.tap
+        blockQuotaionButton.rx.tap
             .subscribe(onNext: {
-                self.result.value = .singleQuotationStyle
+                self.result.value = .blockQuotationStyle
             })
             .disposed(by: bag)
         
-        doubleQuotationButton.rx.tap
+        pullQuoteButton.rx.tap
             .subscribe(onNext: {
-                self.result.value = .doubleQuotationStyle
+                self.result.value = .pullQuoteStyle
             })
             .disposed(by: bag)
     }

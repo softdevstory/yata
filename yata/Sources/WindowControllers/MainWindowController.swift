@@ -119,7 +119,7 @@ extension MainWindowController: NSToolbarDelegate {
         switch itemIdentifier {
         case ToolbarItem.Reload.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-synchronize"))
-            button.action = #selector(PageListViewController.reloadPageList(_:))
+            button.action = #selector(MainSplitViewController.reloadPageList(_:))
             
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
@@ -127,7 +127,7 @@ extension MainWindowController: NSToolbarDelegate {
             
         case ToolbarItem.NewPage.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-create_new"))
-            button.action = #selector(PageListViewController.editNewPage(_:))
+            button.action = #selector(MainSplitViewController.editNewPage(_:))
             
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized

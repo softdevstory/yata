@@ -29,7 +29,7 @@ fileprivate struct ParagraphStyle {
         return paragraph
     }()
     
-    static let singleQuotation: NSParagraphStyle = {
+    static let blockQuote: NSParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.firstLineHeadIndent = 10
         paragraph.headIndent = 10
@@ -37,7 +37,7 @@ fileprivate struct ParagraphStyle {
         return paragraph
     }()
     
-    static let doubleQuotation: NSParagraphStyle = {
+    static let pullQuote: NSParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         
@@ -51,8 +51,8 @@ enum TextStyles {
     case title
     case header
     case body
-    case singleQuotation
-    case doubleQuotation
+    case blockQuote
+    case pullQuote
 
     init(attributes: [String: Any]) {
         
@@ -71,13 +71,13 @@ enum TextStyles {
             return
         }
         
-        if TextStyles.isSingleQuotation(attributes: attributes) {
-            self = .singleQuotation
+        if TextStyles.isBlockQuote(attributes: attributes) {
+            self = .blockQuote
             return
         }
         
-        if TextStyles.isDoubleQuotation(attributes: attributes) {
-            self = .doubleQuotation
+        if TextStyles.isPullQuote(attributes: attributes) {
+            self = .pullQuote
             return
         }
         
@@ -92,10 +92,10 @@ enum TextStyles {
             return headerAttributes
         case .body:
             return bodyAttributes
-        case .singleQuotation:
-            return singleQuotationAttributes
-        case .doubleQuotation:
-            return doubleQuotationAttributes
+        case .blockQuote:
+            return blockQuotationAttributes
+        case .pullQuote:
+            return pullQuoteAttributes
             
         case .unknown:
             Swift.print("Uknown Text Styles!!")
@@ -136,23 +136,23 @@ extension TextStyles {
         ]
     }
     
-    fileprivate var singleQuotationAttributes: [String: Any] {
+    fileprivate var blockQuotationAttributes: [String: Any] {
         
         let font = NSFontManager.shared().convert(NSFont.systemFont(ofSize: NSFont.systemFontSize()), toHaveTrait: .italicFontMask)
         
         return [
             NSFontAttributeName: font,
-            NSParagraphStyleAttributeName: ParagraphStyle.singleQuotation
+            NSParagraphStyleAttributeName: ParagraphStyle.blockQuote
         ]
     }
     
-    fileprivate var doubleQuotationAttributes: [String: Any] {
+    fileprivate var pullQuoteAttributes: [String: Any] {
 
         let font = NSFontManager.shared().convert(NSFont.systemFont(ofSize: NSFont.systemFontSize()), toHaveTrait: .italicFontMask)
         
         return [
             NSFontAttributeName: font,
-            NSParagraphStyleAttributeName: ParagraphStyle.doubleQuotation
+            NSParagraphStyleAttributeName: ParagraphStyle.pullQuote
         ]
     }
 
@@ -216,7 +216,7 @@ extension TextStyles {
         return true
     }
 
-    fileprivate static func isSingleQuotation(attributes: [String: Any]) -> Bool {
+    fileprivate static func isBlockQuote(attributes: [String: Any]) -> Bool {
         guard let paragraph = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle else {
             return false
         }
@@ -225,7 +225,7 @@ extension TextStyles {
             return false
         }
 
-        if paragraph != ParagraphStyle.singleQuotation {
+        if paragraph != ParagraphStyle.blockQuote {
             return false
         }
         
@@ -236,7 +236,7 @@ extension TextStyles {
         return true
     }
 
-    fileprivate static func isDoubleQuotation(attributes: [String: Any]) -> Bool {
+    fileprivate static func isPullQuote(attributes: [String: Any]) -> Bool {
         guard let paragraph = attributes[NSParagraphStyleAttributeName] as? NSParagraphStyle else {
             return false
         }
@@ -245,7 +245,7 @@ extension TextStyles {
             return false
         }
 
-        if paragraph != ParagraphStyle.doubleQuotation {
+        if paragraph != ParagraphStyle.pullQuote {
             return false
         }
         

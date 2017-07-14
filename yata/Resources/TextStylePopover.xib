@@ -10,10 +10,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TextStylePopoverController" customModule="yata" customModuleProvider="target">
             <connections>
+                <outlet property="blockQuotaionButton" destination="zUK-yA-BTU" id="Rob-IJ-3Lq"/>
                 <outlet property="bodyButton" destination="0sp-1b-yR8" id="K3k-DF-b2q"/>
-                <outlet property="doubleQuotationButton" destination="Pgg-Im-18G" id="zJY-Sn-Ss7"/>
                 <outlet property="headerButton" destination="iHR-Li-Een" id="q2h-M7-VWj"/>
-                <outlet property="singleQuotaionButton" destination="zUK-yA-BTU" id="Rob-IJ-3Lq"/>
+                <outlet property="pullQuoteButton" destination="Pgg-Im-18G" id="zJY-Sn-Ss7"/>
                 <outlet property="titleButton" destination="xjd-md-nE0" id="sjw-1D-RRc"/>
                 <outlet property="view" destination="c22-O7-iKe" id="QOz-Z4-2gw"/>
             </connections>
@@ -50,14 +50,14 @@
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zUK-yA-BTU">
                             <rect key="frame" x="8" y="40" width="114" height="32"/>
-                            <buttonCell key="cell" type="bevel" title="Single Quotation" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="Ezv-aw-hQq">
+                            <buttonCell key="cell" type="bevel" title="Block Quotation" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="Ezv-aw-hQq">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pgg-Im-18G">
                             <rect key="frame" x="8" y="0.0" width="114" height="32"/>
-                            <buttonCell key="cell" type="bevel" title="Double Quotation" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="Jao-a8-tUO">
+                            <buttonCell key="cell" type="bevel" title="Pull Quotation" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="Jao-a8-tUO">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>

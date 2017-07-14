@@ -167,10 +167,10 @@ extension PageEditViewModel {
                 paragraphStyle = .header
                 isParagraph = true
             case "blockquote":
-                paragraphStyle = .singleQuotation
+                paragraphStyle = .blockQuote
                 isParagraph = true
             case "aside":
-                paragraphStyle = .doubleQuotation
+                paragraphStyle = .pullQuote
                 isParagraph = true
                 
             case "a":
@@ -248,9 +248,9 @@ extension PageEditViewModel {
                 element["tag"] = "h4"
             case .body:
                 element["tag"] = "p"
-            case .singleQuotation:
+            case .blockQuote:
                 element["tag"] = "blockquote"
-            case .doubleQuotation:
+            case .pullQuote:
                 element["tag"] = "aside"
             }
             element["children"] = [Any]()
@@ -279,7 +279,7 @@ extension PageEditViewModel {
                     
                     if font.isItalic {
                         switch style {
-                        case .singleQuotation, .doubleQuotation:
+                        case .blockQuote, .pullQuote:
                             break
                         default:
                             var element: [String: Any] = [:]

@@ -321,7 +321,7 @@ extension TelegraphApi: TargetType {
             return "{\"ok\":true,\"result\":{\"path\":\"Sample-Page-12-15\",\"url\":\"http://telegra.ph/Sample-Page-12-15\",\"title\":\"Sample Page\",\"description\":\"Hello, world!\",\"author_name\":\"Anonymous\",\"content\":[{\"tag\":\"p\",\"children\":[\"Hello, world!\"]}],\"views\":248}}".utf8Encoded
             
         case .getPageList:
-            return "{\"ok\": true,\"result\": {\"total_count\": 1,\"pages\": [{\"path\": \"test-06-09-2\",\"url\": \"http://telegra.ph/test-06-09-2\", \"title\": \"title is modified\",\"description\":\"double quote text\nhttp://telegra.ph/test-06-09-2\",\"author_name\": \"test\",\"author_url\": \"http://apple.com/\",\"views\": 10,\"can_edit\": true}]}}".utf8Encoded
+            return "{\"ok\": true,\"result\": {\"total_count\": 1,\"pages\": [{\"path\": \"test-06-09-2\",\"url\": \"http://telegra.ph/test-06-09-2\", \"title\": \"title is modified\",\"description\":\"Pull quote text\nhttp://telegra.ph/test-06-09-2\",\"author_name\": \"test\",\"author_url\": \"http://apple.com/\",\"views\": 10,\"can_edit\": true}]}}".utf8Encoded
         
         case .getViews:
             return "{\"ok\":true,\"result\":{\"views\":40}}".utf8Encoded

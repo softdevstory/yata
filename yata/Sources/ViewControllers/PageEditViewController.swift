@@ -9,6 +9,7 @@
 import AppKit
 
 import RxSwift
+import RxCocoa
 
 class PageEditViewController: NSViewController {
 
@@ -91,11 +92,11 @@ class PageEditViewController: NSViewController {
                 case .bodyStyle:
                     self.contentTextView.setBodyStyle()
                     self.textStylePopover.close()
-                case .singleQuotationStyle:
-                    self.contentTextView.setSingleQuotationStyle()
+                case .blockQuotationStyle:
+                    self.contentTextView.setBlockQuoteStyle()
                     self.textStylePopover.close()
-                case .doubleQuotationStyle:
-                    self.contentTextView.setDoubleQuotationStyle()
+                case .pullQuoteStyle:
+                    self.contentTextView.setPullQuoteStyle()
                     self.textStylePopover.close()
                 }
             })
@@ -158,5 +159,88 @@ extension PageEditViewController {
         } else {
             textStylePopover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         }
+    }
+}
+
+
+// support menu, toolbar
+
+extension PageEditViewController {
+
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+
+        // checking contentTextView has a focus
+        guard let _ = view.window?.firstResponder as? EditorView else {
+            return false
+        }
+        
+        let paragraphStyle = contentTextView.currentParagraphStyle()
+
+        menuItem.state = 0
+        if let menu = MenuTag(rawValue: menuItem.tag) {
+            switch menu {
+            case .formatTitle:
+                if paragraphStyle == .title {
+                    menuItem.state = 1
+                }
+            case .formatHeader:
+                if paragraphStyle == .header {
+                    menuItem.state = 1
+                }
+            case .formatBody:
+                if paragraphStyle == .body {
+                    menuItem.state = 1
+                }
+            case .formatBlockQuote:
+                if paragraphStyle == .blockQuote {
+                    menuItem.state = 1
+                }
+            case .formatPullQuote:
+                if paragraphStyle == .pullQuote {
+                    menuItem.state = 1
+                }
+//            case .formatBod:
+//            case .formatItalic:
+//            case .formatLink:
+            default:
+                break
+            }
+        }
+        
+        // TODO: check current location's style
+        
+        return true
+    }
+    
+    @IBAction func selectTitle(_ sender: Any?) {
+    
+    }
+    
+    @IBAction func selectHeader(_ sender: Any?) {
+    
+    }
+    
+    @IBAction func selectBody(_ sender: Any?) {
+    
+    }
+    
+    @IBAction func selectBlockQuote(_ sender: Any?) {
+    
+    }
+    
+    @IBAction func selectPullQuote(_ sender: Any?) {
+    
+    }
+    
+    @IBAction func toggleBold(_ sender: Any?) {
+    
+    }
+    
+    @IBAction func toggleItalic(_ sender: Any?) {
+    
+    }
+    
+    @IBAction func setLink(_ sender: Any?) {
+    
     }
 }

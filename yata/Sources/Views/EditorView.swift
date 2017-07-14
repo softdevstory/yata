@@ -95,12 +95,28 @@ extension EditorView {
         changeParagraphStyle(style: TextStyles.body.attributes)
     }
     
-    func setSingleQuotationStyle() {
-        changeParagraphStyle(style: TextStyles.singleQuotation.attributes)
+    func setBlockQuoteStyle() {
+        changeParagraphStyle(style: TextStyles.blockQuote.attributes)
     }
     
-    func setDoubleQuotationStyle() {
-        changeParagraphStyle(style: TextStyles.doubleQuotation.attributes)
+    func setPullQuoteStyle() {
+        changeParagraphStyle(style: TextStyles.pullQuote.attributes)
+    }
+    
+    func currentParagraphStyle() -> TextStyles {
+        guard let storage = textStorage else {
+            return TextStyles.unknown
+        }
+        
+        let range = selectedRange()
+
+        let nsString = storage.string as NSString?
+        if var paragraphRange = nsString?.paragraphRange(for: range) {
+            let attrs = storage.attributes(at: paragraphRange.location, effectiveRange: &paragraphRange)
+            return TextStyles(attributes: attrs)
+        }
+
+        return TextStyles.unknown
     }
     
     override func paste(_ sender: Any?) {

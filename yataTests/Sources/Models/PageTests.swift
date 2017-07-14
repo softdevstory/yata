@@ -26,7 +26,7 @@ class PageTests: XCTestCase {
             "path": "test-06-09-2",
             "url": "http://telegra.ph/test-06-09-2",
             "title": "title is modified",
-            "description": "double quote text\nhttp://telegra.ph/test-06-09-2",
+            "description": "Pull quote text\nhttp://telegra.ph/test-06-09-2",
             "author_name": "test",
             "author_url": "http://apple.com/",
             "views": 10,
@@ -54,7 +54,7 @@ class PageTests: XCTestCase {
             "path": "test-06-09-2",
             "url": "http://telegra.ph/test-06-09-2",
             "title": "title is modified",
-            "description": "double quote text\nhttp://telegra.ph/test-06-09-2",
+            "description": "Pull quote text\nhttp://telegra.ph/test-06-09-2",
             "author_name": "test",
             "author_url": "http://apple.com/",
             "content": [
@@ -131,13 +131,13 @@ class PageTests: XCTestCase {
                 [
                     "tag": "blockquote",
                     "children": [
-                        "single quote text"
+                        "block quote text"
                     ]
                 ],
                 [
                     "tag": "aside",
                     "children": [
-                        "double quote text"
+                        "pull quote text"
                     ]
                 ],
                 [
