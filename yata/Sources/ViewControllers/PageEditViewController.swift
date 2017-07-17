@@ -111,7 +111,7 @@ class PageEditViewController: NSViewController {
 
 extension PageEditViewController {
 
-    private func showSheet() {
+    func showInputLinkSheet() {
         let vc = InputLinkSheetController()
 
         vc.initialLinkString.value = contentTextView.getCurrentLink() ?? ""
@@ -143,7 +143,7 @@ extension PageEditViewController {
         case 1:
             contentTextView.toggleItalicStyle()
         case 2:
-            showSheet()
+            showInputLinkSheet()
         default:
             break
         }
@@ -199,48 +199,70 @@ extension PageEditViewController {
                 if paragraphStyle == .pullQuote {
                     menuItem.state = 1
                 }
-//            case .formatBod:
-//            case .formatItalic:
-//            case .formatLink:
-            default:
+                
+            case .formatBold:
+                switch paragraphStyle {
+                case .body, .blockQuote, .pullQuote:
+                    if contentTextView.isBold() {
+                        menuItem.state = 1
+                    }
+                    return true
+                default:
+                    return false
+                }
+            case .formatItalic:
+                switch paragraphStyle {
+                case .body:
+                    if contentTextView.isItalic() {
+                        menuItem.state = 1
+                    }
+                    return true
+                default:
+                    return false
+                }
+            case .formatLink:
+                if let _ = contentTextView.getCurrentLink() {
+                    menuItem.title = "Modify Link".localized
+                } else {
+                    menuItem.title = "Add Link".localized
+                }
                 break
+
             }
         }
-        
-        // TODO: check current location's style
         
         return true
     }
     
     @IBAction func selectTitle(_ sender: Any?) {
-    
+        contentTextView.setTitleStyle()
     }
     
     @IBAction func selectHeader(_ sender: Any?) {
-    
+        contentTextView.setHeaderStyle()
     }
     
     @IBAction func selectBody(_ sender: Any?) {
-    
+        contentTextView.setBodyStyle()
     }
     
     @IBAction func selectBlockQuote(_ sender: Any?) {
-    
+        contentTextView.setBlockQuoteStyle()
     }
     
     @IBAction func selectPullQuote(_ sender: Any?) {
-    
+        contentTextView.setPullQuoteStyle()
     }
     
     @IBAction func toggleBold(_ sender: Any?) {
-    
+        contentTextView.toggleBoldStyle()
     }
     
     @IBAction func toggleItalic(_ sender: Any?) {
-    
+        contentTextView.toggleItalicStyle()
     }
     
     @IBAction func setLink(_ sender: Any?) {
-    
+        showInputLinkSheet()
     }
 }

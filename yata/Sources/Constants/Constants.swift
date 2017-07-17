@@ -23,7 +23,7 @@ enum MenuTag: Int {
     case formatBody = 403
     case formatBlockQuote = 404
     case formatPullQuote = 405
-    case formatBod = 406
+    case formatBold = 406
     case formatItalic = 407
     case formatLink = 408
 }

@@ -21,6 +21,11 @@ class EditorView: NSTextView {
         font = NSFont.systemFont(ofSize: NSFont.systemFontSize())
         typingAttributes = TextStyles.body.attributes
     }
+
+    // Prevent paste unkown styles
+    override func paste(_ sender: Any?) {
+        super.pasteAsPlainText(sender)
+    }
 }
 
 // MARK: style
@@ -43,6 +48,18 @@ extension EditorView {
 
         // ??
         return false
+    }
+    
+    func isBold() -> Bool {
+        let range = selectedRange()
+        
+        return isBoldFont(range: range)
+    }
+    
+    func isItalic() -> Bool {
+        let range = selectedRange()
+        
+        return isItalicFont(range: range)
     }
     
     func toggleBoldStyle() {
@@ -119,9 +136,6 @@ extension EditorView {
         return TextStyles.unknown
     }
     
-    override func paste(_ sender: Any?) {
-        super.pasteAsPlainText(sender)
-    }
 }
 
 
