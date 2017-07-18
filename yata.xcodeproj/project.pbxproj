@@ -37,7 +37,7 @@
 		8B57D44B1F0F20320026D8C4 /* InputLinkSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B57D44A1F0F20320026D8C4 /* InputLinkSheet.xib */; };
 		8B57D44F1F0F2EBC0026D8C4 /* InputLinkSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */; };
 		8B649C5E1F0F3CC7003FDEEE /* TextStylePopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */; };
-		8B649C601F0F3F29003FDEEE /* TextStylePopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B649C5F1F0F3F29003FDEEE /* TextStylePopoverController.swift */; };
+		8B649C601F0F3F29003FDEEE /* TextStylePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */; };
 		8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
@@ -79,6 +79,8 @@
 		8BDF01541EF20ECE006EABDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01531EF20ECE006EABDE /* Response.swift */; };
 		8BDF01551EF20ECE006EABDE /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF01531EF20ECE006EABDE /* Response.swift */; };
 		8BE6766B1F18592100FFCCCB /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE6766A1F18592100FFCCCB /* MainSplitViewController.swift */; };
+		8BE676731F1C8EFC00FFCCCB /* PopoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE676721F1C8EFC00FFCCCB /* PopoverButton.swift */; };
+		8BE676771F1DE4AD00FFCCCB /* ButtonToolbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE676761F1DE4AD00FFCCCB /* ButtonToolbarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +124,7 @@
 		8B57D44A1F0F20320026D8C4 /* InputLinkSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputLinkSheet.xib; sourceTree = "<group>"; };
 		8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputLinkSheetController.swift; sourceTree = "<group>"; };
 		8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextStylePopover.xib; sourceTree = "<group>"; };
-		8B649C5F1F0F3F29003FDEEE /* TextStylePopoverController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylePopoverController.swift; sourceTree = "<group>"; };
+		8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylePopoverViewController.swift; sourceTree = "<group>"; };
 		8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfoView.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,7 +153,7 @@
 		8BD965911F03740100B5D904 /* AccountPane.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountPane.xib; sourceTree = "<group>"; };
 		8BD965951F0486D400B5D904 /* AccessTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenStorage.swift; sourceTree = "<group>"; };
 		8BD965981F04878D00B5D904 /* AccessTokenStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenStorageTests.swift; sourceTree = "<group>"; };
-		8BD9659F1F04938400B5D904 /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		8BD9659F1F04938400B5D904 /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyChain.swift; path = ../Constants/KeyChain.swift; sourceTree = "<group>"; };
 		8BDF01451EF105F0006EABDE /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		8BDF01481EF106D2006EABDE /* PageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageList.swift; sourceTree = "<group>"; };
 		8BDF014B1EF10C5C006EABDE /* PageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTests.swift; sourceTree = "<group>"; };
@@ -160,6 +162,8 @@
 		8BDF01531EF20ECE006EABDE /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		8BDF01571EF218A2006EABDE /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = yata/MyPlayground.playground; sourceTree = "<group>"; };
 		8BE6766A1F18592100FFCCCB /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSplitViewController.swift; sourceTree = "<group>"; };
+		8BE676721F1C8EFC00FFCCCB /* PopoverButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverButton.swift; sourceTree = "<group>"; };
+		8BE676761F1DE4AD00FFCCCB /* ButtonToolbarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonToolbarItem.swift; sourceTree = "<group>"; };
 		B87D7F7382703EEE11CD9B60 /* Pods-yataTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yataTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-yataTests/Pods-yataTests.release.xcconfig"; sourceTree = "<group>"; };
 		BF583BAFD824420C8F507903 /* Pods-yata.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.debug.xcconfig"; sourceTree = "<group>"; };
 		CC9D26FD46EE949B48B3ED19 /* Pods-yata.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yata.release.xcconfig"; path = "Pods/Target Support Files/Pods-yata/Pods-yata.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,7 +241,7 @@
 				8BD9658B1F03718B00B5D904 /* GeneralPaneController.swift */,
 				8BD9658D1F03719700B5D904 /* AccountPaneController.swift */,
 				8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */,
-				8B649C5F1F0F3F29003FDEEE /* TextStylePopoverController.swift */,
+				8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */,
 				8BE6766A1F18592100FFCCCB /* MainSplitViewController.swift */,
 			);
 			path = ViewControllers;
@@ -268,6 +272,9 @@
 			children = (
 				8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */,
 				8B57D4481F0DCB8C0026D8C4 /* EditorView.swift */,
+				8BD9659F1F04938400B5D904 /* KeyChain.swift */,
+				8BE676721F1C8EFC00FFCCCB /* PopoverButton.swift */,
+				8BE676761F1DE4AD00FFCCCB /* ButtonToolbarItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -401,7 +408,6 @@
 		8BD9659E1F04937E00B5D904 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				8BD9659F1F04938400B5D904 /* KeyChain.swift */,
 				8B415F5F1F049E5700FED429 /* Constants.swift */,
 				8BB24C991F1351BD00023229 /* TextStyles.swift */,
 			);
@@ -671,6 +677,7 @@
 				8BDF01541EF20ECE006EABDE /* Response.swift in Sources */,
 				8B0DE4901EF90A6200DD571C /* MainWindowController.swift in Sources */,
 				8B0DE4841EF909A500DD571C /* PageEditViewController.swift in Sources */,
+				8BE676731F1C8EFC00FFCCCB /* PopoverButton.swift in Sources */,
 				8BA4BA341EEFB89D00F85CCA /* Node.swift in Sources */,
 				8B415F671F05EFFC00FED429 /* AccountPaneViewModel.swift in Sources */,
 				8BA4BA371EEFBC2900F85CCA /* NodeElement.swift in Sources */,
@@ -680,10 +687,11 @@
 				8B028CA51F0B3B7800AAB916 /* PageListViewModel.swift in Sources */,
 				8B0DE4661EF8C84E00DD571C /* NSView+.swift in Sources */,
 				8B0DE4781EF906B900DD571C /* NSWindowController+.swift in Sources */,
+				8BE676771F1DE4AD00FFCCCB /* ButtonToolbarItem.swift in Sources */,
 				8B0DE4851EF909A500DD571C /* PageListViewController.swift in Sources */,
 				8BA4BA2F1EEFB5CE00F85CCA /* PageViews.swift in Sources */,
 				8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */,
-				8B649C601F0F3F29003FDEEE /* TextStylePopoverController.swift in Sources */,
+				8B649C601F0F3F29003FDEEE /* TextStylePopoverViewController.swift in Sources */,
 				8B415F601F049E5700FED429 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

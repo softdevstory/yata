@@ -5,90 +5,22 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="TextStylePopoverController" customModule="yata" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="TextStylePopoverViewController" customModule="yata" customModuleProvider="target">
             <connections>
-                <outlet property="blockQuotaionButton" destination="zUK-yA-BTU" id="Rob-IJ-3Lq"/>
-                <outlet property="bodyButton" destination="0sp-1b-yR8" id="K3k-DF-b2q"/>
-                <outlet property="headerButton" destination="iHR-Li-Een" id="q2h-M7-VWj"/>
-                <outlet property="pullQuoteButton" destination="Pgg-Im-18G" id="zJY-Sn-Ss7"/>
-                <outlet property="titleButton" destination="xjd-md-nE0" id="sjw-1D-RRc"/>
+                <outlet property="stackView" destination="bx8-TK-0Hq" id="L8F-bx-89f"/>
                 <outlet property="view" destination="c22-O7-iKe" id="QOz-Z4-2gw"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="130" height="232"/>
+            <rect key="frame" x="0.0" y="0.0" width="168" height="193"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bx8-TK-0Hq">
-                    <rect key="frame" x="0.0" y="20" width="130" height="192"/>
-                    <subviews>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xjd-md-nE0">
-                            <rect key="frame" x="8" y="160" width="114" height="32"/>
-                            <buttonCell key="cell" type="bevel" title="Title" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="vfK-dL-vBL">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="systemBlack" size="19"/>
-                            </buttonCell>
-                        </button>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iHR-Li-Een">
-                            <rect key="frame" x="8" y="120" width="114" height="32"/>
-                            <buttonCell key="cell" type="bevel" title="Header" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="1cS-21-yhR">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="systemBold" size="16"/>
-                            </buttonCell>
-                        </button>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0sp-1b-yR8">
-                            <rect key="frame" x="8" y="80" width="114" height="32"/>
-                            <buttonCell key="cell" type="bevel" title="Body" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="xQ0-bk-MAn">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zUK-yA-BTU">
-                            <rect key="frame" x="8" y="40" width="114" height="32"/>
-                            <buttonCell key="cell" type="bevel" title="Block Quotation" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="Ezv-aw-hQq">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pgg-Im-18G">
-                            <rect key="frame" x="8" y="0.0" width="114" height="32"/>
-                            <buttonCell key="cell" type="bevel" title="Pull Quotation" bezelStyle="rounded" alignment="left" imageScaling="proportionallyDown" inset="2" id="Jao-a8-tUO">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="0sp-1b-yR8" firstAttribute="leading" secondItem="bx8-TK-0Hq" secondAttribute="leading" constant="8" id="4hi-OO-66y"/>
-                        <constraint firstAttribute="trailing" secondItem="xjd-md-nE0" secondAttribute="trailing" constant="8" id="4z9-ag-L7Z"/>
-                        <constraint firstAttribute="trailing" secondItem="0sp-1b-yR8" secondAttribute="trailing" constant="8" id="7Lm-iz-1x5"/>
-                        <constraint firstItem="xjd-md-nE0" firstAttribute="leading" secondItem="bx8-TK-0Hq" secondAttribute="leading" constant="8" id="7b4-lu-oyl"/>
-                        <constraint firstItem="Pgg-Im-18G" firstAttribute="leading" secondItem="bx8-TK-0Hq" secondAttribute="leading" constant="8" id="Q3s-ZV-YMe"/>
-                        <constraint firstItem="iHR-Li-Een" firstAttribute="leading" secondItem="bx8-TK-0Hq" secondAttribute="leading" constant="8" id="Twb-EV-NFr"/>
-                        <constraint firstAttribute="trailing" secondItem="Pgg-Im-18G" secondAttribute="trailing" constant="8" id="VxR-bO-uiq"/>
-                        <constraint firstAttribute="trailing" secondItem="zUK-yA-BTU" secondAttribute="trailing" constant="8" id="YmS-rg-zrT"/>
-                        <constraint firstItem="zUK-yA-BTU" firstAttribute="leading" secondItem="bx8-TK-0Hq" secondAttribute="leading" constant="8" id="dKr-li-aG2"/>
-                        <constraint firstAttribute="trailing" secondItem="iHR-Li-Een" secondAttribute="trailing" constant="8" id="whC-22-ydq"/>
-                    </constraints>
-                    <visibilityPriorities>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                        <integer value="1000"/>
-                    </visibilityPriorities>
-                    <customSpacing>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                        <real value="3.4028234663852886e+38"/>
-                    </customSpacing>
+                <stackView distribution="fillEqually" orientation="vertical" alignment="leading" spacing="1" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bx8-TK-0Hq">
+                    <rect key="frame" x="0.0" y="20" width="168" height="153"/>
                 </stackView>
             </subviews>
             <constraints>
@@ -97,7 +29,7 @@
                 <constraint firstItem="bx8-TK-0Hq" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="Pz8-dw-k7X"/>
                 <constraint firstAttribute="bottom" secondItem="bx8-TK-0Hq" secondAttribute="bottom" constant="20" symbolic="YES" id="UTe-LI-sV9"/>
             </constraints>
-            <point key="canvasLocation" x="-468" y="90"/>
+            <point key="canvasLocation" x="-505" y="-106.5"/>
         </customView>
     </objects>
 </document>

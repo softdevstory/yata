@@ -156,10 +156,15 @@ extension PageListViewController: NSTableViewDelegate {
     }
 }
 
-// Toolback action 
+// Toolbar action
 
 extension PageListViewController {
 
+    override func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
+        // TODO: if no account disable them
+        return true
+    }
+    
     func editNewPage(_ sender: Any?) {
         if tableView.selectedRow >= 0 {
             tableView.deselectRow(tableView.selectedRow)

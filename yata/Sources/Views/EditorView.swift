@@ -11,7 +11,9 @@ import Cocoa
 class EditorView: NSTextView {
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
-
+        
+        delegate = self
+        
         resetText()
     }
     
@@ -51,14 +53,22 @@ extension EditorView {
     }
     
     func isBold() -> Bool {
-        let range = selectedRange()
+        guard let textStorage = textStorage, textStorage.length > 0 else {
+            return false
+        }
         
+        let range = selectedRange()
+
         return isBoldFont(range: range)
     }
     
     func isItalic() -> Bool {
+        guard let textStorage = textStorage, textStorage.length > 0 else {
+            return false
+        }
+
         let range = selectedRange()
-        
+
         return isItalicFont(range: range)
     }
     
@@ -95,9 +105,13 @@ extension EditorView {
     }
     
     func getCurrentLink() -> String? {
+        guard let textStorage = textStorage, textStorage.length > 0 else {
+            return nil
+        }
+
         var range = selectedRange()
         
-        return textStorage?.attribute(NSLinkAttributeName, at: range.location, effectiveRange: &range) as? String
+        return textStorage.attribute(NSLinkAttributeName, at: range.location, effectiveRange: &range) as? String
     }
     
     func setTitleStyle() {
@@ -129,6 +143,11 @@ extension EditorView {
 
         let nsString = storage.string as NSString?
         if var paragraphRange = nsString?.paragraphRange(for: range) {
+
+            if paragraphRange.length == 0 {
+                return TextStyles.unknown
+            }
+            
             let attrs = storage.attributes(at: paragraphRange.location, effectiveRange: &paragraphRange)
             return TextStyles(attributes: attrs)
         }
@@ -177,6 +196,26 @@ extension EditorView {
                 storage.endEditing()
                 didChangeText()
             }
+        }
+    }
+}
+
+extension EditorView: NSTextViewDelegate {
+    func textViewDidChangeSelection(_ notification: Notification) {
+        let paragraphStyle = currentParagraphStyle()
+        switch paragraphStyle {
+        case .unknown:
+            Swift.print("unkonwn")
+        case .title:
+            Swift.print("title")
+        case .header:
+            Swift.print("header")
+        case .body:
+            Swift.print("body")
+        case .blockQuote:
+            Swift.print("blockquote")
+        case .pullQuote:
+            Swift.print("pullQuote")
         }
     }
 }

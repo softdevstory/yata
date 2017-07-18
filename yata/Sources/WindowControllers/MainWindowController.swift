@@ -9,15 +9,68 @@
 
 import AppKit
 
+import RxSwift
+
 class MainWindowController: NSWindowController {
 
-    @IBOutlet weak var toolbar: NSToolbar!
+    fileprivate let bag = DisposeBag()
     
-    override func windowDidLoad() {
+    fileprivate let textStylePopover = NSPopover()
+    fileprivate let textStylePopoverViewController = TextStylePopoverViewController()
 
-        window?.title = "YATA".localized
+    override func windowDidLoad() {
+        super.windowDidLoad()
+
+        setupTextStylePopover()
+
+        guard let window = window else {
+            return
+        }
+        
+        window.title = "YATA".localized
+        
+        let toolbar = NSToolbar(identifier: "MainToolbar")
+        toolbar.allowsUserCustomization = true
+        toolbar.displayMode = .iconOnly
+        toolbar.sizeMode = .small
+        toolbar.delegate = self
+
+        window.toolbar = toolbar
         
         customizePopupMenuOfToolbar()
+    }
+    
+    private func setupTextStylePopover() {
+        textStylePopover.behavior = .transient
+        textStylePopover.contentViewController = textStylePopoverViewController
+        
+        textStylePopoverViewController.result.asObservable()
+            .subscribe(onNext: { result in
+                guard let editorView = self.window?.firstResponder as? EditorView else {
+                    return
+                }
+                
+                switch result {
+                case .none:
+                    break
+                case .titleStyle:
+                    editorView.setTitleStyle()
+                    self.textStylePopover.close()
+                case .headerStyle:
+                    editorView.setHeaderStyle()
+                    self.textStylePopover.close()
+                case .bodyStyle:
+                    editorView.setBodyStyle()
+                    self.textStylePopover.close()
+                case .blockQuotationStyle:
+                    editorView.setBlockQuoteStyle()
+                    self.textStylePopover.close()
+                case .pullQuoteStyle:
+                    editorView.setPullQuoteStyle()
+                    self.textStylePopover.close()
+                }
+            })
+            .disposed(by: bag)
     }
     
     private func customizePopupMenuOfToolbar() {
@@ -72,6 +125,8 @@ extension MainWindowController: NSWindowDelegate {
     }
 }
 
+// MARK: Toolbar
+
 enum ToolbarItem: String {
     case Reload = "Reload"
     case NewPage = "New Page"
@@ -80,8 +135,85 @@ enum ToolbarItem: String {
     case ViewInWebBrowser = "View In Web Browser"
 }
 
-// MARK: Toolbar
+extension MainWindowController {
+
+    override func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
+
+        // checking editorView has a focus
+        guard let editorView = window?.firstResponder as? EditorView else {
+            return false
+        }
+
+        return true
+    }
+    
+    func toggleTextStylePopover(_ sender: Any?) {
+        guard let editorView = window?.firstResponder as? EditorView else {
+            return
+        }
+        
+        guard let button = sender as? NSButton else {
+            return
+        }
+        
+        if textStylePopover.isShown {
+            textStylePopover.close()
+        } else {
+            textStylePopoverViewController.textStyle.value = editorView.currentParagraphStyle()
+            textStylePopover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        }
+    }
+    
+    private func showInputLinkSheet(editorView: EditorView) {
+
+        let vc = InputLinkSheetController()
+
+        vc.initialLinkString.value = editorView.getCurrentLink() ?? ""
+        
+        vc.result.asObservable()
+            .subscribe(onNext: { value in
+            
+                switch value {
+                case .cancel, .none:
+                    break
+
+                case .ok(let link):
+                    editorView.setLink(link: link)
+                    
+                case .deleteLink:
+                    editorView.deleteLink()
+                }
+            })
+            .disposed(by: bag)
+        
+        contentViewController?.presentViewControllerAsSheet(vc)
+    }
+    
+    func toggleTextTool(_ sender: Any?) {
+        guard let segment = sender as? NSSegmentedControl else {
+            return
+        }
+        
+        guard let editorView = window?.firstResponder as? EditorView else {
+            return
+        }
+        
+        switch segment.selectedSegment {
+        case 0:
+            editorView.toggleBoldStyle()
+        case 1:
+            editorView.toggleItalicStyle()
+        case 2:
+            showInputLinkSheet(editorView: editorView)
+        default:
+            break
+        }
+    }
+}
+
+// MARK: Toolbar delegate
 extension MainWindowController: NSToolbarDelegate {
+    
     func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [String] {
         return [ToolbarItem.Reload.rawValue,
                 ToolbarItem.NewPage.rawValue,
@@ -94,11 +226,11 @@ extension MainWindowController: NSToolbarDelegate {
     }
     
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [String] {
-        Swift.print("default toolbar items")
         return [ToolbarItem.Reload.rawValue,
                 ToolbarItem.NewPage.rawValue,
                 NSToolbarSpaceItemIdentifier,
                 ToolbarItem.TextTool.rawValue,
+                NSToolbarSpaceItemIdentifier,
                 ToolbarItem.TextStyle.rawValue,
                 NSToolbarFlexibleSpaceItemIdentifier,
                 ToolbarItem.ViewInWebBrowser.rawValue]
@@ -107,14 +239,14 @@ extension MainWindowController: NSToolbarDelegate {
     private func buildToolbarButton(image: NSImage) -> NSButton {
         let button = NSButton(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
         button.image = image
-        button.image?.size = NSSize(width: 17, height: 17)
+        button.image?.size = NSSize(width: 16, height: 16)
         button.bezelStyle = .texturedRounded
         
         return button
     }
     
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: String, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
-        let toolbarItem: NSToolbarItem = NSToolbarItem(itemIdentifier: itemIdentifier)
+        let toolbarItem: ButtonToolbarItem = ButtonToolbarItem(itemIdentifier: itemIdentifier)
         
         switch itemIdentifier {
         case ToolbarItem.Reload.rawValue:
@@ -124,6 +256,7 @@ extension MainWindowController: NSToolbarDelegate {
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
+            toolbarItem.tag = ToolbarTag.reloadPageList.rawValue
             
         case ToolbarItem.NewPage.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-create_new"))
@@ -132,23 +265,28 @@ extension MainWindowController: NSToolbarDelegate {
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
+            toolbarItem.tag = ToolbarTag.newPage.rawValue
             
         case ToolbarItem.TextStyle.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-lowercase"))
-            button.action = #selector(PageEditViewController.togglePopover(_:))
+            button.action = #selector(MainWindowController.toggleTextStylePopover(_:))
             
             toolbarItem.view = button
+
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
+            toolbarItem.tag = ToolbarTag.paragraphStyle.rawValue
             
         case ToolbarItem.ViewInWebBrowser.rawValue:
             let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-internet"))
             button.action = #selector(PageListViewController.viewInWebBrowser(_:))
             
             toolbarItem.view = button
+            
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
-
+            toolbarItem.tag = ToolbarTag.viewInWebBrowser.rawValue
+            
         case ToolbarItem.TextTool.rawValue:
             let segment = NSSegmentedControl(frame: NSRect(x: 0, y: 0, width: 120, height: 40))
             segment.segmentStyle = .texturedRounded
@@ -156,43 +294,27 @@ extension MainWindowController: NSToolbarDelegate {
             segment.trackingMode = .momentary
 
             segment.target = nil
-            segment.action = #selector(PageEditViewController.testMenu(_:))
-
-            let cell = segment.cell as? NSSegmentedCell
+            segment.action = #selector(MainWindowController.toggleTextTool(_:))
             
+            let cell = segment.cell as? NSSegmentedCell
+  
             var image = #imageLiteral(resourceName: "icons8-bold")
-            image.size = NSSize(width: 20, height: 20)
-            segment.setLabel("B", forSegment: 0)
-//            segment.setImage(image, forSegment: 0)
+            image.size = NSMakeSize(16, 16)
+            segment.setImage(image, forSegment: 0)
             segment.setWidth(30, forSegment: 0)
             cell?.setTag(0, forSegment: 0)
-            
+  
             image = #imageLiteral(resourceName: "icons8-italic")
-            image.size = NSSize(width: 20, height: 20)
-//            segment.setImage(image, forSegment: 1)
-            segment.setLabel("I", forSegment: 1)
+            image.size = NSMakeSize(16, 16)
+            segment.setImage(image, forSegment: 1)
             segment.setWidth(30, forSegment: 1)
             cell?.setTag(1, forSegment: 1)
             
-            image = #imageLiteral(resourceName: "icons8-link_filled")
-            image.size = NSSize(width: 20, height: 20)
-//            segment.setImage(image, forSegment: 2)
-            segment.setLabel("L", forSegment: 2)
+            image = #imageLiteral(resourceName: "icons8-link")
+            image.size = NSMakeSize(16, 16)
+            segment.setImage(image, forSegment: 2)
             segment.setWidth(30, forSegment: 2)
             cell?.setTag(2, forSegment: 2)
-
-//            let group = NSToolbarItemGroup(itemIdentifier: ToolbarItem.TextTool.rawValue)
-//            let itemA = NSToolbarItem(itemIdentifier: "Bold")
-//            itemA.label = "Bold"
-//            let itemB = NSToolbarItem(itemIdentifier: "Italic")
-//            itemB.label = "Italic"
-//            let itemC = NSToolbarItem(itemIdentifier: "Link")
-//            itemC.label = "Link"
-//            
-//            group.paletteLabel = itemIdentifier.localized
-//            group.subitems = [itemA, itemB, itemC]
-//            group.view = segment
-//            toolbarItem = group
 
             toolbarItem.view = segment
             toolbarItem.label = itemIdentifier.localized

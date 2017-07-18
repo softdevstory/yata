@@ -448,19 +448,11 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="490A8EBA-28F4-4B76-8ADE-E58500C6C0B8" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="2ur-hz-htp">
-                            <allowedToolbarItems/>
-                            <defaultToolbarItems/>
-                            <connections>
-                                <outlet property="delegate" destination="B8D-0N-5wS" id="YJ0-vx-44g"/>
-                            </connections>
-                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="YWi-rY-kbk"/>
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="toolbar" destination="2ur-hz-htp" id="AGy-X6-gGP"/>
                         <segue destination="pkV-k3-QVP" kind="relationship" relationship="window.shadowedContentViewController" id="z7O-bA-U1j"/>
                     </connections>
                 </windowController>
@@ -780,7 +772,7 @@
                     </view>
                     <connections>
                         <outlet property="authorNameTextField" destination="bal-h7-cJs" id="MGG-Ul-Phu"/>
-                        <outlet property="contentTextView" destination="wUK-oD-eVa" id="a5V-pA-4v9"/>
+                        <outlet property="editorView" destination="wUK-oD-eVa" id="a5V-pA-4v9"/>
                         <outlet property="publishButton" destination="z2R-qU-XbD" id="QsP-ek-b6I"/>
                         <outlet property="titleTextField" destination="G4E-L7-lFi" id="x4h-SP-6vg"/>
                     </connections>

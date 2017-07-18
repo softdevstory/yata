@@ -27,3 +27,17 @@ enum MenuTag: Int {
     case formatItalic = 407
     case formatLink = 408
 }
+
+enum ToolbarTag: Int {
+    case reloadPageList = 101
+    case newPage = 102
+    
+    case bold = 103
+    case italic = 104
+    case link = 105
+    
+    case paragraphStyle = 106
+    case viewInWebBrowser = 107
+    
+    case textTool = 108
+}
