@@ -56,20 +56,36 @@ extension EditorView {
         guard let textStorage = textStorage, textStorage.length > 0 else {
             return false
         }
-        
-        let range = selectedRange()
 
-        return isBoldFont(range: range)
+        let paragraphStyle = currentParagraphStyle()
+        
+        switch paragraphStyle {
+        case .body, .blockQuote, .pullQuote:
+            let range = selectedRange()
+
+            return isBoldFont(range: range)
+
+        default:
+            return false
+        }
     }
     
     func isItalic() -> Bool {
         guard let textStorage = textStorage, textStorage.length > 0 else {
             return false
         }
+        
+        let paragraphStyle = currentParagraphStyle()
+        
+        switch paragraphStyle {
+        case .body:
+            let range = selectedRange()
 
-        let range = selectedRange()
-
-        return isItalicFont(range: range)
+            return isItalicFont(range: range)
+            
+        default:
+            return false
+        }
     }
     
     func toggleBoldStyle() {

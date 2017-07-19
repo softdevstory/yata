@@ -10,6 +10,7 @@
 import AppKit
 
 import RxSwift
+import Then
 
 class MainWindowController: NSWindowController {
 
@@ -143,7 +144,35 @@ extension MainWindowController {
         guard let editorView = window?.firstResponder as? EditorView else {
             return false
         }
-
+        
+        switch item.tag {
+        case ToolbarTag.textTool.rawValue:
+            guard let segment = item.view as? NSSegmentedControl else {
+                break
+            }
+            
+            if editorView.isBold() {
+                segment.setImage(ToolbarIcons.boldChecked, forSegment: 0)
+            } else {
+                segment.setImage(ToolbarIcons.bold, forSegment: 0)
+            }
+            
+            if editorView.isItalic() {
+                segment.setImage(ToolbarIcons.italicChecked, forSegment: 1)
+            } else {
+                segment.setImage(ToolbarIcons.italic, forSegment: 1)
+            }
+            
+            if let _ = editorView.getCurrentLink() {
+                segment.setImage(ToolbarIcons.linkChecked, forSegment: 2)
+            } else {
+                segment.setImage(ToolbarIcons.link, forSegment: 2)
+            }
+            
+        default:
+            break
+        }
+        
         return true
     }
     
@@ -239,7 +268,6 @@ extension MainWindowController: NSToolbarDelegate {
     private func buildToolbarButton(image: NSImage) -> NSButton {
         let button = NSButton(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
         button.image = image
-        button.image?.size = NSSize(width: 16, height: 16)
         button.bezelStyle = .texturedRounded
         
         return button
@@ -250,7 +278,7 @@ extension MainWindowController: NSToolbarDelegate {
         
         switch itemIdentifier {
         case ToolbarItem.Reload.rawValue:
-            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-synchronize"))
+            let button = buildToolbarButton(image: ToolbarIcons.reload)
             button.action = #selector(MainSplitViewController.reloadPageList(_:))
             
             toolbarItem.view = button
@@ -259,7 +287,7 @@ extension MainWindowController: NSToolbarDelegate {
             toolbarItem.tag = ToolbarTag.reloadPageList.rawValue
             
         case ToolbarItem.NewPage.rawValue:
-            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-create_new"))
+            let button = buildToolbarButton(image: ToolbarIcons.newPage)
             button.action = #selector(MainSplitViewController.editNewPage(_:))
             
             toolbarItem.view = button
@@ -268,7 +296,7 @@ extension MainWindowController: NSToolbarDelegate {
             toolbarItem.tag = ToolbarTag.newPage.rawValue
             
         case ToolbarItem.TextStyle.rawValue:
-            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-lowercase"))
+            let button = buildToolbarButton(image: ToolbarIcons.paragraphStyle)
             button.action = #selector(MainWindowController.toggleTextStylePopover(_:))
             
             toolbarItem.view = button
@@ -278,7 +306,7 @@ extension MainWindowController: NSToolbarDelegate {
             toolbarItem.tag = ToolbarTag.paragraphStyle.rawValue
             
         case ToolbarItem.ViewInWebBrowser.rawValue:
-            let button = buildToolbarButton(image: #imageLiteral(resourceName: "icons8-internet"))
+            let button = buildToolbarButton(image: ToolbarIcons.webBrowser)
             button.action = #selector(PageListViewController.viewInWebBrowser(_:))
             
             toolbarItem.view = button
@@ -298,25 +326,20 @@ extension MainWindowController: NSToolbarDelegate {
             
             let cell = segment.cell as? NSSegmentedCell
   
-            var image = #imageLiteral(resourceName: "icons8-bold")
-            image.size = NSMakeSize(16, 16)
-            segment.setImage(image, forSegment: 0)
+            segment.setImage(ToolbarIcons.bold, forSegment: 0)
             segment.setWidth(30, forSegment: 0)
             cell?.setTag(0, forSegment: 0)
   
-            image = #imageLiteral(resourceName: "icons8-italic")
-            image.size = NSMakeSize(16, 16)
-            segment.setImage(image, forSegment: 1)
+            segment.setImage(ToolbarIcons.italic, forSegment: 1)
             segment.setWidth(30, forSegment: 1)
             cell?.setTag(1, forSegment: 1)
             
-            image = #imageLiteral(resourceName: "icons8-link")
-            image.size = NSMakeSize(16, 16)
-            segment.setImage(image, forSegment: 2)
+            segment.setImage(ToolbarIcons.link, forSegment: 2)
             segment.setWidth(30, forSegment: 2)
             cell?.setTag(2, forSegment: 2)
 
             toolbarItem.view = segment
+            toolbarItem.tag = ToolbarTag.textTool.rawValue
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
 

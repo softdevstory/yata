@@ -112,24 +112,12 @@ extension PageEditViewController {
                 }
                 
             case .formatBold:
-                switch paragraphStyle {
-                case .body, .blockQuote, .pullQuote:
-                    if editorView.isBold() {
-                        menuItem.state = 1
-                    }
-                    return true
-                default:
-                    return false
+                if editorView.isBold() {
+                    menuItem.state = 1
                 }
             case .formatItalic:
-                switch paragraphStyle {
-                case .body:
-                    if editorView.isItalic() {
-                        menuItem.state = 1
-                    }
-                    return true
-                default:
-                    return false
+                if editorView.isItalic() {
+                    menuItem.state = 1
                 }
             case .formatLink:
                 if let _ = editorView.getCurrentLink() {
@@ -137,8 +125,6 @@ extension PageEditViewController {
                 } else {
                     menuItem.title = "Add Link".localized
                 }
-                break
-
             }
         }
         
