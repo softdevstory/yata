@@ -58,4 +58,18 @@ class PageInfoView: NSTableCellView {
             })
             .addDisposableTo(bag)
     }
+    
+    func changeSelectedStyle() {
+        titleLabel.textColor = NSColor.white
+        viewCountLabel.textColor = NSColor.white
+        authorNameLabel.textColor = NSColor.white
+        contentLabel.textColor = NSColor.white
+    }
+    
+    func changeDefaultStyle() {
+        titleLabel.textColor = NSColor.black
+        viewCountLabel.textColor = NSColor.black
+        authorNameLabel.textColor = NSColor.black
+        contentLabel.textColor = NSColor.darkGray
+    }
 }

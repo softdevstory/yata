@@ -16,6 +16,7 @@ class PageListViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var spinnerView: NSProgressIndicator!
+    @IBOutlet weak var scrollView: NSScrollView!
     
     let bag = DisposeBag()
     
@@ -23,7 +24,10 @@ class PageListViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // to set scroller's background transparent
+        scrollView.appearance = NSAppearance(named: NSAppearanceNameAqua)
+        
         viewModel.pages.asObservable()
             .subscribe(onNext: { value in
 
@@ -33,8 +37,47 @@ class PageListViewController: NSViewController {
         loadPageList()
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        guard keyPath == #keyPath(NSWindow.firstResponder) else {
+            return
+        }
+        
+        if let tableView = change?[.newKey] as? NSTableView, tableView.tag == 1 {
+            tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
+                guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
+                    return
+                }
+                
+                if row == self.tableView.selectedRow {
+                    pageInfoView.changeSelectedStyle()
+                } else {
+                    pageInfoView.changeDefaultStyle()
+                }
+            }
+        } else {
+            tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
+                guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
+                    return
+                }
+                
+                pageInfoView.changeDefaultStyle()
+            }
+        }
+    }
+    
     override func viewWillAppear() {
         super.viewWillAppear()
+        
+        if let window = view.window {
+            window.addObserver(self, forKeyPath: #keyPath(NSWindow.firstResponder), options: [.new, .old], context: nil)
+        }
+    }
+    
+    override func viewWillDisappear() {
+        if let window = view.window {
+            window.removeObserver(self, forKeyPath: #keyPath(NSWindow.firstResponder))
+        }
     }
 
     fileprivate func startSpinner() {
@@ -47,7 +90,6 @@ class PageListViewController: NSViewController {
         spinnerView.isHidden = true
     }
 }
-
 
 // MARK: telegra.ph
 
@@ -153,6 +195,19 @@ extension PageListViewController: NSTableViewDelegate {
             
             updatePageEditView(with: page)
         }
+        
+        tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
+            guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
+                return
+            }
+            
+            if row == self.tableView.selectedRow {
+                pageInfoView.changeSelectedStyle()
+            } else {
+                pageInfoView.changeDefaultStyle()
+            }
+        }
+
     }
 }
 
