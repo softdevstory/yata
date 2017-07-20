@@ -37,6 +37,30 @@ class PageListViewController: NSViewController {
         loadPageList()
     }
     
+    fileprivate func setRowsDefaultStyle() {
+        tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
+            guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
+                return
+            }
+            
+            pageInfoView.changeDefaultStyle()
+        }
+    }
+    
+    fileprivate func setRowSelectedStyle() {
+        tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
+            guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
+                return
+            }
+            
+            if row == self.tableView.selectedRow {
+                pageInfoView.changeSelectedStyle()
+            } else {
+                pageInfoView.changeDefaultStyle()
+            }
+        }
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         guard keyPath == #keyPath(NSWindow.firstResponder) else {
@@ -44,25 +68,9 @@ class PageListViewController: NSViewController {
         }
         
         if let tableView = change?[.newKey] as? NSTableView, tableView.tag == 1 {
-            tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
-                guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
-                    return
-                }
-                
-                if row == self.tableView.selectedRow {
-                    pageInfoView.changeSelectedStyle()
-                } else {
-                    pageInfoView.changeDefaultStyle()
-                }
-            }
+            setRowSelectedStyle()
         } else {
-            tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
-                guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
-                    return
-                }
-                
-                pageInfoView.changeDefaultStyle()
-            }
+            setRowsDefaultStyle()
         }
     }
     
@@ -121,6 +129,14 @@ extension PageListViewController {
         let notification = Notification(name: Notification.Name(rawValue: "updatePageEditView"), object: page, userInfo: nil)
         NotificationQueue.default.enqueue(notification, postingStyle: .now)
     }
+    
+    func isSelected() -> Bool {
+        if tableView.selectedRow >= 0 {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 // MARK: Table View Data Source
@@ -169,6 +185,9 @@ extension PageListViewController: NSTableViewDelegate {
         // deselected
         if tableView.selectedRow < 0 {
             updatePageEditView(with: nil)
+            
+            setRowsDefaultStyle()
+            
             return
         }
 
@@ -196,18 +215,7 @@ extension PageListViewController: NSTableViewDelegate {
             updatePageEditView(with: page)
         }
         
-        tableView.enumerateAvailableRowViews { (rowView, row) -> Void in
-            guard let pageInfoView = rowView.view(atColumn: 0) as? PageInfoView else {
-                return
-            }
-            
-            if row == self.tableView.selectedRow {
-                pageInfoView.changeSelectedStyle()
-            } else {
-                pageInfoView.changeDefaultStyle()
-            }
-        }
-
+        setRowSelectedStyle()
     }
 }
 
@@ -215,11 +223,6 @@ extension PageListViewController: NSTableViewDelegate {
 
 extension PageListViewController {
 
-    override func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
-        // TODO: if no account disable them
-        return true
-    }
-    
     func editNewPage(_ sender: Any?) {
         if tableView.selectedRow >= 0 {
             tableView.deselectRow(tableView.selectedRow)
@@ -232,7 +235,7 @@ extension PageListViewController {
         loadPageList()
     }
 
-    func viewInWebBrowser(_ sender: Any?) {
+    func openInWebBrowser(_ sender: Any?) {
         guard tableView.selectedRow >= 0 else {
             return
         }

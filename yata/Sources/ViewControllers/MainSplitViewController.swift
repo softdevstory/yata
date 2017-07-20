@@ -25,6 +25,48 @@ class MainSplitViewController: NSSplitViewController {
 
 extension MainSplitViewController {
 
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        guard let tag = MenuTag(rawValue: menuItem.tag) else {
+            return false
+        }
+        
+        switch tag {
+        case .fileNewPage, .fileReload:
+            break
+            
+        case .fileOpenInWebBrowser:
+            if let vc = pageListSplitViewItem.viewController as? PageListViewController {
+                return vc.isSelected()
+            }
+        
+        default:
+            return false
+        }
+        
+        return true
+    }
+    
+    override func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
+        guard let tag = ToolbarTag(rawValue: item.tag) else {
+            return false
+        }
+        
+        switch tag {
+        case .newPage, .reloadPageList:
+            return true
+            
+        case .viewInWebBrowser:
+            if let vc = pageListSplitViewItem.viewController as? PageListViewController {
+                return vc.isSelected()
+            }
+        
+        default:
+            return false
+        }
+        
+        return true
+    }
+    
     @IBAction func reloadPageList(_ sender: Any?) {
         if let vc = pageListSplitViewItem.viewController as? PageListViewController {
             vc.reloadPageList(sender)
@@ -34,6 +76,12 @@ extension MainSplitViewController {
     @IBAction func editNewPage(_ sender: Any?) {
         if let vc = pageListSplitViewItem.viewController as? PageListViewController {
             vc.editNewPage(sender)
+        }
+    }
+    
+    @IBAction func viewInWebBrowser(_ sender: Any?) {
+        if let vc = pageListSplitViewItem.viewController as? PageListViewController {
+            vc.openInWebBrowser(sender)
         }
     }
 }

@@ -307,7 +307,7 @@ extension MainWindowController: NSToolbarDelegate {
             
         case ToolbarItem.ViewInWebBrowser.rawValue:
             let button = buildToolbarButton(image: ToolbarIcons.webBrowser)
-            button.action = #selector(PageListViewController.viewInWebBrowser(_:))
+            button.action = #selector(MainSplitViewController.viewInWebBrowser(_:))
             
             toolbarItem.view = button
             

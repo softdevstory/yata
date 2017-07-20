@@ -66,6 +66,8 @@ class PageEditViewController: NSViewController {
             .disposed(by: bag)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updatePage(_:)), name: NSNotification.Name(rawValue: "updatePageEditView"), object: nil)
+        
+        view.backgroundColor = NSColor.white
     }
     
     func updatePage(_ notification: Notification) {
@@ -85,49 +87,54 @@ extension PageEditViewController {
             return false
         }
         
+        guard let tag = MenuTag(rawValue: menuItem.tag) else {
+            return false
+        }
+        
         let paragraphStyle = editorView.currentParagraphStyle()
 
         menuItem.state = 0
-        if let menu = MenuTag(rawValue: menuItem.tag) {
-            switch menu {
-            case .formatTitle:
-                if paragraphStyle == .title {
-                    menuItem.state = 1
-                }
-            case .formatHeader:
-                if paragraphStyle == .header {
-                    menuItem.state = 1
-                }
-            case .formatBody:
-                if paragraphStyle == .body {
-                    menuItem.state = 1
-                }
-            case .formatBlockQuote:
-                if paragraphStyle == .blockQuote {
-                    menuItem.state = 1
-                }
-            case .formatPullQuote:
-                if paragraphStyle == .pullQuote {
-                    menuItem.state = 1
-                }
-                
-            case .formatBold:
-                if editorView.isBold() {
-                    menuItem.state = 1
-                }
-            case .formatItalic:
-                if editorView.isItalic() {
-                    menuItem.state = 1
-                }
-            case .formatLink:
-                if let _ = editorView.getCurrentLink() {
-                    menuItem.title = "Modify Link".localized
-                } else {
-                    menuItem.title = "Add Link".localized
-                }
+        switch tag {
+        case .formatTitle:
+            if paragraphStyle == .title {
+                menuItem.state = 1
             }
+        case .formatHeader:
+            if paragraphStyle == .header {
+                menuItem.state = 1
+            }
+        case .formatBody:
+            if paragraphStyle == .body {
+                menuItem.state = 1
+            }
+        case .formatBlockQuote:
+            if paragraphStyle == .blockQuote {
+                menuItem.state = 1
+            }
+        case .formatPullQuote:
+            if paragraphStyle == .pullQuote {
+                menuItem.state = 1
+            }
+            
+        case .formatBold:
+            if editorView.isBold() {
+                menuItem.state = 1
+            }
+        case .formatItalic:
+            if editorView.isItalic() {
+                menuItem.state = 1
+            }
+        case .formatLink:
+            if let _ = editorView.getCurrentLink() {
+                menuItem.title = "Modify Link".localized
+            } else {
+                menuItem.title = "Add Link".localized
+            }
+            
+        default:
+            return false
         }
-        
+    
         return true
     }
     

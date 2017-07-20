@@ -18,6 +18,10 @@ enum YataError: Swift.Error {
 }
 
 enum MenuTag: Int {
+    case fileNewPage = 101
+    case fileReload = 102
+    case fileOpenInWebBrowser = 103
+    
     case formatTitle = 401
     case formatHeader = 402
     case formatBody = 403
