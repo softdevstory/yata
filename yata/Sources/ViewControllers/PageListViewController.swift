@@ -89,6 +89,7 @@ class PageListViewController: NSViewController {
     }
 
     fileprivate func startSpinner() {
+        tableView.isHidden = true
         spinnerView.isHidden = false
         spinnerView.startAnimation(self)
     }
@@ -96,6 +97,7 @@ class PageListViewController: NSViewController {
     fileprivate func stopSpinner() {
         spinnerView.stopAnimation(self)
         spinnerView.isHidden = true
+        tableView.isHidden = false
     }
 }
 

@@ -34,6 +34,15 @@ class EditorView: NSTextView {
 extension EditorView {
 
     private func isBoldFont(range: NSRange) -> Bool {
+        
+        if range.location == textStorage?.length {
+            if let font = typingAttributes[NSFontAttributeName] as? NSFont {
+                return font.isBold
+            } else {
+                return false
+            }
+        }
+        
         if let fontAttr = textStorage?.fontAttributes(in: range),
             let font = fontAttr[NSFontAttributeName] as? NSFont {
             return font.isBold
@@ -43,6 +52,15 @@ extension EditorView {
     }
 
     private func isItalicFont(range: NSRange) -> Bool {
+        
+        if range.location == textStorage?.length {
+            if let font = typingAttributes[NSFontAttributeName] as? NSFont {
+                return font.isItalic
+            } else {
+                return false
+            }
+        }
+        
         if let fontAttr = textStorage?.fontAttributes(in: range),
             let font = fontAttr[NSFontAttributeName] as? NSFont {
             return font.isItalic
@@ -127,6 +145,10 @@ extension EditorView {
 
         var range = selectedRange()
         
+        if range.location == textStorage.length {
+            return typingAttributes[NSLinkAttributeName] as? String
+        }
+
         return textStorage.attribute(NSLinkAttributeName, at: range.location, effectiveRange: &range) as? String
     }
     
