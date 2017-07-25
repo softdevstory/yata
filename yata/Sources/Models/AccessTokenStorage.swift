@@ -18,6 +18,7 @@ class AccessTokenStorage {
     static func loadAccessToken() -> String? {
         let keychain = getKeychain()
 
+//        return "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb"
         return keychain[KeyChain.keyForAccessToken]
     }
     

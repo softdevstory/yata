@@ -13,10 +13,13 @@ import RxCocoa
 
 class PageEditViewController: NSViewController {
 
+    @IBOutlet weak var headerView: NSView!
+    @IBOutlet weak var bodyView: NSScrollView!
     @IBOutlet weak var titleTextField: NSTextField!
     @IBOutlet weak var authorNameTextField: NSTextField!
     @IBOutlet var editorView: EditorView!
     @IBOutlet weak var publishButton: NSButton!
+    @IBOutlet weak var emptyLabel: NSTextField!
     
     let bag = DisposeBag()
     
@@ -51,14 +54,18 @@ class PageEditViewController: NSViewController {
                 switch self.viewModel.mode.value {
                 case .new:
                     self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
+                        .observeOn(MainScheduler.instance)
                         .subscribe(onNext: nil, onCompleted: {
-                            Swift.print("done")
+                            let action = #selector(MainSplitViewController.reloadPageList(_:))
+                            NSApp.sendAction(action, to: nil, from: self)
                         })
                         .disposed(by: self.bag)
                 case .edit:
                     self.viewModel.updatePage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
+                        .observeOn(MainScheduler.instance)
                         .subscribe(onNext: nil, onCompleted: {
-                            Swift.print("done")
+                            let action = #selector(MainSplitViewController.reloadPageList(_:))
+                            NSApp.sendAction(action, to: nil, from: self)
                         })
                         .disposed(by: self.bag)
                 }
@@ -71,6 +78,11 @@ class PageEditViewController: NSViewController {
     }
     
     func updatePage(_ notification: Notification) {
+        headerView.isHidden = false
+        bodyView.isHidden = false
+        publishButton.isHidden = false
+        emptyLabel.isHidden = true
+        
         let page = notification.object as? Page
         viewModel.reset(page: page)
     }

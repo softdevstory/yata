@@ -15,11 +15,13 @@ enum PageEditMode {
     case edit
 }
 
-class PageEditViewModel {
+class PageEditViewModel: NSObject {
 
     private let telegraph = Telegraph.shared
 
     private let bag = DisposeBag()
+
+    var modified = false
     
     var mode = Variable<PageEditMode>(.new)
     
@@ -29,10 +31,16 @@ class PageEditViewModel {
     var authorName = Variable<String>("")
     
     var textStorage = NSTextStorage()
+
+    override init() {
+        super.init()
+        
+        textStorage.delegate = self
+    }
     
     func reset(page: Page?) {
         self.page = page
-        
+
         if let page = page {
             mode.value = .edit
             
@@ -49,6 +57,8 @@ class PageEditViewModel {
             
             textStorage.setAttributedString(NSAttributedString(string: ""))
         }
+        
+        modified = false
     }
 
     func updatePage(title: String, authorName: String) -> Observable<Void> {
@@ -62,13 +72,10 @@ class PageEditViewModel {
                 return Disposables.create()
             }
             
-//            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
-//                observer.onError(YataError.NoAccessToken)
-//                return Disposables.create()
-//            }
-
-            // TODO: this is for test
-            let accessToken = "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb"
+            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
+                observer.onError(YataError.NoAccessToken)
+                return Disposables.create()
+            }
 
             let contextJSONString = self.convertText()
             
@@ -99,13 +106,10 @@ class PageEditViewModel {
         
         let observable = Observable<Void>.create { observer in
         
-//            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
-//                observer.onError(YataError.NoAccessToken)
-//                return Disposables.create()
-//            }
-
-            // TODO: this is for test
-            let accessToken = "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb"
+            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
+                observer.onError(YataError.NoAccessToken)
+                return Disposables.create()
+            }
 
             let contextJSONString = self.convertText()
             
@@ -325,4 +329,15 @@ extension PageEditViewModel {
         return ""
     }
 
+}
+
+// 
+
+extension PageEditViewModel: NSTextStorageDelegate {
+    func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
+        if modified == false {
+            Swift.print("textStorage delegate")
+        }
+        modified = true
+    }
 }

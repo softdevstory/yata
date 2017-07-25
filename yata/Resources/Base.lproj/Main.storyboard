@@ -511,7 +511,7 @@
                                             <rect key="frame" x="1" y="1" width="195" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" tag="1" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="97" rowSizeStyle="automatic" viewBased="YES" id="dzx-2s-wp1">
+                                                <tableView verticalHuggingPriority="750" tag="1" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="97" rowSizeStyle="automatic" viewBased="YES" id="dzx-2s-wp1" customClass="TableView" customModule="yata" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="195" height="298"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -654,15 +654,27 @@
                                     <constraint firstItem="cIR-DI-fZL" firstAttribute="centerY" secondItem="M8M-eO-dZA" secondAttribute="centerY" id="xjs-DG-toa"/>
                                 </constraints>
                             </visualEffectView>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-BS-AN5">
+                                <rect key="frame" x="6" y="141" width="185" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="There is no page." id="KJZ-PV-Hcj">
+                                    <font key="font" metaFont="systemMedium" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ryh-BS-AN5" secondAttribute="trailing" constant="8" id="3ke-G7-xNF"/>
+                            <constraint firstItem="ryh-BS-AN5" firstAttribute="centerY" secondItem="JJI-TB-nNL" secondAttribute="centerY" id="J32-js-Cjm"/>
                             <constraint firstItem="M8M-eO-dZA" firstAttribute="leading" secondItem="JJI-TB-nNL" secondAttribute="leading" id="bNm-9R-PA0"/>
                             <constraint firstItem="M8M-eO-dZA" firstAttribute="top" secondItem="JJI-TB-nNL" secondAttribute="top" id="dSa-TZ-Blk"/>
+                            <constraint firstItem="ryh-BS-AN5" firstAttribute="leading" secondItem="JJI-TB-nNL" secondAttribute="leading" constant="8" id="lft-HQ-xzB"/>
                             <constraint firstAttribute="trailing" secondItem="M8M-eO-dZA" secondAttribute="trailing" id="r9t-Yf-u7R"/>
                             <constraint firstAttribute="bottom" secondItem="M8M-eO-dZA" secondAttribute="bottom" id="rva-cx-8a4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="noPageLabel" destination="ryh-BS-AN5" id="IBh-tu-3gT"/>
                         <outlet property="scrollView" destination="5Fa-aG-rqa" id="5F7-am-8Bk"/>
                         <outlet property="spinnerView" destination="cIR-DI-fZL" id="aoF-mN-Wdw"/>
                         <outlet property="tableView" destination="dzx-2s-wp1" id="BJK-QC-h2s"/>
@@ -680,7 +692,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="343"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="mcI-zD-HmE">
+                            <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mcI-zD-HmE">
                                 <rect key="frame" x="0.0" y="243" width="450" height="100"/>
                                 <subviews>
                                     <textField focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4E-L7-lFi">
@@ -748,7 +760,7 @@
                                     <constraint firstItem="rwJ-k9-Nph" firstAttribute="leading" secondItem="mcI-zD-HmE" secondAttribute="leading" constant="20" id="xgm-4O-lFz"/>
                                 </constraints>
                             </customView>
-                            <scrollView verticalCompressionResistancePriority="1000" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0h-En-GI2">
+                            <scrollView hidden="YES" verticalCompressionResistancePriority="1000" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0h-En-GI2">
                                 <rect key="frame" x="20" y="48" width="410" height="195"/>
                                 <clipView key="contentView" id="JA5-Ft-S4A">
                                     <rect key="frame" x="0.0" y="0.0" width="410" height="195"/>
@@ -774,20 +786,31 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-qU-XbD">
+                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="z2R-qU-XbD">
                                 <rect key="frame" x="351" y="13" width="85" height="32"/>
                                 <buttonCell key="cell" type="push" title="Publish" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t2U-Lz-ohv">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shD-j0-5bZ">
+                                <rect key="frame" x="18" y="162" width="414" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Select page or create new page" id="eas-Hh-zLb">
+                                    <font key="font" metaFont="systemMedium" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="z2R-qU-XbD" secondAttribute="trailing" constant="20" id="BXz-5O-keL"/>
                             <constraint firstItem="c0h-En-GI2" firstAttribute="top" secondItem="mcI-zD-HmE" secondAttribute="bottom" id="HaD-F8-BdM"/>
                             <constraint firstItem="z2R-qU-XbD" firstAttribute="top" secondItem="c0h-En-GI2" secondAttribute="bottom" constant="7" id="M34-7p-CKD"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="top" secondItem="dHi-IK-JHd" secondAttribute="top" id="YFL-ah-ful"/>
+                            <constraint firstItem="shD-j0-5bZ" firstAttribute="centerY" secondItem="dHi-IK-JHd" secondAttribute="centerY" id="bCG-90-efT"/>
                             <constraint firstAttribute="trailing" secondItem="mcI-zD-HmE" secondAttribute="trailing" id="dOZ-XB-ONj"/>
+                            <constraint firstItem="shD-j0-5bZ" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" constant="20" id="m7z-h9-LM7"/>
+                            <constraint firstAttribute="trailing" secondItem="shD-j0-5bZ" secondAttribute="trailing" constant="20" id="okl-2t-6Hn"/>
                             <constraint firstItem="mcI-zD-HmE" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" id="qFA-im-haF"/>
                             <constraint firstAttribute="trailing" secondItem="c0h-En-GI2" secondAttribute="trailing" constant="20" id="r4q-uZ-Hmz"/>
                             <constraint firstItem="c0h-En-GI2" firstAttribute="leading" secondItem="dHi-IK-JHd" secondAttribute="leading" constant="20" id="u38-mI-8r7"/>
@@ -796,7 +819,10 @@
                     </view>
                     <connections>
                         <outlet property="authorNameTextField" destination="bal-h7-cJs" id="MGG-Ul-Phu"/>
+                        <outlet property="bodyView" destination="c0h-En-GI2" id="BdK-F1-y4P"/>
                         <outlet property="editorView" destination="wUK-oD-eVa" id="a5V-pA-4v9"/>
+                        <outlet property="emptyLabel" destination="shD-j0-5bZ" id="wXw-7e-SQY"/>
+                        <outlet property="headerView" destination="mcI-zD-HmE" id="BD8-eg-YXG"/>
                         <outlet property="publishButton" destination="z2R-qU-XbD" id="QsP-ek-b6I"/>
                         <outlet property="titleTextField" destination="G4E-L7-lFi" id="x4h-SP-6vg"/>
                     </connections>

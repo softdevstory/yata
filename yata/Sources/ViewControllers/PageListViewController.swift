@@ -14,9 +14,10 @@ import RxSwift
 
 class PageListViewController: NSViewController {
 
-    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var tableView: TableView!
     @IBOutlet weak var spinnerView: NSProgressIndicator!
     @IBOutlet weak var scrollView: NSScrollView!
+    @IBOutlet weak var noPageLabel: NSTextField!
     
     let bag = DisposeBag()
     
@@ -29,8 +30,8 @@ class PageListViewController: NSViewController {
         scrollView.appearance = NSAppearance(named: NSAppearanceNameAqua)
         
         viewModel.pages.asObservable()
-            .subscribe(onNext: { value in
-
+            .subscribe(onNext: { pages in
+            
             })
             .disposed(by: bag)
         
@@ -91,13 +92,23 @@ class PageListViewController: NSViewController {
     fileprivate func startSpinner() {
         tableView.isHidden = true
         spinnerView.isHidden = false
+        noPageLabel.isHidden = true
+        
         spinnerView.startAnimation(self)
     }
     
     fileprivate func stopSpinner() {
         spinnerView.stopAnimation(self)
+        
         spinnerView.isHidden = true
-        tableView.isHidden = false
+       
+        if viewModel.numberOfRows() == 0 {
+            noPageLabel.isHidden = false
+            tableView.isHidden = true
+        } else {
+            noPageLabel.isHidden = true
+            tableView.isHidden = false
+         }
     }
 }
 
@@ -231,6 +242,8 @@ extension PageListViewController {
         }
         
         view.window?.title = "New Page".localized
+        
+        updatePageEditView(with: nil)
     }
     
     func reloadPageList(_ sender: Any?) {

@@ -17,6 +17,7 @@ class PageListViewModel {
     var pages: Variable<[Page]> = Variable<[Page]>([])
     
     func numberOfRows() -> Int {
+//        return 0
         return pages.value.count
     }
     
@@ -34,14 +35,10 @@ class PageListViewModel {
     func loadPageList() -> Observable<Void> {
         let observable = Observable<Void>.create { observer in
         
-//            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
-//                observer.onError(YataError.NoAccessToken)
-//                return Disposables.create()
-//            }
-
-            // TODO: this is for test
-            let accessToken = "b968da509bb76866c35425099bc0989a5ec3b32997d55286c657e6994bbb"
-
+            guard let accessToken = AccessTokenStorage.loadAccessToken() else {
+                observer.onError(YataError.NoAccessToken)
+                return Disposables.create()
+            }
 
             let disposable = self.telegraph.getPageList(accessToken: accessToken)
                 .observeOn(MainScheduler.instance)

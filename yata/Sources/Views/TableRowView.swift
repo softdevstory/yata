@@ -18,6 +18,5 @@ class TableRowView: NSTableRowView {
         
         NSColor.gridColor.set()
         NSBezierPath.fill(separatorRect)
-
     }
 }

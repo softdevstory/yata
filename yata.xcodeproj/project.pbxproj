@@ -39,6 +39,7 @@
 		8B649C5E1F0F3CC7003FDEEE /* TextStylePopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */; };
 		8B649C601F0F3F29003FDEEE /* TextStylePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */; };
 		8B810CCF1F2062070008A163 /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CCE1F2062070008A163 /* TableRowView.swift */; };
+		8B810CD11F271DF70008A163 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CD01F271DF70008A163 /* TableView.swift */; };
 		8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
@@ -128,6 +129,7 @@
 		8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextStylePopover.xib; sourceTree = "<group>"; };
 		8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylePopoverViewController.swift; sourceTree = "<group>"; };
 		8B810CCE1F2062070008A163 /* TableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
+		8B810CD01F271DF70008A163 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfoView.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				8BE676721F1C8EFC00FFCCCB /* PopoverButton.swift */,
 				8BE676761F1DE4AD00FFCCCB /* ButtonToolbarItem.swift */,
 				8B810CCE1F2062070008A163 /* TableRowView.swift */,
+				8B810CD01F271DF70008A163 /* TableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -691,6 +694,7 @@
 				8B0DE41C1EF23EF000DD571C /* TelegraphApi.swift in Sources */,
 				8B39ADFA1F0A001700BBF4CA /* Telegraph.swift in Sources */,
 				8BD9657D1F035DF400B5D904 /* PreferencesWindowController.swift in Sources */,
+				8B810CD11F271DF70008A163 /* TableView.swift in Sources */,
 				8B028CA51F0B3B7800AAB916 /* PageListViewModel.swift in Sources */,
 				8B810CCF1F2062070008A163 /* TableRowView.swift in Sources */,
 				8B0DE4661EF8C84E00DD571C /* NSView+.swift in Sources */,
