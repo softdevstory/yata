@@ -260,7 +260,7 @@ extension PageEditViewModel {
                 let subStr = paragraph.attributedSubstring(from: range)
                 
                 var node: [String: Any] = [:]
-                node["children"] = [subStr.string.trimmingCharacters(in: .whitespacesAndNewlines)]
+                node["children"] = [subStr.string.trimmingCharacters(in: .newlines)]
                 
                 if let font = attrs[NSFontAttributeName] as? NSFont {
                     if font.isBold {
