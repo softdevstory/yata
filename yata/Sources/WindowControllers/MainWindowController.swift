@@ -19,6 +19,11 @@ class MainWindowController: NSWindowController {
     fileprivate let textStylePopover = NSPopover()
     fileprivate let textStylePopoverViewController = TextStylePopoverViewController()
 
+    var noAccountViewController: NoAccountViewController!
+    var mainSplitViewController: MainSplitViewController!
+    
+    var isNoAccount = true
+
     override func windowDidLoad() {
         super.windowDidLoad()
 
@@ -37,8 +42,26 @@ class MainWindowController: NSWindowController {
         toolbar.delegate = self
 
         window.toolbar = toolbar
+
+        loadViewControllers()
         
         customizePopupMenuOfToolbar()
+        
+        if let _ = AccessTokenStorage.loadAccessToken() {
+            isNoAccount = false
+            contentViewController = mainSplitViewController
+        } else {
+            isNoAccount = true
+            contentViewController = noAccountViewController
+        }
+    }
+    
+    private func loadViewControllers() {
+        let sb = NSStoryboard(name: "Main", bundle: nil)
+        
+        mainSplitViewController = sb.instantiateController(withIdentifier: "mainSplitViewController") as? MainSplitViewController
+        
+        noAccountViewController = sb.instantiateController(withIdentifier: "noAccountViewController") as? NoAccountViewController
     }
     
     private func setupTextStylePopover() {
@@ -142,6 +165,10 @@ extension MainWindowController {
 
         // checking editorView has a focus
         guard let editorView = window?.firstResponder as? EditorView else {
+            return false
+        }
+        
+        if isNoAccount {
             return false
         }
         

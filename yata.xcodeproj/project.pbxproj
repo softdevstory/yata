@@ -40,6 +40,7 @@
 		8B649C601F0F3F29003FDEEE /* TextStylePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */; };
 		8B810CCF1F2062070008A163 /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CCE1F2062070008A163 /* TableRowView.swift */; };
 		8B810CD11F271DF70008A163 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CD01F271DF70008A163 /* TableView.swift */; };
+		8B810CD51F2724990008A163 /* NoAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CD41F2724990008A163 /* NoAccountViewController.swift */; };
 		8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */; };
 		8BA4BA0B1EEFA3E400F85CCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */; };
 		8BA4BA141EEFA7D600F85CCA /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA4BA131EEFA7D600F85CCA /* Account.swift */; };
@@ -130,6 +131,7 @@
 		8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylePopoverViewController.swift; sourceTree = "<group>"; };
 		8B810CCE1F2062070008A163 /* TableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
 		8B810CD01F271DF70008A163 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		8B810CD41F2724990008A163 /* NoAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoAccountViewController.swift; sourceTree = "<group>"; };
 		8B967FDA1EFB847200EAE9CF /* PageInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfoView.swift; sourceTree = "<group>"; };
 		8BA4B9AD1EEE241000F85CCA /* yata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA4BA091EEFA3E400F85CCA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */,
 				8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */,
 				8BE6766A1F18592100FFCCCB /* MainSplitViewController.swift */,
+				8B810CD41F2724990008A163 /* NoAccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				8BA4BA3A1EEFC2BE00F85CCA /* Attrs.swift in Sources */,
 				8BD965A11F04948300B5D904 /* KeyChain.swift in Sources */,
 				8BE6766B1F18592100FFCCCB /* MainSplitViewController.swift in Sources */,
+				8B810CD51F2724990008A163 /* NoAccountViewController.swift in Sources */,
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
 				8B0DE46C1EF8F41300DD571C /* Bundle+.swift in Sources */,
 				8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */,

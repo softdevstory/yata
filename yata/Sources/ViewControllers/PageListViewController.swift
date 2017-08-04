@@ -125,8 +125,10 @@ extension PageListViewController {
             .subscribe(onNext: nil, onError: { error in
                 self.stopSpinner()
                 
-                let alert = NSAlert(error: error)
-                alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+                if let window = self.view.window {
+                    let alert = NSAlert(error: error)
+                    alert.beginSheetModal(for: window, completionHandler: nil)
+                }
             }, onCompleted: {
                 self.tableView.reloadData()
                 

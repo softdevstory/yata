@@ -37,26 +37,19 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="4A444B4E-0857-4A5C-A063-E65B0DCF550D" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="Ddh-Ic-GCs">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="0DDDB5C7-4C39-4F8E-89E3-DBE3580ABD91" label="General" paletteLabel="General" image="icons8-settings" id="9ah-Lu-OGK">
-                        <connections>
-                            <action selector="switchView:" target="-2" id="h7c-fE-MIB"/>
-                        </connections>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="6DE244FF-F3FE-468C-B52D-C6799CD66EF2" label="Account" paletteLabel="Account" tag="1" image="icons8-user" id="GRk-cI-zwz">
+                    <toolbarItem implicitItemIdentifier="6DE244FF-F3FE-468C-B52D-C6799CD66EF2" label="Account" paletteLabel="Account" image="icons8-user" id="GRk-cI-zwz">
                         <connections>
                             <action selector="switchView:" target="-2" id="1uR-jh-HXB"/>
                         </connections>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="9ah-Lu-OGK"/>
                     <toolbarItem reference="GRk-cI-zwz"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
     </objects>
     <resources>
-        <image name="icons8-settings" width="100" height="100"/>
         <image name="icons8-user" width="100" height="100"/>
     </resources>
 </document>

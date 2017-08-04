@@ -13,8 +13,8 @@ final class PreferencesWindowController: NSWindowController {
     static let shared = PreferencesWindowController()
 
     private let viewControllers: [NSViewController] = [
-        GeneralPaneController(),
         AccountPaneController()
+        //        GeneralPaneController(),
     ]
 
     override var windowNibName: String? {
