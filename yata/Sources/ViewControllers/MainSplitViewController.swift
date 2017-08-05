@@ -47,8 +47,13 @@ extension MainSplitViewController {
     }
     
     override func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
+
         guard let tag = ToolbarTag(rawValue: item.tag) else {
             return false
+        }
+        
+        guard let _ = AccessTokenStorage.loadAccessToken() else {
+           return false
         }
         
         switch tag {
@@ -69,7 +74,7 @@ extension MainSplitViewController {
     
     @IBAction func reloadPageList(_ sender: Any?) {
         if let vc = pageListSplitViewItem.viewController as? PageListViewController {
-            vc.reloadPageList(sender)
+            vc.reloadList(sender)
         }
     }
     

@@ -248,7 +248,7 @@ extension PageListViewController {
         updatePageEditView(with: nil)
     }
     
-    func reloadPageList(_ sender: Any?) {
+    func reloadList(_ sender: Any?) {
         loadPageList()
     }
 

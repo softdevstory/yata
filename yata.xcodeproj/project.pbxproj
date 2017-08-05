@@ -26,6 +26,7 @@
 		8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */; };
 		8B0DE4AF1EFA1C4700DD571C /* NSMenu+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */; };
 		8B0DE4B11EFA3B6600DD571C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */; };
+		8B1EA3311F358355003D889F /* NoAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EA3301F358355003D889F /* NoAccountViewModel.swift */; };
 		8B39ADFA1F0A001700BBF4CA /* Telegraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B39ADF91F0A001700BBF4CA /* Telegraph.swift */; };
 		8B415F5C1F049D0C00FED429 /* AcknowledgementsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */; };
 		8B415F5E1F049D2F00FED429 /* AcknowledgementsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */; };
@@ -117,6 +118,7 @@
 		8B0DE4AC1EFA1AD200DD571C /* NSMenuItem+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+.swift"; sourceTree = "<group>"; };
 		8B0DE4AE1EFA1C4700DD571C /* NSMenu+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenu+.swift"; sourceTree = "<group>"; };
 		8B0DE4B01EFA3B6600DD571C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B1EA3301F358355003D889F /* NoAccountViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoAccountViewModel.swift; sourceTree = "<group>"; };
 		8B39ADF91F0A001700BBF4CA /* Telegraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Telegraph.swift; sourceTree = "<group>"; };
 		8B415F5B1F049D0C00FED429 /* AcknowledgementsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcknowledgementsWindow.xib; sourceTree = "<group>"; };
 		8B415F5D1F049D2F00FED429 /* AcknowledgementsWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsWindowController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				8B415F661F05EFFC00FED429 /* AccountPaneViewModel.swift */,
 				8B028CA41F0B3B7800AAB916 /* PageListViewModel.swift */,
 				8BC7343D1F15B669001EBEDB /* PageEditViewModel.swift */,
+				8B1EA3301F358355003D889F /* NoAccountViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				8BDF01461EF105F0006EABDE /* Page.swift in Sources */,
 				8B0DE46C1EF8F41300DD571C /* Bundle+.swift in Sources */,
 				8B967FDB1EFB847200EAE9CF /* PageInfoView.swift in Sources */,
+				8B1EA3311F358355003D889F /* NoAccountViewModel.swift in Sources */,
 				8B57D4491F0DCB8C0026D8C4 /* EditorView.swift in Sources */,
 				8B0DE4AD1EFA1AD200DD571C /* NSMenuItem+.swift in Sources */,
 				8BE676791F1EF34A00FFCCCB /* ToolbarIcons.swift in Sources */,

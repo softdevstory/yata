@@ -162,18 +162,23 @@ enum ToolbarItem: String {
 extension MainWindowController {
 
     override func validateToolbarItem(_ item: NSToolbarItem) -> Bool {
-
-        // checking editorView has a focus
-        guard let editorView = window?.firstResponder as? EditorView else {
-            return false
-        }
         
         if isNoAccount {
             return false
         }
         
         switch item.tag {
+        case ToolbarTag.paragraphStyle.rawValue:
+            guard let _ = window?.firstResponder as? EditorView else {
+                return false
+            }
+        
         case ToolbarTag.textTool.rawValue:
+            // checking editorView has a focus
+            guard let editorView = window?.firstResponder as? EditorView else {
+                return false
+            }
+
             guard let segment = item.view as? NSSegmentedControl else {
                 break
             }
@@ -201,6 +206,30 @@ extension MainWindowController {
         }
         
         return true
+    }
+    
+    func reloadPageList(_ sender: Any?) {
+        if isNoAccount {
+            return
+        }
+
+        mainSplitViewController.reloadPageList(sender)
+    }
+    
+    func editNewPage(_ sender: Any?) {
+        if isNoAccount {
+            return
+        }
+
+        mainSplitViewController.editNewPage(sender)
+    }
+    
+    func viewInWebBrowser(_ sender: Any?) {
+        if isNoAccount {
+            return
+        }
+
+        mainSplitViewController.viewInWebBrowser(sender)
     }
     
     func toggleTextStylePopover(_ sender: Any?) {
@@ -306,7 +335,7 @@ extension MainWindowController: NSToolbarDelegate {
         switch itemIdentifier {
         case ToolbarItem.Reload.rawValue:
             let button = buildToolbarButton(image: ToolbarIcons.reload)
-            button.action = #selector(MainSplitViewController.reloadPageList(_:))
+            button.action = #selector(MainWindowController.reloadPageList(_:))
             
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
@@ -315,7 +344,7 @@ extension MainWindowController: NSToolbarDelegate {
             
         case ToolbarItem.NewPage.rawValue:
             let button = buildToolbarButton(image: ToolbarIcons.newPage)
-            button.action = #selector(MainSplitViewController.editNewPage(_:))
+            button.action = #selector(MainWindowController.editNewPage(_:))
             
             toolbarItem.view = button
             toolbarItem.label = itemIdentifier.localized
@@ -327,14 +356,13 @@ extension MainWindowController: NSToolbarDelegate {
             button.action = #selector(MainWindowController.toggleTextStylePopover(_:))
             
             toolbarItem.view = button
-
             toolbarItem.label = itemIdentifier.localized
             toolbarItem.paletteLabel = itemIdentifier.localized
             toolbarItem.tag = ToolbarTag.paragraphStyle.rawValue
             
         case ToolbarItem.ViewInWebBrowser.rawValue:
             let button = buildToolbarButton(image: ToolbarIcons.webBrowser)
-            button.action = #selector(MainSplitViewController.viewInWebBrowser(_:))
+            button.action = #selector(MainWindowController.viewInWebBrowser(_:))
             
             toolbarItem.view = button
             
