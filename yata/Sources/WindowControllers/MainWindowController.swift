@@ -53,6 +53,15 @@ class MainWindowController: NSWindowController {
         } else {
             isNoAccount = true
             contentViewController = noAccountViewController
+            
+            noAccountViewController.isAccountCreated.asObservable()
+                .subscribe(onNext: { value in
+                    if value {
+                        self.isNoAccount = false
+                        self.contentViewController = self.mainSplitViewController
+                    }
+                })
+                .disposed(by: bag)
         }
     }
     

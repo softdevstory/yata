@@ -19,10 +19,12 @@ class NoAccountViewController: NSViewController {
     
     @IBOutlet weak var createAccountButton: NSButton!
     
-    let bag = DisposeBag()
+    private let bag = DisposeBag()
     
-    let viewModel = NoAccountViewModel()
+    private let viewModel = NoAccountViewModel()
 
+    var isAccountCreated = Variable<Bool>(false)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,8 +57,7 @@ class NoAccountViewController: NSViewController {
                         let alert = NSAlert(error: error)
                         alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
                     }, onCompleted: {
-//                        self.switchAccountView()
-
+                        self.isAccountCreated.value = true
                     })
                     .disposed(by: self.bag)
                 
