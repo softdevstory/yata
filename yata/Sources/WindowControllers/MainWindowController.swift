@@ -10,7 +10,6 @@
 import AppKit
 
 import RxSwift
-import Then
 
 class MainWindowController: NSWindowController {
 

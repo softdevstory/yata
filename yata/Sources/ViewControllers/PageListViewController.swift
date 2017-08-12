@@ -7,7 +7,6 @@
 //
 
 import AppKit
-import SnapKit
 
 import Moya
 import RxSwift
