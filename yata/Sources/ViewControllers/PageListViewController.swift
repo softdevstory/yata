@@ -90,7 +90,8 @@ class PageListViewController: NSViewController {
     }
 
     fileprivate func startSpinner() {
-        tableView.isHidden = true
+        tableView.isEnabled = false
+        
         spinnerView.isHidden = false
         noPageLabel.isHidden = true
         
@@ -101,7 +102,8 @@ class PageListViewController: NSViewController {
         spinnerView.stopAnimation(self)
         
         spinnerView.isHidden = true
-       
+        tableView.isEnabled = true
+        
         if viewModel.numberOfRows() == 0 {
             noPageLabel.isHidden = false
             tableView.isHidden = true
@@ -120,7 +122,6 @@ extension PageListViewController {
 
         startSpinner()
         
-        // TODO: Test parameter
         viewModel.loadPageList()
             .subscribe(onNext: nil, onError: { error in
                 self.stopSpinner()
@@ -174,21 +175,32 @@ extension PageListViewController: NSTableViewDelegate {
             return nil
         }
         
-        let page = viewModel.getPage(row: row)
-
-        pageInfoView.titleString.value = page.title!
-        pageInfoView.viewCount.value = page.views!
-        pageInfoView.authorNameString.value = page.authorName ?? ""
+        viewModel.getPage(row: row)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { page in
+                pageInfoView.titleString.value = page.title!
+                pageInfoView.viewCount.value = page.views!
+                pageInfoView.authorNameString.value = page.authorName ?? ""
+            
+                pageInfoView.contentString.value = page.string
+            })
+            .disposed(by: bag)
         
-        if let _ = page.content {
-            pageInfoView.contentString.value = page.string
-        } else {
-            viewModel.loadPage(row: row)
-                .observeOn(MainScheduler.instance)
+        if viewModel.isLastRow(row: row) {
+            startSpinner()
+            
+            viewModel.loadNextPageList()
                 .subscribe(onNext: nil, onError: { error in
-                    // error
+                    self.stopSpinner()
+                    
+                    if let window = self.view.window {
+                        let alert = NSAlert(error: error)
+                        alert.beginSheetModal(for: window, completionHandler: nil)
+                    }
                 }, onCompleted: {
-                    pageInfoView.contentString.value = page.string
+                    self.tableView.reloadData()
+                    
+                    self.stopSpinner()
                 })
                 .disposed(by: bag)
         }
@@ -206,29 +218,16 @@ extension PageListViewController: NSTableViewDelegate {
             return
         }
 
-        let page = viewModel.getPage(row: self.tableView.selectedRow)
-
-        if page.content == nil {
-            viewModel.loadPage(row: self.tableView.selectedRow)
-                .observeOn(MainScheduler.instance)
-                .subscribe(onNext: nil, onError: { error in
-                    
-                }, onCompleted: {
-                    let page = self.viewModel.getPage(row: self.tableView.selectedRow)
-            
-                    if let title = page.title {
-                        self.view.window?.title = title
-                    }
-                    self.updatePageEditView(with: page)
-                })
-                .disposed(by: bag)
-        } else {
-            if let title = page.title {
-                view.window?.title = title
-            }
-            
-            updatePageEditView(with: page)
-        }
+        viewModel.getPage(row: tableView.selectedRow)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { page in
+                if let title = page.title {
+                    self.view.window?.title = title
+                }
+                
+                self.updatePageEditView(with: page)
+            })
+            .disposed(by: bag)
         
         setRowSelectedStyle()
     }
@@ -256,13 +255,16 @@ extension PageListViewController {
         guard tableView.selectedRow >= 0 else {
             return
         }
-        
-        let page = viewModel.getPage(row: tableView.selectedRow)
-        
-        if let urlString = page.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-            let url = URL(string: urlString) {
-            
-            NSWorkspace.shared().open(url)
-        }
+
+        viewModel.getPage(row: tableView.selectedRow)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { page in
+                if let urlString = page.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+                    let url = URL(string: urlString) {
+                    
+                    NSWorkspace.shared().open(url)
+                }
+            })
+            .disposed(by: bag)
     }
 }
