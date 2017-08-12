@@ -24,9 +24,13 @@ class PageListViewModel {
         return pages.value.count
     }
     
-    func isLastRow(row: Int) -> Bool {
+    func isLastRowAndNeedToLoad(row: Int) -> Bool {
         if row == pages.value.count - 1 {
-            return true
+            if totalPageCount == pages.value.count {
+                return false
+            } else {
+                return true
+            }
         } else {
             return false
         }

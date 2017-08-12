@@ -123,6 +123,7 @@ extension PageListViewController {
         startSpinner()
         
         viewModel.loadPageList()
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: nil, onError: { error in
                 self.stopSpinner()
                 
@@ -186,7 +187,7 @@ extension PageListViewController: NSTableViewDelegate {
             })
             .disposed(by: bag)
         
-        if viewModel.isLastRow(row: row) {
+        if viewModel.isLastRowAndNeedToLoad(row: row) {
             startSpinner()
             
             viewModel.loadNextPageList()
