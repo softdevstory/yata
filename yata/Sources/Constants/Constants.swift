@@ -6,6 +6,8 @@
 //  Copyright © 2017년 HS Song. All rights reserved.
 //
 
+import Foundation
+
 struct FileName {
     static let acknowledgements = "acknowledgements"
     static let AcknowledgementsExtension = "html"
@@ -39,3 +41,8 @@ enum ToolbarTag: Int {
     case paragraphStyle = 104
     case viewInWebBrowser = 105
 }
+
+struct NotificationName {
+    static let updatePageEditView = NSNotification.Name(rawValue: "updatePageEditView")
+}
+

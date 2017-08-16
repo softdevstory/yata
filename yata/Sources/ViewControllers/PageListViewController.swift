@@ -142,7 +142,7 @@ extension PageListViewController {
 //
 extension PageListViewController {
     func updatePageEditView(with page: Page?) {
-        let notification = Notification(name: Notification.Name(rawValue: "updatePageEditView"), object: page, userInfo: nil)
+        let notification = Notification(name: NotificationName.updatePageEditView, object: page, userInfo: nil)
         NotificationQueue.default.enqueue(notification, postingStyle: .now)
     }
     

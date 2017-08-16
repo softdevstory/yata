@@ -72,7 +72,7 @@ class PageEditViewController: NSViewController {
             })
             .disposed(by: bag)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePage(_:)), name: NSNotification.Name(rawValue: "updatePageEditView"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePage(_:)), name: NotificationName.updatePageEditView, object: nil)
         
         view.backgroundColor = NSColor.white
     }
