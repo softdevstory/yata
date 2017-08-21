@@ -12,7 +12,7 @@ class EditorView: NSTextView {
     override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
         
-        delegate = self
+//        delegate = self
         
         resetText()
     }
@@ -238,22 +238,22 @@ extension EditorView {
     }
 }
 
-extension EditorView: NSTextViewDelegate {
-    func textViewDidChangeSelection(_ notification: Notification) {
-        let paragraphStyle = currentParagraphStyle()
-        switch paragraphStyle {
-        case .unknown:
-            Swift.print("unkonwn")
-        case .title:
-            Swift.print("title")
-        case .header:
-            Swift.print("header")
-        case .body:
-            Swift.print("body")
-        case .blockQuote:
-            Swift.print("blockquote")
-        case .pullQuote:
-            Swift.print("pullQuote")
-        }
-    }
-}
+//extension EditorView: NSTextViewDelegate {
+//    func textViewDidChangeSelection(_ notification: Notification) {
+//        let paragraphStyle = currentParagraphStyle()
+//        switch paragraphStyle {
+//        case .unknown:
+//            Swift.print("unkonwn")
+//        case .title:
+//            Swift.print("title")
+//        case .header:
+//            Swift.print("header")
+//        case .body:
+//            Swift.print("body")
+//        case .blockQuote:
+//            Swift.print("blockquote")
+//        case .pullQuote:
+//            Swift.print("pullQuote")
+//        }
+//    }
+//}

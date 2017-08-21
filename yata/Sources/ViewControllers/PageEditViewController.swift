@@ -48,6 +48,18 @@ class PageEditViewController: NSViewController {
                 }
             })
             .disposed(by: bag)
+        
+        titleTextField.rx.text
+            .subscribe(onNext: { text in
+                self.viewModel.setContentModified()
+            })
+            .disposed(by: bag)
+        
+        authorNameTextField.rx.text
+            .subscribe(onNext: { text in
+                self.viewModel.setContentModified()
+            })
+            .disposed(by: bag)
 
         publishButton.rx.tap
             .subscribe(onNext: {

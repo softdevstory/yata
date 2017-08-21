@@ -21,7 +21,7 @@ class PageEditViewModel: NSObject {
 
     private let bag = DisposeBag()
 
-    var modified = false
+    fileprivate var modified = false
     
     var mode = Variable<PageEditMode>(.new)
     
@@ -36,6 +36,9 @@ class PageEditViewModel: NSObject {
         super.init()
         
         textStorage.delegate = self
+        
+        modified = false
+        notifyContentModifiedState()
     }
     
     func reset(page: Page?) {
@@ -59,6 +62,7 @@ class PageEditViewModel: NSObject {
         }
         
         modified = false
+        notifyContentModifiedState()
     }
 
     func updatePage(title: String, authorName: String) -> Observable<Void> {
@@ -133,6 +137,16 @@ class PageEditViewModel: NSObject {
 
         return observable
  
+    }
+    
+    func setContentModified() {
+        modified = true
+        notifyContentModifiedState()
+    }
+    
+    fileprivate func notifyContentModifiedState() {
+        let notification = Notification(name: NotificationName.contentModifiedState, object: modified, userInfo: nil)
+        NotificationQueue.default.enqueue(notification, postingStyle: .now)
     }
 }
 
@@ -335,9 +349,8 @@ extension PageEditViewModel {
 
 extension PageEditViewModel: NSTextStorageDelegate {
     func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorageEditActions, range editedRange: NSRange, changeInLength delta: Int) {
-        if modified == false {
-            Swift.print("textStorage delegate")
-        }
+
         modified = true
+        notifyContentModifiedState()
     }
 }

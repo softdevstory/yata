@@ -44,5 +44,6 @@ enum ToolbarTag: Int {
 
 struct NotificationName {
     static let updatePageEditView = NSNotification.Name(rawValue: "updatePageEditView")
+    static let contentModifiedState = NSNotification.Name(rawValue: "contentModifiedState")
 }
 

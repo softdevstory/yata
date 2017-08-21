@@ -22,6 +22,9 @@ class PageListViewController: NSViewController {
     
     let viewModel = PageListViewModel()
     
+    fileprivate var isContentEdited = false
+    fileprivate var isObserverRegistered = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +38,32 @@ class PageListViewController: NSViewController {
             .disposed(by: bag)
         
         loadPageList()
+    }
+    
+    func registerObserver() {
+        guard isObserverRegistered == false else {
+            return
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateContentModified(_:)), name: NotificationName.contentModifiedState, object: nil)
+        isObserverRegistered = true
+    }
+
+    func unregisterObserver() {
+        guard isObserverRegistered else {
+            return
+        }
+        
+        NotificationCenter.default.removeObserver(self)
+        isObserverRegistered = false
+    }
+    
+    func updateContentModified(_ notification: Notification) {
+        guard let state = notification.object as? Bool else {
+            return
+        }
+        
+        isContentEdited = state
     }
     
     fileprivate func setRowsDefaultStyle() {
@@ -111,6 +140,21 @@ class PageListViewController: NSViewController {
             tableView.isHidden = false
          }
     }
+    
+    fileprivate func checkDiscardContent() -> Bool {
+        let alert = NSAlert()
+        alert.messageText = "Content is modified. Do you want to discard it?".localized
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "Ok".localized)
+        alert.addButton(withTitle: "Cancel".localized)
+        let button = alert.runModal()
+        if button == NSAlertFirstButtonReturn {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
 
 // MARK: telegra.ph
@@ -142,6 +186,8 @@ extension PageListViewController {
 //
 extension PageListViewController {
     func updatePageEditView(with page: Page?) {
+        registerObserver()
+        
         let notification = Notification(name: NotificationName.updatePageEditView, object: page, userInfo: nil)
         NotificationQueue.default.enqueue(notification, postingStyle: .now)
     }
@@ -231,6 +277,14 @@ extension PageListViewController: NSTableViewDelegate {
         
         setRowSelectedStyle()
     }
+    
+    func selectionShouldChange(in tableView: NSTableView) -> Bool {
+        if isContentEdited {
+            return checkDiscardContent()
+        } else {
+            return true
+        }
+    }
 }
 
 // Toolbar action
@@ -238,6 +292,12 @@ extension PageListViewController: NSTableViewDelegate {
 extension PageListViewController {
 
     func editNewPage(_ sender: Any?) {
+        if isContentEdited {
+            if checkDiscardContent() == false {
+                return
+            }
+        }
+
         if tableView.selectedRow >= 0 {
             tableView.deselectRow(tableView.selectedRow)
         }
