@@ -144,6 +144,11 @@ class PageEditViewModel: NSObject {
         notifyContentModifiedState()
     }
     
+    func setContentStored() {
+        modified = false
+        notifyContentModifiedState()
+    }
+    
     fileprivate func notifyContentModifiedState() {
         let notification = Notification(name: NotificationName.contentModifiedState, object: modified, userInfo: nil)
         NotificationQueue.default.enqueue(notification, postingStyle: .now)

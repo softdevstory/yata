@@ -32,6 +32,8 @@ enum MenuTag: Int {
     case formatBold = 406
     case formatItalic = 407
     case formatLink = 408
+    
+    case viewToggleSideBar = 503
 }
 
 enum ToolbarTag: Int {

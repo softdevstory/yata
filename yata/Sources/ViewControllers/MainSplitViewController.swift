@@ -16,7 +16,20 @@ class MainSplitViewController: NSSplitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func toggleSidebar(_ sender: Any?) {
+        guard let menuItem = sender as? NSMenuItem else {
+            return
+        }
         
+        super.toggleSidebar(sender)
+        
+        if pageListSplitViewItem.isCollapsed {
+            menuItem.title = "Show Sidebar".localized
+        } else {
+            menuItem.title = "Hide Sidebar".localized
+        }
     }
 }
 
@@ -39,6 +52,13 @@ extension MainSplitViewController {
                 return vc.isSelected()
             }
         
+        case .viewToggleSideBar:
+            if pageListSplitViewItem.isCollapsed {
+                menuItem.title = "Show Sidebar".localized
+            } else {
+                menuItem.title = "Hide Sidebar".localized
+            }
+            
         default:
             return false
         }

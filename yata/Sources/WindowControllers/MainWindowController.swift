@@ -67,7 +67,8 @@ class MainWindowController: NSWindowController {
     private func loadViewControllers() {
         let sb = NSStoryboard(name: "Main", bundle: nil)
         
-        mainSplitViewController = sb.instantiateController(withIdentifier: "mainSplitViewController") as? MainSplitViewController
+        mainSplitViewController = contentViewController as? MainSplitViewController
+//        mainSplitViewController = sb.instantiateController(withIdentifier: "mainSplitViewController") as? MainSplitViewController
         
         noAccountViewController = sb.instantiateController(withIdentifier: "noAccountViewController") as? NoAccountViewController
     }
@@ -110,6 +111,7 @@ class MainWindowController: NSWindowController {
         // from https://stackoverflow.com/questions/39622468/display-only-customize-toolbar-in-nstoolbars-context-menu-in-swift
         if let contextMenu = window?.contentView?.superview?.menu {
             contextMenu.items.forEach({ (item) in
+            Swift.print(item)
                 if let action = item.action,
                     NSStringFromSelector(action) != "runToolbarCustomizationPalette:" {
                     contextMenu.removeItem(item)

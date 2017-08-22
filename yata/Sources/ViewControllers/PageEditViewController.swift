@@ -68,6 +68,7 @@ class PageEditViewController: NSViewController {
                     self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
                         .observeOn(MainScheduler.instance)
                         .subscribe(onNext: nil, onCompleted: {
+                            self.viewModel.setContentStored()
                             let action = #selector(MainSplitViewController.reloadPageList(_:))
                             NSApp.sendAction(action, to: nil, from: self)
                         })
@@ -76,6 +77,7 @@ class PageEditViewController: NSViewController {
                     self.viewModel.updatePage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
                         .observeOn(MainScheduler.instance)
                         .subscribe(onNext: nil, onCompleted: {
+                            self.viewModel.setContentStored()
                             let action = #selector(MainSplitViewController.reloadPageList(_:))
                             NSApp.sendAction(action, to: nil, from: self)
                         })
