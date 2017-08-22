@@ -83,7 +83,6 @@ class PageEditViewModel: NSObject {
 
             let contextJSONString = self.convertText()
             
-            // TODO: get author URL
             let disposable = self.telegraph.editPage(accessToken: accessToken, path: path, title: title, authorName: authorName, authorUrl: nil, content: contextJSONString)
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: { page in
@@ -93,7 +92,17 @@ class PageEditViewModel: NSObject {
                     observer.onCompleted()
 
                 }, onError: { error in
-                    observer.onError(error)
+                    if let error = error as? TelegraphError {
+                        switch error {
+                        case .PageTitleRequired:
+                            observer.onError(YataError.PageTitleRequired)
+                        case .PageContentTextRequired:
+                            observer.onError(YataError.PageContentTextRequired)
+                        default:
+                            Swift.print(error)
+                            observer.onError(error)
+                        }
+                    }
                 })
             
             return Disposables.create {
@@ -117,7 +126,6 @@ class PageEditViewModel: NSObject {
 
             let contextJSONString = self.convertText()
             
-            // TODO: get author URL
             let disposable = self.telegraph.createPage(accessToken: accessToken, title: title, authorName: authorName, authorUrl: nil, content: contextJSONString)
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: { page in
@@ -127,7 +135,17 @@ class PageEditViewModel: NSObject {
                     observer.onCompleted()
 
                 }, onError: { error in
-                    observer.onError(error)
+                    if let error = error as? TelegraphError {
+                        switch error {
+                        case .PageTitleRequired:
+                            observer.onError(YataError.PageTitleRequired)
+                        case .PageContentTextRequired:
+                            observer.onError(YataError.PageContentTextRequired)
+                        default:
+                            Swift.print(error)
+                            observer.onError(error)
+                        }
+                    }
                 })
             
             return Disposables.create {

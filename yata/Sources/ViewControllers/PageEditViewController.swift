@@ -63,23 +63,35 @@ class PageEditViewController: NSViewController {
 
         publishButton.rx.tap
             .subscribe(onNext: {
+                self.publishButton.isEnabled = false
+                
                 switch self.viewModel.mode.value {
                 case .new:
                     self.viewModel.publisNewPage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
                         .observeOn(MainScheduler.instance)
-                        .subscribe(onNext: nil, onCompleted: {
+                        .subscribe(onNext: nil, onError: { error in
+                            self.showErrorModal(error: error)
+                            self.publishButton.isEnabled = true
+                        }, onCompleted: {
                             self.viewModel.setContentStored()
                             let action = #selector(MainSplitViewController.reloadPageList(_:))
                             NSApp.sendAction(action, to: nil, from: self)
+                            
+                            self.publishButton.isEnabled = true
                         })
                         .disposed(by: self.bag)
                 case .edit:
                     self.viewModel.updatePage(title: self.titleTextField.stringValue, authorName: self.authorNameTextField.stringValue)
                         .observeOn(MainScheduler.instance)
-                        .subscribe(onNext: nil, onCompleted: {
+                        .subscribe(onNext: nil, onError: { error in
+                            self.showErrorModal(error: error)
+                            self.publishButton.isEnabled = true
+                        }, onCompleted: {
                             self.viewModel.setContentStored()
                             let action = #selector(MainSplitViewController.reloadPageList(_:))
                             NSApp.sendAction(action, to: nil, from: self)
+                            
+                            self.publishButton.isEnabled = true
                         })
                         .disposed(by: self.bag)
                 }
@@ -89,6 +101,27 @@ class PageEditViewController: NSViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updatePage(_:)), name: NotificationName.updatePageEditView, object: nil)
         
         view.backgroundColor = NSColor.white
+    }
+    
+    private func showErrorModal(error: Swift.Error) {
+        let alert = NSAlert(error: error)
+        
+        if let error = error as? YataError {
+            switch error {
+            case .PageTitleRequired:
+                alert.messageText = "Title is empty".localized
+            case .PageContentTextRequired:
+                alert.messageText = "Content is empty".localized
+            default:
+                alert.messageText = "Unknown error \(error)"
+            }
+        } else {
+            alert.messageText = "Unknown error \(error)"
+        }
+        
+        if let window = view.window {
+            alert.beginSheetModal(for: window, completionHandler: nil)
+        }
     }
     
     func updatePage(_ notification: Notification) {

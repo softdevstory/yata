@@ -16,7 +16,17 @@ enum TelegraphError: Swift.Error {
     case NoErrorCode
     case NoResult
     case WrongResultFormat
+    
+    case PageTitleRequired
+    case PageContentTextRequired
+    
+    /* ETC */
     case ErrorResponse(errorCode: String)
+}
+
+struct TelegraphErrorString {
+    static let titleRequired = "TITLE_REQUIRED"
+    static let contentTextRequired = "CONTENT_TEXT_REQUIRED"
 }
 
 class Telegraph {
@@ -34,7 +44,13 @@ class Telegraph {
         
         guard let ok = value["ok"] as? Bool, ok else {
             if let error = value["error"] as? String {
-                return TelegraphError.ErrorResponse(errorCode: error)
+                if error == TelegraphErrorString.titleRequired {
+                    return TelegraphError.PageTitleRequired
+                } else if error == TelegraphErrorString.contentTextRequired {
+                    return TelegraphError.PageContentTextRequired
+                } else {
+                    return TelegraphError.ErrorResponse(errorCode: error)
+                }
             } else {
                 return TelegraphError.NoErrorCode
             }

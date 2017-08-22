@@ -17,6 +17,13 @@ enum YataError: Swift.Error {
     case NoAccessToken
     case NoPagePath
     case InternalDataError
+    
+    /* editing */
+    case PageTitleRequired
+    case PageContentTextRequired
+    
+    /* unknown yet */
+    case InternalError(errorMessage: String)
 }
 
 enum MenuTag: Int {
