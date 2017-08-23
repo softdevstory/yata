@@ -39,6 +39,7 @@
 		8B57D44F1F0F2EBC0026D8C4 /* InputLinkSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */; };
 		8B649C5E1F0F3CC7003FDEEE /* TextStylePopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */; };
 		8B649C601F0F3F29003FDEEE /* TextStylePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */; };
+		8B7F0D351F4D63050016F733 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F0D341F4D63050016F733 /* Window.swift */; };
 		8B810CCF1F2062070008A163 /* TableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CCE1F2062070008A163 /* TableRowView.swift */; };
 		8B810CD11F271DF70008A163 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CD01F271DF70008A163 /* TableView.swift */; };
 		8B810CD51F2724990008A163 /* NoAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B810CD41F2724990008A163 /* NoAccountViewController.swift */; };
@@ -131,6 +132,7 @@
 		8B57D44E1F0F2EBC0026D8C4 /* InputLinkSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputLinkSheetController.swift; sourceTree = "<group>"; };
 		8B649C5D1F0F3CC7003FDEEE /* TextStylePopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextStylePopover.xib; sourceTree = "<group>"; };
 		8B649C5F1F0F3F29003FDEEE /* TextStylePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextStylePopoverViewController.swift; sourceTree = "<group>"; };
+		8B7F0D341F4D63050016F733 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		8B810CCE1F2062070008A163 /* TableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowView.swift; sourceTree = "<group>"; };
 		8B810CD01F271DF70008A163 /* TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		8B810CD41F2724990008A163 /* NoAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoAccountViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				8BE676761F1DE4AD00FFCCCB /* ButtonToolbarItem.swift */,
 				8B810CCE1F2062070008A163 /* TableRowView.swift */,
 				8B810CD01F271DF70008A163 /* TableView.swift */,
+				8B7F0D341F4D63050016F733 /* Window.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				8B415F5E1F049D2F00FED429 /* AcknowledgementsWindowController.swift in Sources */,
 				8BC7343C1F14684B001EBEDB /* NSFont+.swift in Sources */,
 				8BD9658C1F03718B00B5D904 /* GeneralPaneController.swift in Sources */,
+				8B7F0D351F4D63050016F733 /* Window.swift in Sources */,
 				8B0DE4201EF2427500DD571C /* String+.swift in Sources */,
 				8BDF01491EF106D2006EABDE /* PageList.swift in Sources */,
 				8BC7343E1F15B669001EBEDB /* PageEditViewModel.swift in Sources */,
