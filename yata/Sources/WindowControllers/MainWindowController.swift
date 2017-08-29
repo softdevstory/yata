@@ -156,6 +156,10 @@ extension MainWindowController: NSWindowDelegate {
         
         sheet.contentView?.needsDisplay = true
     }
+    
+    func windowWillClose(_ notification: Notification) {
+        NSApp.terminate(self)
+    }
 }
 
 // MARK: Toolbar
@@ -414,4 +418,3 @@ extension MainWindowController: NSToolbarDelegate {
         return toolbarItem
     }
 }
-
