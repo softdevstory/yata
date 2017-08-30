@@ -6,6 +6,8 @@
 [![License](http://img.shields.io/:license-MIT-blue.svg)](https://github.com/softdevstory/yata/blob/master/LICENSE)
 [![Release](http://img.shields.io/github/release/softdevstory/yata.svg?style=flat)](https://github.com/softdevstory/yata/releases?style=flat)
 
+![YATA Icon](https://github.com/softdevstory/yata/blob/master/design/Icon-256.png)
+
 Yet, another telegra.ph(http://telegra.ph) app
 
 telegra.ph is a publishing tool that lets you create richly formatted posts with photos and all sorts of embedded stuff
